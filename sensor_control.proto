@@ -2,20 +2,115 @@ syntax = "proto3";
 
 package sensor;
 
+// message Electrical {
+// 	float battery_voltage = 1;
+// 	float battery_current = 2;
+// 	float v12_supply_voltage = 3;
+// 	float v12_supply_current = 4;
+// 	float v12_supply_temperature = 5;
+// 	float v5_supply_voltage = 6;
+// 	float v5_supply_current = 7;
+// 	float v5_supply_temperature = 8;
+// 	float odrive0_current = 9;
+// 	float odrive1_current = 10;
+// 	float odrive2_current = 11;
+// }
+
 message Electrical {
-	float battery_voltage = 1;
-	float battery_current = 2;
-	float v12_supply_voltage = 3;
-	float v12_supply_current = 4;
-	float v12_supply_temperature = 5;
-	float v5_supply_voltage = 6;
-	float v5_supply_current = 7;
-	float v5_supply_temperature = 8;
-	float odrive0_current = 9;
-	float odrive1_current = 10;
-	float odrive2_current = 11;
+	//Button Light Color
+	string button_color = 1;
+	//Amps
+	float current = 2;
+	//Celsius
+	float temperature = 3;
+	//Volts
+	float battery_voltage = 4;
+	//(A)
+	float lcd_current = 5;
 }
 
+message ODrive {
+	float set_velocity = 1;
+	//Celsius
+	float motor1_temperature = 2;
+	float motor2_temperature = 3;
+	float motor3_temperature = 4;
+	float motor4_temperature = 5;
+	float motor5_temperature = 6;
+	float motor6_temoperature = 7;
+	//Amps
+	float odrive1_current = 8;
+}
+
+message Environmental {
+	//mm
+	float move_carousel_horizontally = 1;
+	//degree
+	float rotate_carousel = 2;
+	//mm
+	float move_testing_suite = 3;
+	//mm
+	float move_dirt_collec_tube_vert = 4;
+	//Cw or cw, % ??
+	float vaccum_on = 5;
+	//On or Off True or False
+	bool pump1 = 6;
+	//On or Off True or False
+	bool pump2 = 7;
+	//On or Off True or False
+	bool pump3 = 8;
+	//On or Off True or False
+	bool pump4 = 9;
+
+	//C02 Parts Per Million
+	float c02 = 10;
+	//Humidity 0% - 100%
+	float humidity = 11;
+	//Methane Parts Per Million
+	float Methane = 12;
+	//PH 1-14
+	float pH = 13; 
+	//Temperature Celsius
+	float outside_temperature = 14;
+}
+
+message Pi {
+	//RGB Value
+	int32 rgb_value = 1;
+	//decimal
+	float pi_latitude = 1;
+	//decimal
+	float pi_longitude = 2;
+}
+
+message Arm {
+	//?? is this an int?
+	//Move to (x,y,z)
+	int32 x = 1;
+	int32 y = 2;
+	int32 z = 3;
+
+	//boolean
+	bool shoulder_active = 4;
+	
+	//radians
+	float shoulder_joint = 5;
+
+	//celsius
+	float arm_motor_temperature = 6;
+}
+
+message Gripper {
+	//Celsius
+	float gripper_motor_temperature = 1;
+}
+
+message BaseStation {
+	//decimal
+	float base_latitude = 1;
+	//decimal
+	float base_longitude = 2;
+}
 // message Battery {
 // 	float battery_voltage = 1;
 // 	float battery_current = 2;
