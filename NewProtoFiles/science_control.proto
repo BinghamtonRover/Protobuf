@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message ScienceCommand {
+	oneof command {
+		sint32 move_carousel_horizontally = 1;
+		sint32 rotate_carousel = 2;
+		sint32 move_testing_suite = 3;
+		sint32 move_dirt_collection_tube = 4;
+		sint32 vacuum_on = 5; //not clear what type of data vacuum_on should be from the spreadsheet
+		bool pump1 = 6;
+		bool pump2 = 7;
+		bool pump3 = 8;
+		bool pump4 = 9;
+	}
+}
+
+message ScienceData {
+	int32 co2 = 1;
+	int32 humidity = 2;
+	int32 methane = 3;
+	int32 pH = 4;
+	int32 temperature = 5;
+}
