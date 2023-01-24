@@ -15,4 +15,4 @@ message ElectricalData {
 	float current = 1;
 	float temperature = 2;
 	float battery_voltage = 3;
-} 
+}
