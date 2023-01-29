@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message ODriveCommand {
+	float set_velocity = 1;
+}
+
+message ODriveData {
+	float motor1_temperature = 1;
+	float motor2_temperature = 2;
+	float motor3_temperature = 3;
+	float motor4_temperature = 4;
+	float motor5_temperature = 5;
+	float motor6_temoperature = 6;
+	float odrive1_current = 7;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+message AutonomyData {
+    repeated ListOfTrueFalse list_of_true_false = 1;
+    float x_orientation = 2;
+    float y_orientation = 3;
+    float z_orientation = 4;
+}
+
+message ListOfTrueFalse {
+    repeated bool true_false_values = 1;
+}
