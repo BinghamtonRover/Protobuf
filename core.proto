@@ -1,0 +1,4 @@
+syntax = "proto3";
+
+message Connect { }  // Used in a handshake between dashboard and rover
+message Disconnect { }  // Disconnect the dashboard, sent by the rover

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "gps.proto";
+
+enum AutonomyState {
+	AUTONOMY_STATE_UNDEFINED = 0;
+	OFF = 1;
+	PATHING = 2;
+	APPROACHING = 3;
+	AT_GATE = 4;
+}
+
+message AutonomyData {
+	// High-level
+	GpsCoordinates coordinates = 1;
+	float heading = 2;
+	AutonomyState state = 3;
+
+	// debug info
+	float raw_x_orientation = 4;
+	float raw_y_orientation = 5;
+	float raw_z_orientation = 6;
+	Grid grid = 7;
+}
+
+message Grid {
+	repeated Row rows = 1;
+}
+
+message Row {
+	repeated bool is_cell_occupied = 1;
+}

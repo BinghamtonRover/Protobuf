@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+message ScienceCommand {
+	bool dig = 1;
+	bool spin_carousel_tube = 2;
+	bool spin_carousel_section = 3;
+	bool vacuum_suck = 4;
+
+	float carousel_angle = 5;
+	float carousel_linear_position = 6;
+	float test_linear_position = 7;
+	float vacuum_linear_position = 8;
+
+	bool pump1 = 9;
+	bool pump2 = 10;
+	bool pump3 = 11;
+	bool pump4 = 12;
+}
+
+message ScienceData {
+	float co2 = 1;
+	float humidity = 2;
+	float methane = 3;
+	float pH = 4;
+	float temperature = 5;
+}
