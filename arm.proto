@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+message Position {
+	int32 x = 1;
+	int32 y = 2;
+	int32 z = 3;
+}
+
+message ArmCommand {
+	Position target = 1;
+}
+
+message ArmData {
+	Position currentPosition = 1;
+	Position targetPosition = 2;
+
+	// TODO: For every motor, add: 
+	// - bool is_X_moving
+	// - float X_angle
+	// - float X_temperature
+	bool is_shoulder_moving = 3;
+	float shoulder_joint = 4;
+	float shoulder_temperature = 5;
+}
+
+message GripperData {
+	float rotation = 1;
+	float swivel = 2;
+	float pinch = 3;
+	float motor_temperature = 1;
+}
+
+message HreiData {
+	ArmData arm_data = 1;
+	GripperData gripper_data = 2;
+}

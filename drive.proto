@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 message DriveCommand {
-	int32 max_speed = 1;
 	float throttle = 2;
 	float left = 3;
 	float right = 4;
