@@ -1,10 +1,26 @@
 syntax = "proto3";
 
+import "gps.proto";
+
+enum AutonomyState {
+	UNDEFINED = 0;
+	OFF = 1;
+	PATHING = 2;
+	APPROACHING = 3;
+	AT_GATE = 4;
+}
+
 message AutonomyData {
-	float x_orientation = 1;
-	float y_orientation = 2;
-	float z_orientation = 3;
-	Grid grid = 4;
+	// High-level
+	GpsCoordinates coordinates = 1;
+	float heading = 2;
+	AutonomyState state = 3;
+
+	// debug info
+	float raw_x_orientation = 4;
+	float raw_y_orientation = 5;
+	float raw_z_orientation = 6;
+	Grid grid = 7;
 }
 
 message Grid {

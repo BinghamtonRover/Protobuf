@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-package wrapper;
-
 message WrappedMessage {
 	bytes data = 1;
 	string name = 2;

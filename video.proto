@@ -1,24 +1,17 @@
 syntax = "proto3";
 
-package video;
-
-message Quality {
-	int32 jpeg_quality = 1;
-	bool grayscale = 2;
-}
-
 message AdjustCamera {
 	int32 id = 1;
 	bool is_enabled = 2;
-	Quality quality = 3;
+	int32 resolution = 3;
 }
 
 message CameraStatus {
 	int32 id = 1;
 	bool is_enabled = 2;
-	Quality quality = 3;
+	int32 resolution = 3;
 }
 
 message VideoData {
-	repeated CameraStatus;
+	repeated CameraStatus cameras = 1;
 }

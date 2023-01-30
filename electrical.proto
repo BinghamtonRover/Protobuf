@@ -1,6 +1,14 @@
 syntax = "proto3";
 
+// OFF is only available via a hardware button
+enum PowerMode {
+	POWER_MODE_UNDEFINED = 0;
+	IDLE = 1;  // Yellow LEDs
+	ACTIVE = 2;  // Green LEDs
+}
+
 enum LedColor {
+	LED_COLOR_UNDEFINED = 0;
 	RED = 1;
 	YELLOW = 2;
 	GREEN = 3;
@@ -18,7 +26,7 @@ message PowerSourceStatus {
 }
 
 message ElectricalData {
-	PowerSourceStatus v5;
-	PowerSourceStatus v12;
-	PowerSourceStatus battery;
+	PowerSourceStatus v5 = 1;
+	PowerSourceStatus v12 = 2;
+	PowerSourceStatus battery = 3;
 }

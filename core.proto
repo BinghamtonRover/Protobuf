@@ -1,9 +1,4 @@
 syntax = "proto3";
 
-message GpsCoordinates {
-	float latitude = 1;
-	float longitude = 2;
-}
-
-message Connect { }  // Signal a connection request to the rover
+message Connect { }  // Used in a handshake between dashboard and rover
 message Disconnect { }  // Disconnect the dashboard, sent by the rover
