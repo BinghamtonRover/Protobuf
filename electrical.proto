@@ -11,16 +11,14 @@ message ElectricalCommand {
 	LedColor powerLedColor = 2;
 }
 
+message PowerSourceStatus {
+	float current = 1;
+	float voltage = 2;
+	float temperature = 3;
+}
+
 message ElectricalData {
-	float battery_current = 1;
-	float battery_temperature = 2;
-	float battery_voltage = 3;
-
-	float v5_current = 4;
-	float v5_temperature = 5;
-	float v5_voltage = 6;
-
-	float v12_current = 7;
-	float v12_temperature = 8;
-	float v12_voltage = 9;
+	PowerSourceStatus v5;
+	PowerSourceStatus v12;
+	PowerSourceStatus battery;
 }
