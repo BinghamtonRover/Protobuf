@@ -4,9 +4,13 @@ message AutonomyData {
 	float x_orientation = 1;
 	float y_orientation = 2;
 	float z_orientation = 3;
-	repeated Grid grid = 4;
+	Grid grid = 4;
 }
 
 message Grid {
+	repeated Row rows = 1;
+}
+
+message Row {
 	repeated bool is_cell_occupied = 1;
 }
