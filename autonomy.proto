@@ -3,7 +3,7 @@ syntax = "proto3";
 import "gps.proto";
 
 enum AutonomyState {
-	UNDEFINED = 0;
+	AUTONOMY_STATE_UNDEFINED = 0;
 	OFF = 1;
 	PATHING = 2;
 	APPROACHING = 3;

@@ -15,8 +15,8 @@ enum LedColor {
 }
 
 message ElectricalCommand {
-	LedColor autonomyLedColor = 1;
-	LedColor powerLedColor = 2;
+	LedColor autonomy_led_color = 1;
+	LedColor power_led_color = 2;
 }
 
 message PowerSourceStatus {
