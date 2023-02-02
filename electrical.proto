@@ -26,7 +26,19 @@ message PowerSourceStatus {
 }
 
 message ElectricalData {
-	PowerSourceStatus v5 = 1;
-	PowerSourceStatus v12 = 2;
-	PowerSourceStatus battery = 3;
+	// PowerSourceStatus v5 = 1;
+	// PowerSourceStatus v12 = 2;
+	// PowerSourceStatus battery = 3;
+
+	float v5_current = 1;
+	float v5_voltage = 2;
+	float v5_temperature = 3;
+
+	float v12_current = 4;
+	float v12_voltage = 5;
+	float v12_temperature = 6;
+
+	float battery_current = 7;
+	float battery_voltage = 8;
+	float battery_temperature = 9;
 }
