@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "Protobuf/gps.proto";
+import "gps.proto";
 
 enum AutonomyState {
 	AUTONOMY_STATE_UNDEFINED = 0;
