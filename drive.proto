@@ -2,11 +2,22 @@ syntax = "proto3";
 
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
-	float throttle = 1;  
+	optional float throttle = 1;  
 
 	// Speed of the left wheels, as a percentage of [throttle].
-	float left = 2;
+	optional float left = 2;
 
 	// Speed of the right wheels, as a percentage of [throttle].
-	float right = 3;
+	optional float right = 3;
+}
+
+message DriveData {
+	// The max speed, as a percentage of the rover's possible speed.
+	optional float throttle = 1;  
+
+	// Speed of the left wheels, as a percentage of [throttle].
+	optional float left = 2;
+
+	// Speed of the right wheels, as a percentage of [throttle].
+	optional float right = 3;
 }
