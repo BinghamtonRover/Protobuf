@@ -15,3 +15,18 @@ message CameraStatus {
 message VideoData {
 	repeated CameraStatus cameras = 1;
 }
+
+enum CameraName {
+	CAMERA_NAME_UNDEFINED = 0;
+	CAMERA_NAME_ROVER_FRONT = 1;
+	CAMERA_NAME_ROVER_REAR = 2;
+	CAMERA_NAME_ARM_BASE = 3;
+	CAMERA_NAME_ARM_GRIPPER = 4;
+	CAMERA_NAME_SCIENCE_CAROUSEL = 5;
+	CAMERA_NAME_SCIENCE_MICROSCOPE = 6;
+}
+
+message VideoFrame {
+	CameraName name = 4;
+	bytes frame = 5;
+}
