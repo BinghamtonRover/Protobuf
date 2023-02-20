@@ -7,7 +7,7 @@ message Position {
 }
 
 message ArmCommand {
-	Position move_to = 1;
+	// Position move_to = 1;
 	bool calibrate = 2;
 	float swivel = 3;
 	float extend = 4;
@@ -15,6 +15,13 @@ message ArmCommand {
 	float precise_swivel = 6;
 	float precise_lift = 7;
 	float precise_extend = 8;
+	float move_x = 9;
+	float move_y = 10;
+	float move_z = 11;
+
+	float move_swivel = 12;
+	float move_shoulder = 13;
+	float move_elbow = 14;
 }
 
 message MotorStatus {
