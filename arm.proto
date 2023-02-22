@@ -47,11 +47,15 @@ message GripperData {
 }
 
 message GripperCommand {
-	bool calibrate = 1;
-	float pinch = 2;
-	float rotate = 3;
-	float precise_pinch = 4;
-	float precise_rotate = 5;
+	// bool calibrate = 1;
+	// float pinch = 2;
+	// float rotate = 3;
+	// float precise_pinch = 4;
+	// float precise_rotate = 5;
+
+	float move_rotate = 1;
+	float move_lift = 2;
+	float move_gripper = 3;
 }
 
 message HreiData {
