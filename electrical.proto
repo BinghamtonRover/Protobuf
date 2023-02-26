@@ -1,20 +1,15 @@
 syntax = "proto3";
 
-/// Which LED+button to light up. See the electrical firmware.
-enum LedButtonColor {
-	LED_COLOR_UNDEFINED = 0;
-	/// Full shut down initiated. Can only be pressed physically.
-	RED = 1;  
-
-	/// Rover is in idle mode. See [RoverStatus].
-	YELLOW = 2;  
-
-	/// Rover in standard (manual or autonomous) mode. See [RoverStatus].
-	GREEN = 3;  
+// OFF is only available via a hardware button
+enum RoverMode {
+	UNDEFINED = 0;
+	POWER_OFF = 1;
+	IDLE = 2;  // Yellow LEDs
+	ACTIVE = 3;  // Green LEDs
 }
 
 message ElectricalCommand {
-	LedButtonColor led_button_color = 1;
+	RoverMode mode = 10;
 }
 
 message PowerSourceStatus {
@@ -39,4 +34,6 @@ message ElectricalData {
 	float battery_current = 7;
 	float battery_voltage = 8;
 	float battery_temperature = 9;
+
+	RoverMode mode = 10;
 }
