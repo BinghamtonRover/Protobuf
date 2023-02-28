@@ -6,15 +6,18 @@ message ScienceCommand {
 	bool spin_carousel_section = 3;
 	bool vacuum_suck = 4;
 
-	float carousel_angle = 5;
-	float carousel_linear_position = 6;
-	float test_linear_position = 7;
-	float vacuum_linear_position = 8;
+	float carousel_angle = 5; #Rotate carousel
+	float carousel_linear_position = 6; #Move carousel horizontally
+	float test_linear_position = 7; #Move testing suite
+	float vacuum_linear_position = 8; #Move dirt collection tube vertically
 
-	bool pump1 = 9;
+	bool pump1 = 9; #Start or stop
 	bool pump2 = 10;
 	bool pump3 = 11;
 	bool pump4 = 12;
+
+	bool calibrate = 13;
+	
 }
 
 message ScienceData {
