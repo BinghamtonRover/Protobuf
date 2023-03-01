@@ -7,7 +7,9 @@ message Connect {
 }
 
 // Notifies the recipient that the sender will no longer be connected.
-message Disconnect { }
+message Disconnect { 
+	Device sender = 1;
+}
 
 enum Device {
 	DEVICE_UNDEFINED = 0;
@@ -16,4 +18,17 @@ enum Device {
 	VIDEO = 3;
 	AUTONOMY = 4;
 	FIRMWARE = 5;
+}
+
+/// Changes the way the rover listens to incoming commands.
+/// 
+/// - When IDLE, all subsystems will ignore all commands
+/// - When MANUAL, all subsystems will accept all commands
+/// - When AUTONOMOUS, the rover will ignore commands from the dashboard
+enum RoverStatus {
+	// OFF is only available via a hardware button
+	POWER_MODE_UNDEFINED = 0;
+	IDLE = 1;    // Yellow button should be lit.
+	MANUAL = 2;  // Must show blue LEDs. Green button should be lit.
+	AUTONOMOUS = 3;  // See [AutonomyState] for LED colors
 }
