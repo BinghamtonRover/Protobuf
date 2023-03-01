@@ -1,20 +1,10 @@
 syntax = "proto3";
 
+// TODO: Use a Position and Motors
 message Position {
 	int32 x = 1;
 	int32 y = 2;
 	int32 z = 3;
-}
-
-message ArmCommand {
-	Position move_to = 1;
-	bool calibrate = 2;
-	float swivel = 3;
-	float extend = 4;
-	float lift = 5;
-	float precise_swivel = 6;
-	float precise_lift = 7;
-	float precise_extend = 8;
 }
 
 message MotorStatus {
@@ -32,27 +22,28 @@ message ArmData {
 	MotorStatus elbow = 5;
 }
 
+// TODO: Precise motion and IK
+message ArmCommand {
+	bool stop = 1;
+	bool calibrate = 2;
+
+	float move_swivel = 3;
+	float move_shoulder = 4;
+	float move_elbow = 5;
+}
+
 message GripperData {
-	float rotation = 1;
-	float swivel = 2;
-	float pinch = 3;
-	float motor_temperature = 4;
+	MotorStatus rotate = 1;
+	MotorStatus lift = 2;
+	MotorStatus pinch = 3;
 }
 
+// TODO: Precise motion
 message GripperCommand {
-	bool calibrate = 1;
-	float pinch = 2;
-	float rotate = 3;
-	float precise_pinch = 4;
-	float precise_rotate = 5;
-}
+	bool stop = 1;
+	bool calibrate = 2;
 
-message HreiData {
-	ArmData arm_data = 1;
-	GripperData gripper_data = 2;
-}
-
-message HreiCommand {
-	ArmCommand arm_command = 1;
-	GripperCommand gripper_command = 2;
+	float move_rotate = 3;
+	float move_lift = 4;
+	float move_gripper = 5;
 }
