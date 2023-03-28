@@ -16,7 +16,7 @@ enum Device {
 	VIDEO = 3;
 	AUTONOMY = 4;
 	ARM =  5;
-	GRIBBER = 6;
+	GRIPPER = 6;
 	SCIENCE = 7;
 	ELECTRICAL = 8;
 	DRIVE = 9;
