@@ -16,4 +16,10 @@ enum Device {
 	VIDEO = 3;
 	AUTONOMY = 4;
 	FIRMWARE = 5;
+	ARM =  6;
+	GRIPPER = 7;
+	SCIENCE = 8;
+	ELECTRICAL = 9;
+	DRIVE = 10;
+	MARS = 11;
 }
