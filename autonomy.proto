@@ -1,9 +1,6 @@
 syntax = "proto3";
 
-message GpsCoordinates {
-	float latitude = 1;
-	float longitude = 2;
-}
+import "Protobuf/gps.proto"
 
 enum AutonomyState {
 	AUTONOMY_STATE_UNDEFINED = 0;

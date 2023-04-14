@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message GpsCoordinates {
+	float latitude = 1;
+	float longitude = 2;
+	float altitude = 3;
+}
