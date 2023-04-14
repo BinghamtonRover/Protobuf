@@ -10,6 +10,10 @@ enum AutonomyState {
 	AT_GATE = 4;
 }
 
+message AutonomyCommand {
+	bool enable = 1;
+}
+
 message AutonomyData {
 	// High-level
 	GpsCoordinates coordinates = 1;
