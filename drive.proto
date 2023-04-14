@@ -11,13 +11,13 @@ message DriveCommand {
 	float right = 3;
 
 	// Indicates that [left] = 0 is valid, even though 0 usually means no value.
-	bool has_left = 4;
+	bool set_left = 4;
 
 	// Indicates that [right] = 0 is valid, even though 0 usually means no value.
-	bool has_right = 5;
+	bool set_right = 5;
 
 	// Indicates that [throttle] = 0 is valid, even though 0 usually means no value.
-	bool has_throttle = 6;
+	bool set_throttle = 6;
 }
 
 message DriveData {
@@ -31,11 +31,11 @@ message DriveData {
 	float right = 3;
 
 	// Indicates that [left] = 0 is valid, even though 0 usually means no value.
-	bool has_left = 4;
+	bool set_left = 4;
 
 	// Indicates that [right] = 0 is valid, even though 0 usually means no value.
-	bool has_right = 5;
+	bool set_right = 5;
 
 	// Indicates that [throttle] = 0 is valid, even though 0 usually means no value.
-	bool has_throttle = 6;
+	bool set_throttle = 6;
 }
