@@ -15,11 +15,11 @@ enum Device {
 	SUBSYSTEMS = 2;
 	VIDEO = 3;
 	AUTONOMY = 4;
-	ARM =  5;
-	GRIPPER = 6;
-	SCIENCE = 7;
-	ELECTRICAL = 8;
-	DRIVE = 9;
-	MARS = 10;
-	FIRMWARE = 11;
+	FIRMWARE = 5;
+	ARM =  6;
+	GRIPPER = 7;
+	SCIENCE = 8;
+	ELECTRICAL = 9;
+	DRIVE = 10;
+	MARS = 11;
 }
