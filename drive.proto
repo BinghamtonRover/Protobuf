@@ -10,23 +10,32 @@ message DriveCommand {
 	// Speed of the right wheels, as a percentage of [throttle].
 	float right = 3;
 
-	// X
-	bool set_throttle = 4;
+	// Indicates that [left] = 0 is valid, even though 0 usually means no value.
+	bool has_left = 4;
 
-	// X
-	bool set_left = 5;
+	// Indicates that [right] = 0 is valid, even though 0 usually means no value.
+	bool has_right = 5;
 
-	// X
-	bool set_right = 6;
+	// Indicates that [throttle] = 0 is valid, even though 0 usually means no value.
+	bool has_throttle = 6;
 }
 
 message DriveData {
 	// The max speed, as a percentage of the rover's possible speed.
-	optional float throttle = 1;  
+	float throttle = 1;  
 
 	// Speed of the left wheels, as a percentage of [throttle].
-	optional float left = 2;
+	float left = 2;
 
 	// Speed of the right wheels, as a percentage of [throttle].
-	optional float right = 3;
+	float right = 3;
+
+	// Indicates that [left] = 0 is valid, even though 0 usually means no value.
+	bool has_left = 4;
+
+	// Indicates that [right] = 0 is valid, even though 0 usually means no value.
+	bool has_right = 5;
+
+	// Indicates that [throttle] = 0 is valid, even though 0 usually means no value.
+	bool has_throttle = 6;
 }
