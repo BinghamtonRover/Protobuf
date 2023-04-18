@@ -15,7 +15,7 @@ enum MotorDirection {
 	NOT_MOVING = 9;
 }
 
-message MotorStatus {
+message MotorData {
 	bool is_moving = 1;
 	bool is_limit_switch_pressed = 2;
 	MotorDirection direction = 3;
@@ -82,9 +82,9 @@ message ArmData2 {
 	Coordinates currentPosition = 1;
 	Coordinates targetPosition = 2;
 
-	MotorStatus base = 3;
-	MotorStatus shoulder = 4;
-	MotorStatus elbow = 5;
+	MotorData base = 3;
+	MotorData shoulder = 4;
+	MotorData elbow = 5;
 }
 
 message ArmCommand2 {
@@ -135,9 +135,9 @@ message GripperCommand {
 }
 
 message GripperData2 {
-	MotorStatus lift = 1;
-	MotorStatus rotate = 2;
-	MotorStatus pinch = 3;
+	MotorData lift = 1;
+	MotorData rotate = 2;
+	MotorData pinch = 3;
 }
 
 message GripperCommand2 {
