@@ -1,57 +1,152 @@
 syntax = "proto3";
 
-// TODO: Use a Position and Motors
-message Position {
-	int32 x = 1;
-	int32 y = 2;
-	int32 z = 3;
+import "Protobuf/coordinates.proto";
+
+enum MotorDirection {
+	MOTOR_DIRECTION_UNDEFINED = 0;
+	UP = 1;
+	DOWN = 2;
+	LEFT = 3;
+	RIGHT = 4;
+	CLOCKWISE = 5;
+	COUNTER_CLOCKWISE = 6;
+	OPENING = 7;
+	CLOSING = 8;
+	NOT_MOVING = 9;
 }
 
 message MotorStatus {
 	bool is_moving = 1;
-	float angle = 2;
-	float temperature = 3;
+	bool is_limit_switch_pressed = 2;
+	MotorDirection direction = 3;
+
+	int32 current_step = 4;
+	int32 target_step = 5;
+	float angle = 6;
 }
 
+message MotorCommand {
+	// Debug control: Move by individual steps
+	int32 move_steps = 1;
+
+	// Precise control: Move by radians
+	float move_radians = 2;
+}
+
+// TODO: Replace with ArmData2
 message ArmData {
-	Position currentPosition = 1;
-	Position targetPosition = 2;
+	bool shoulder_limit_switch = 1;
+	bool elbow_limit_switch = 2;
+
+	float swivel_radians = 3;
+	float shoulder_radians = 4;
+	float elbow_radians = 5;
+
+	MotorDirection swivel_direction = 6;
+	MotorDirection shoulder_direction = 7;
+	MotorDirection elbow_direction = 8;
+}
+
+// TODO: Replace with ArmCommand2
+message ArmCommand {
+	// General commands
+	bool stop = 1;
+	bool calibrate = 2;
+
+	// Debug control: Move by individual steps
+	int32 move_swivel_steps = 3;
+	int32 move_shoulder_steps = 4;
+	int32 move_elbow_steps = 5;
+
+	// Precise control: Move by radians
+	float move_swivel_radians = 6;
+	float move_shoulder_radians = 7;
+	float move_elbow_radians = 8;
+
+	// IK control to move motors by coordinates
+	float x = 9;
+	float y = 10;
+	float z = 11;
+
+	// Workaround for not being able to (reliably) detect missing values
+	bool has_x = 9;
+	bool has_y = 10;
+	bool has_z = 11;
+
+	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
+	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
+	float gripper_lift_radians = 12;
+}
+
+message ArmData2 {
+	Coordinates currentPosition = 1;
+	Coordinates targetPosition = 2;
 
 	MotorStatus base = 3;
 	MotorStatus shoulder = 4;
 	MotorStatus elbow = 5;
 }
 
-// TODO: Precise motion and IK
-message ArmCommand {
+message ArmCommand2 {
+	// General commands
 	bool stop = 1;
 	bool calibrate = 2;
 
-	float move_swivel = 3;
-	float move_shoulder = 4;
-	float move_elbow = 5;
+	// Move individual motors
+	MotorCommand swivel = 3;
+	MotorCommand shoulder = 4;
+	MotorCommand elbow = 5;
 
-	float move_x = 6;
-	float move_y = 7;
-	float move_z = 8;
+	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
+	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
+	MotorCommand gripper_lift = 6;
 
-	bool has_x = 9;
-	bool has_y = 10;
-	bool has_z = 11;
+	Coordinates ik_target = 7;
 }
 
 message GripperData {
-	MotorStatus rotate = 1;
-	MotorStatus lift = 2;
-	MotorStatus pinch = 3;
+	bool lift_limit_switch = 1;
+	bool pinch_limit_switch = 2;
+
+	float lift_radians = 3;
+	float rotate_radians = 4;
+	float pinch_radians = 5;
+
+	MotorDirection lift_direction = 6;
+	MotorDirection rotate_direction = 7;
+	MotorDirection pinch_direction = 8;
 }
 
 // TODO: Precise motion
 message GripperCommand {
+	// General commands
 	bool stop = 1;
 	bool calibrate = 2;
 
-	float move_rotate = 3;
-	float move_lift = 4;
-	float move_gripper = 5;
+	// Debug control: Move by individual steps
+	int32 move_lift_steps = 3;
+	int32 move_rotate_steps = 4;
+	int32 move_pinch_steps = 5;
+
+	// Precise control: Move by radians
+	float move_lift_radians = 6;
+	float move_rotate_radians = 7;
+	float move_pinch_radians = 8;
+}
+
+message GripperData2 {
+	MotorStatus lift = 1;
+	MotorStatus rotate = 2;
+	MotorStatus pinch = 3;
+}
+
+message GripperCommand2 {
+	// General commands
+	bool stop = 1;
+	bool calibrate = 2;
+
+	// Move individual motors
+	MotorCommand lift = 3;
+	MotorCommand rotate = 4;
+	MotorCommand pinch = 5;
 }
