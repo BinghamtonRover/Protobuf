@@ -30,6 +30,14 @@ message ArmCommand {
 	float move_swivel = 3;
 	float move_shoulder = 4;
 	float move_elbow = 5;
+
+	float move_x = 6;
+	float move_y = 7;
+	float move_z = 8;
+
+	bool has_x = 9;
+	bool has_y = 10;
+	bool has_z = 11;
 }
 
 message GripperData {
