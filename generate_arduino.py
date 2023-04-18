@@ -11,7 +11,7 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser()
 parser.add_argument("--sketch", "-s", type=str, required=True, help="Sketch name")
-parser.add_argument("--proto", "-p", type=str, required=True, help="Proto file name, including .proto extension")
+parser.add_argument("--proto", "-p", type=str, required=True, help="Proto file name, NOT including .proto extension")
 args = parser.parse_args()
 
 # We want the final terminal command to look like this: 
@@ -22,5 +22,7 @@ args = parser.parse_args()
 # 				But in the terminal, there will be two layers of quotes so we need to print them escaped.
 # - In order to print the backslash from Python, we use a raw string (r"string")
 # - We also need to use single quotes in our Python code to leave the double quotes alone
-include_statement = r'#include \"utils/%s\"'
-os.system(f'nanopb_generator -I Protobuf -D {args.sketch}/src -L "{include_statement}" {args.proto}.proto')
+pb_include_statement = r'#include \"utils/%s\"'
+proto_include_statement = r'#include \"%s\"'
+os.system(f'nanopb_generator -I Protobuf -D {args.sketch}/src -L "{pb_include_statement}" -Q "{proto_include_statement}" {args.proto}.proto')
+

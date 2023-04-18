@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "Protobuf/coordinates.proto";
+import "coordinates.proto";
 
 enum MotorDirection {
 	MOTOR_DIRECTION_UNDEFINED = 0;
@@ -69,13 +69,13 @@ message ArmCommand {
 	float z = 11;
 
 	// Workaround for not being able to (reliably) detect missing values
-	bool has_x = 9;
-	bool has_y = 10;
-	bool has_z = 11;
+	bool has_x = 12;
+	bool has_y = 13;
+	bool has_z = 14;
 
 	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
-	float gripper_lift_radians = 12;
+	float gripper_lift_radians = 15;
 }
 
 message ArmData2 {
@@ -117,7 +117,6 @@ message GripperData {
 	MotorDirection pinch_direction = 8;
 }
 
-// TODO: Precise motion
 message GripperCommand {
 	// General commands
 	bool stop = 1;
