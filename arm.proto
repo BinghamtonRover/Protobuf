@@ -33,52 +33,7 @@ message MotorCommand {
 	float move_radians = 2;
 }
 
-// TODO: Replace with ArmData2
 message ArmData {
-	bool shoulder_limit_switch = 1;
-	bool elbow_limit_switch = 2;
-
-	float swivel_radians = 3;
-	float shoulder_radians = 4;
-	float elbow_radians = 5;
-
-	MotorDirection swivel_direction = 6;
-	MotorDirection shoulder_direction = 7;
-	MotorDirection elbow_direction = 8;
-}
-
-// TODO: Replace with ArmCommand2
-message ArmCommand {
-	// General commands
-	bool stop = 1;
-	bool calibrate = 2;
-
-	// Debug control: Move by individual steps
-	int32 move_swivel_steps = 3;
-	int32 move_shoulder_steps = 4;
-	int32 move_elbow_steps = 5;
-
-	// Precise control: Move by radians
-	float move_swivel_radians = 6;
-	float move_shoulder_radians = 7;
-	float move_elbow_radians = 8;
-
-	// IK control to move motors by coordinates
-	float x = 9;
-	float y = 10;
-	float z = 11;
-
-	// Workaround for not being able to (reliably) detect missing values
-	bool has_x = 12;
-	bool has_y = 13;
-	bool has_z = 14;
-
-	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
-	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
-	float gripper_lift_radians = 15;
-}
-
-message ArmData2 {
 	Coordinates currentPosition = 1;
 	Coordinates targetPosition = 2;
 
@@ -87,7 +42,7 @@ message ArmData2 {
 	MotorData elbow = 5;
 }
 
-message ArmCommand2 {
+message ArmCommand {
 	// General commands
 	bool stop = 1;
 	bool calibrate = 2;
@@ -105,41 +60,12 @@ message ArmCommand2 {
 }
 
 message GripperData {
-	bool lift_limit_switch = 1;
-	bool pinch_limit_switch = 2;
-
-	float lift_radians = 3;
-	float rotate_radians = 4;
-	float pinch_radians = 5;
-
-	MotorDirection lift_direction = 6;
-	MotorDirection rotate_direction = 7;
-	MotorDirection pinch_direction = 8;
-}
-
-message GripperCommand {
-	// General commands
-	bool stop = 1;
-	bool calibrate = 2;
-
-	// Debug control: Move by individual steps
-	int32 move_lift_steps = 3;
-	int32 move_rotate_steps = 4;
-	int32 move_pinch_steps = 5;
-
-	// Precise control: Move by radians
-	float move_lift_radians = 6;
-	float move_rotate_radians = 7;
-	float move_pinch_radians = 8;
-}
-
-message GripperData2 {
 	MotorData lift = 1;
 	MotorData rotate = 2;
 	MotorData pinch = 3;
 }
 
-message GripperCommand2 {
+message GripperCommand {
 	// General commands
 	bool stop = 1;
 	bool calibrate = 2;
