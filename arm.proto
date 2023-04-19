@@ -56,7 +56,11 @@ message ArmCommand {
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
 	MotorCommand gripper_lift = 6;
 
-	Coordinates ik_target = 7;
+	// optional Coordinates ik_target = 7;
+
+	float ik_x = 7;
+	float ik_y = 8;
+	float ik_z = 9;
 }
 
 message GripperData {
