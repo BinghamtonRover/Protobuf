@@ -61,6 +61,9 @@ message ArmCommand {
 	float ik_x = 7;
 	float ik_y = 8;
 	float ik_z = 9;
+
+	// Custom actions
+	bool jab = 10;
 }
 
 message GripperData {
@@ -78,4 +81,9 @@ message GripperCommand {
 	MotorCommand lift = 3;
 	MotorCommand rotate = 4;
 	MotorCommand pinch = 5;
+
+	// Custom actions
+	bool open = 6;
+	bool close = 7;
+	bool spin = 8;
 }
