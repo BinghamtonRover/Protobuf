@@ -17,7 +17,7 @@ message VideoData {
 }
 
 message VideoCommand {
-	int32 resolution = 1;
+	int32 compression = 1;
 	float framerate = 2;
 }
 
