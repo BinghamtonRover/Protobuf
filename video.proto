@@ -2,14 +2,15 @@ syntax = "proto3";
 
 message AdjustCamera {
 	CameraName name = 1;
-	bool is_enabled = 2;
+	bool enable = 2;
 	int32 resolution = 3;
 }
 
 message CameraStatus {
 	CameraName name = 1;
-	bool is_enabled = 2;
-	int32 resolution = 3;
+	bool is_connected = 2;
+	bool is_enabled = 3;
+	int32 resolution = 4;
 }
 
 message VideoData {
