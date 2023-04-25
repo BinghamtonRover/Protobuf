@@ -39,14 +39,3 @@ message DriveData {
 	// Indicates that [throttle] = 0 is valid, even though 0 usually means no value.
 	bool set_throttle = 6;
 }
-
-message Orientation {
-	float x = 1;
-	float y = 2;
-	float z = 3;
-}
-
-message RoverPosition {
-	GpsCoordinates gps = 1;
-	Orientation orientation = 2;
-}
