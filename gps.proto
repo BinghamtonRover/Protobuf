@@ -5,3 +5,14 @@ message GpsCoordinates {
 	float longitude = 2;
 	float altitude = 3;
 }
+
+message Orientation {
+	float x = 1;
+	float y = 2;
+	float z = 3;
+}
+
+message RoverPosition {
+	GpsCoordinates gps = 1;
+	Orientation orientation = 2;
+}
