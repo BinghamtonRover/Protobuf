@@ -16,6 +16,11 @@ message VideoData {
 	repeated CameraStatus cameras = 1;
 }
 
+message VideoCommand {
+	int32 resolution = 1;
+	float framerate = 2;
+}
+
 enum CameraName {
 	CAMERA_NAME_UNDEFINED = 0;
 	ROVER_FRONT = 1;
