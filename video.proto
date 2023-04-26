@@ -7,6 +7,16 @@ enum CameraStatus {
 	CAMERA_DISABLED = 3;      /// Not streaming, but it can be enabled
 }
 
+enum CameraName {
+	CAMERA_NAME_UNDEFINED = 0;
+	ROVER_FRONT = 1;
+	ROVER_REAR = 2;
+	ARM_BASE = 3;
+	ARM_GRIPPER = 4;
+	SCIENCE_CAROUSEL = 5;
+	SCIENCE_MICROSCOPE = 6;
+}
+
 /// Details about a specific camera.
 message CameraDetails {
 	/// The width and height of the image frame.
@@ -24,15 +34,19 @@ message CameraDetails {
 }
 
 /// Reports data about a camera.
-message CameraData {
+message VideoData {
 	/// The name of the camera.
 	CameraName name = 1;
+
 	/// The details for this camera.
 	CameraDetails details = 2;
+
+	/// The latest frame from this camera.
+	bytes frame = 3;
 }
 
 /// Make changes to a camera feeed.
-message CameraCommand {
+message VideoCommand {
 	/// The name of the camera to change.
 	CameraName name = 1;
 
@@ -43,24 +57,4 @@ message CameraCommand {
 	/// 
 	/// If changing [CameraDetails.status], you cannot set it to [CameraStatus.DISCONNECTED].
 	CameraDetails details = 3;
-}
-
-message VideoCommand {
-	int32 compression = 1;
-	float framerate = 2;
-}
-
-enum CameraName {
-	CAMERA_NAME_UNDEFINED = 0;
-	ROVER_FRONT = 1;
-	ROVER_REAR = 2;
-	ARM_BASE = 3;
-	ARM_GRIPPER = 4;
-	SCIENCE_CAROUSEL = 5;
-	SCIENCE_MICROSCOPE = 6;
-}
-
-message VideoFrame {
-	CameraName name = 1;
-	bytes frame = 2;
 }
