@@ -45,3 +45,11 @@ enum RoverStatus {
 	MANUAL = 2;  // Must show blue LEDs. Green button should be lit.
 	AUTONOMOUS = 3;  // See [AutonomyState] for LED colors
 }
+
+enum RoverError {
+	ROVER_ERROR_UNDEFINED = 0;
+	CAMERA_DISCONNECTED = 1;
+	SUBSYSTEM_DISCONNECTED = 2;
+	IK_FAILED = 3;
+	DASHBOARD_DISCONNECTED = 4;
+}
