@@ -22,7 +22,8 @@ args = parser.parse_args()
 # 				But in the terminal, there will be two layers of quotes so we need to print them escaped.
 # - In order to print the backslash from Python, we use a raw string (r"string")
 # - We also need to use single quotes in our Python code to leave the double quotes alone
-pb_include_statement = r'#include \"utils/%s\"'
+pb_include_statement = r'#include \"utils/%s\"' if args.sketch != "utils" else r'#include \"%s\"'
 proto_include_statement = r'#include \"%s\"'
-os.system(f'nanopb_generator -I Protobuf -D {args.sketch}/src -L "{pb_include_statement}" -Q "{proto_include_statement}" {args.proto}.proto')
+destination = f"{args.sketch}/src" if args.sketch != "utils" else "."
+os.system(f'nanopb_generator -I Protobuf -D {destination} -L "{pb_include_statement}" -Q "{proto_include_statement}" {args.proto}.proto')
 
