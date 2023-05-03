@@ -13,13 +13,15 @@ message ScienceCommand {
 	int32 carousel_linear_position = 6;
 	int32 test_linear_position = 7;
 	int32 vacuum_linear_position = 8;
-	int32 dirtRelease = 13;
 
 	// True means pump for 1 second
 	bool pump1 = 9;
 	bool pump2 = 10;
 	bool pump3 = 11;
 	bool pump4 = 12;
+
+	bool calibrate = 13;
+	bool dirt_release = 14;
 }
 
 message ScienceData {
