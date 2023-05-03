@@ -1,5 +1,17 @@
 syntax = "proto3";
 
+enum DirtReleasePosition {
+  TEMP_UNDEFINED = 0;
+  OPEN_DIRT = 1;
+  CLOSE_DIRT = 2;
+}
+
+enum PumpState {
+  P_U = 0;
+  PUMP_ON = 1;
+  PUMP_OFF = 2;
+}
+
 message ScienceCommand {
 	// High-level commands that aren't implemented
 	bool dig = 1;
@@ -9,19 +21,19 @@ message ScienceCommand {
 	float vacuum_suck = 4;  // percentage of power
 
 	// These move the motors by X many steps
-	int32 carousel_angle = 5;
-	int32 carousel_linear_position = 6;
-	int32 test_linear_position = 7;
-	int32 vacuum_linear_position = 8;
+	float carousel_angle = 5;
+	float carousel_linear_position = 6;
+	float test_linear_position = 7;
+	float vacuum_linear_position = 8;
 
-	// True means pump for 1 second
-	bool pump1 = 9;
-	bool pump2 = 10;
-	bool pump3 = 11;
-	bool pump4 = 12;
+	DirtReleasePosition dirtRelease = 14;
 
-	bool calibrate = 13;
-	bool dirt_release = 14;
+	PumpState pump1 = 9;
+	PumpState pump2 = 10;
+	PumpState pump3 = 11;
+	PumpState pump4 = 12;
+
+	bool set_vacuum = 15;
 }
 
 message ScienceData {
