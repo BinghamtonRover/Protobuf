@@ -1,25 +1,34 @@
 syntax = "proto3";
 
+enum PumpState {
+	PUMP_STATE_UNDEFINED = 0;
+	PUMP_ON = 1;
+	PUMP_OFF = 2;
+}
+
 message ScienceCommand {
-	// High-level commands that aren't implemented
-	bool dig = 1;
-	bool spin_carousel_tube = 2;
-	bool spin_carousel_section = 3;
+	// Individual control over each motor. Indicates steps to move
+	float dirt_carousel = 1;
+	float dirt_linear = 2;
+	float science_linear = 3;
+	float vacuum_linear = 4;
 
-	float vacuum_suck = 4;  // percentage of power
+	// Vacuum
+	float vacuumPower = 5;  // percentage, from 0-1
+	bool set_vacuum = 6;
+	bool release_dirt = 7;
 
-	// These move the motors by X many steps
-	int32 carousel_angle = 5;
-	int32 carousel_linear_position = 6;
-	int32 test_linear_position = 7;
-	int32 vacuum_linear_position = 8;
-	int32 dirtRelease = 13;
+	// Pumps
+	PumpState pump1 = 8;
+	PumpState pump2 = 9;
+	PumpState pump3 = 10;
+	PumpState pump4 = 11;
 
-	// True means pump for 1 second
-	bool pump1 = 9;
-	bool pump2 = 10;
-	bool pump3 = 11;
-	bool pump4 = 12;
+	// High level commands
+	bool calibrate = 12;
+	bool stop = 13;
+	bool next_tube = 14;
+	bool next_section = 15;
 }
 
 message ScienceData {
@@ -28,5 +37,4 @@ message ScienceData {
 	float methane = 3;
 	float pH = 4;
 	float temperature = 5;
-	int32 sample = 6;
 }
