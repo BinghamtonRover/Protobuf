@@ -1,15 +1,9 @@
 syntax = "proto3";
 
-// OFF is only available via a hardware button
-enum RoverMode {
-	UNDEFINED = 0;
-	POWER_OFF = 1;
-	IDLE = 2;  // Yellow LEDs
-	ACTIVE = 3;  // Green LEDs
-}
+import "core.proto";
 
 message ElectricalCommand {
-	RoverMode mode = 10;
+	RoverStatus status = 10;
 }
 
 message PowerSourceStatus {
@@ -34,6 +28,4 @@ message ElectricalData {
 	float battery_current = 7;
 	float battery_voltage = 8;
 	float battery_temperature = 9;
-
-	RoverMode mode = 10;
 }
