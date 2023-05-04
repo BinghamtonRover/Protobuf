@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "gps.proto";
+
+message MarsCommand {
+	// Manual control
+	float swivel = 1;
+	float tilt = 2;
+
+	// Automatic control
+	RoverPosition position = 3;
+}
+
+message MarsData {
+	float swivel = 1;
+	float tilt = 2;
+}
