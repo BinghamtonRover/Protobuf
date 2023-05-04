@@ -32,6 +32,7 @@ enum Device {
 	ELECTRICAL = 9;
 	DRIVE = 10;
 	MARS = 11;
+	MARS_SERVER = 12;
 }
 
 /// Changes the way the rover listens to incoming commands.
