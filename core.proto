@@ -40,8 +40,9 @@ enum Device {
 /// - When MANUAL, all subsystems will accept all commands
 /// - When AUTONOMOUS, the rover will ignore commands from the dashboard
 enum RoverStatus {
-	DISCONNECTED = 0;  // no signal at all means disconnected
-	IDLE = 1;    // Yellow button should be lit.
-	MANUAL = 2;  // Must show blue LEDs. Green button should be lit.
+	DISCONNECTED = 0;   // no signal at all means disconnected
+	IDLE = 1;          // Yellow button should be lit.
+	MANUAL = 2;       // Must show blue LEDs. Green button should be lit.
 	AUTONOMOUS = 3;  // See [AutonomyState] for LED colors
+	POWER_OFF = 4;  // Press the red button to turn off the Pis on the rover
 }
