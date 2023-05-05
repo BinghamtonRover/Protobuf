@@ -6,6 +6,12 @@ enum PumpState {
 	PUMP_OFF = 2;
 }
 
+enum DirtReleaseState {
+	DIRT_RELEASE_STATE_UNDEFINED = 0;
+	DIRT_RELEASE_OPEN = 1;
+	DIRT_RELEASE_CLOSE = 2;
+}
+
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float dirt_carousel = 1;
@@ -16,7 +22,7 @@ message ScienceCommand {
 	// Vacuum
 	float vacuumPower = 5;  // percentage, from 0-1
 	bool set_vacuum = 6;
-	bool release_dirt = 7;
+	DirtReleaseState dirtRelease = 7;
 
 	// Pumps
 	PumpState pump1 = 8;
