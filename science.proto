@@ -8,8 +8,8 @@ enum PumpState {
 
 enum DirtReleaseState {
 	DIRT_RELEASE_STATE_UNDEFINED = 0;
-	DIRT_RELEASE_OPEN = 1;
-	DIRT_RELEASE_CLOSE = 2;
+	OPEN_DIRT = 1;
+	CLOSE_DIRT = 2;
 }
 
 message ScienceCommand {
@@ -20,8 +20,7 @@ message ScienceCommand {
 	float vacuum_linear = 4;
 
 	// Vacuum
-	float vacuumPower = 5;  // percentage, from 0-1
-	bool set_vacuum = 6;
+	PumpState vacuum = 5;  // percentage, from 0-1
 	DirtReleaseState dirtRelease = 7;
 
 	// Pumps
