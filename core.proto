@@ -17,7 +17,7 @@ message Disconnect {
 /// must respond with the exact same message to confirm its receipt.
 message UpdateSetting {
 	RoverStatus status = 1;
-	Color color = 2;
+	ProtoColor color = 2;
 }
 
 message ProtoColor {
