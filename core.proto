@@ -20,7 +20,7 @@ message UpdateSetting {
 	Color color = 2;
 }
 
-message Color {
+message ProtoColor {
 	float red = 1;
 	float green = 2;
 	float blue = 3;
