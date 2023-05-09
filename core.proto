@@ -17,6 +17,13 @@ message Disconnect {
 /// must respond with the exact same message to confirm its receipt.
 message UpdateSetting {
 	RoverStatus status = 1;
+	Color color = 2;
+}
+
+message Color {
+	float red = 1;
+	float green = 2;
+	float blue = 3;
 }
 
 enum Device {
