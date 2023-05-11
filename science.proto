@@ -12,6 +12,12 @@ enum DirtReleaseState {
 	CLOSE_DIRT = 2;
 }
 
+enum ScienceState {
+	SCIENCE_STATE_UNDEFINED = 0;
+	COLLECT_DATA = 1;
+	STOP_COLLECTING = 2;
+}
+
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float dirt_carousel = 1;
@@ -34,6 +40,9 @@ message ScienceCommand {
 	bool stop = 13;
 	bool next_tube = 14;
 	bool next_section = 15;
+
+	int32 sample = 16;
+	ScienceState state = 17;
 }
 
 message ScienceData {
@@ -42,4 +51,5 @@ message ScienceData {
 	float methane = 3;
 	float pH = 4;
 	float temperature = 5;
+	int32 sample = 6;
 }
