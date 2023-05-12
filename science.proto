@@ -52,4 +52,5 @@ message ScienceData {
 	float pH = 4;
 	float temperature = 5;
 	int32 sample = 6;
+	ScienceState state = 7;
 }
