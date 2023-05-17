@@ -4,33 +4,27 @@ import "gps.proto";
 
 enum AutonomyState {
 	AUTONOMY_STATE_UNDEFINED = 0;
-	OFF = 1;
 	PATHING = 2;
 	APPROACHING = 3;
-	AT_GATE = 4;
+	AT_DESTINATION = 4;
+}
+
+enum AutonomyTask {
+	AUTONOMY_TASK_UNDEFINED = 0;
+	GPS_ONLY = 1;
+	VISUAL_MARKER = 2;
+	BETWEEN_GATES = 3;
+}
+
+message AutonomyData {
+	AutonomyState state = 1;
+	GpsCoordinates destination = 3;
+	repeated GpsCoordinates obstacles = 3;
+	repeated GpsCoordinates path = 4;
 }
 
 message AutonomyCommand {
 	bool enable = 1;
-}
-
-message AutonomyData {
-	// High-level
-	GpsCoordinates coordinates = 1;
-	float heading = 2;
-	AutonomyState state = 3;
-
-	// debug info
-	float raw_x_orientation = 4;
-	float raw_y_orientation = 5;
-	float raw_z_orientation = 6;
-	Grid grid = 7;
-}
-
-message Grid {
-	repeated Row rows = 1;
-}
-
-message Row {
-	repeated bool is_cell_occupied = 1;
+	GpsCoordinates destination = 2;
+	AutonomyTask task = 3;
 }
