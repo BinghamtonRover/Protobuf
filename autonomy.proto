@@ -18,7 +18,7 @@ enum AutonomyTask {
 
 message AutonomyData {
 	AutonomyState state = 1;
-	GpsCoordinates destination = 3;
+	GpsCoordinates destination = 2;
 	repeated GpsCoordinates obstacles = 3;
 	repeated GpsCoordinates path = 4;
 }
