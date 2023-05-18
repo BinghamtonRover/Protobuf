@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "coordinates.proto";
-
 enum MotorDirection {
 	MOTOR_DIRECTION_UNDEFINED = 0;
 	UP = 1;
@@ -13,6 +11,12 @@ enum MotorDirection {
 	OPENING = 7;
 	CLOSING = 8;
 	NOT_MOVING = 9;
+}
+
+message Coordinates {
+	float x = 1;
+	float y = 2;
+	float z = 3;
 }
 
 message MotorData {
