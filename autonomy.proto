@@ -7,6 +7,8 @@ enum AutonomyState {
 	PATHING = 2;
 	APPROACHING = 3;
 	AT_DESTINATION = 4;
+	DRIVING = 5;
+	SEARCHING = 6;
 }
 
 enum AutonomyTask {
@@ -21,6 +23,7 @@ message AutonomyData {
 	GpsCoordinates destination = 2;
 	repeated GpsCoordinates obstacles = 3;
 	repeated GpsCoordinates path = 4;
+	AutonomyTask task = 5;
 }
 
 message AutonomyCommand {
