@@ -27,7 +27,7 @@ message AutonomyData {
 }
 
 message AutonomyCommand {
-	bool enable = 1;
-	GpsCoordinates destination = 2;
-	AutonomyTask task = 3;
+	GpsCoordinates destination = 1;
+	AutonomyTask task = 2;
+	int32 aruco_id = 3;
 }
