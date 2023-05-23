@@ -8,7 +8,7 @@ message MarsCommand {
 	float tilt = 2;
 
 	// Automatic control
-	RoverPosition position = 3;
+	GpsCoordinates position = 3;
 	GpsCoordinates baseStationOverride = 4;
 }
 

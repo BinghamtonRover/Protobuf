@@ -15,5 +15,4 @@ message Orientation {
 message RoverPosition {
 	GpsCoordinates gps = 1;
 	Orientation orientation = 2;
-	GpsCoordinates base_station = 3;
 }
