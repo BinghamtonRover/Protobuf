@@ -9,9 +9,11 @@ message MarsCommand {
 
 	// Automatic control
 	RoverPosition position = 3;
+	GpsCoordinates baseStationOverride = 4;
 }
 
 message MarsData {
 	float swivel = 1;
 	float tilt = 2;
+	GpsCoordinates coordinates = 3;
 }
