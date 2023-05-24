@@ -18,6 +18,11 @@ message DriveCommand {
 
 	// Indicates that [throttle] = 0 is valid, even though 0 usually means no value.
 	bool set_throttle = 6;
+
+	float front_swivel = 7;
+	float front_tilt = 8;
+	float rear_swivel = 9;
+	float rear_tilt = 10;
 }
 
 message DriveData {
@@ -38,4 +43,9 @@ message DriveData {
 
 	// Indicates that [throttle] = 0 is valid, even though 0 usually means no value.
 	bool set_throttle = 6;
+
+	float front_swivel = 7;
+	float front_tilt = 8;
+	float rear_swivel = 9;
+	float rear_tilt = 10;
 }
