@@ -8,6 +8,7 @@ enum CameraStatus {
 	CAMERA_NOT_RESPONDING = 4;  /// Connected but not responding
 	CAMERA_LOADING = 5;         /// Camera is still turning on
 	FRAME_TOO_LARGE = 6;        /// The camera is reading too many pixels
+	CAMERA_HAS_NO_NAME = 6;     /// The camera was not assigned a name
 }
 
 enum CameraName {
