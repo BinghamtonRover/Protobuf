@@ -19,6 +19,8 @@ enum CameraName {
 	ARM_GRIPPER = 4;
 	SCIENCE_CAROUSEL = 5;
 	SCIENCE_MICROSCOPE = 6;
+	AUTONOMY_DEPTH = 7;
+	SCIENCE_VACUUM = 8;
 }
 
 /// Details about a specific camera.
