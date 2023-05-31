@@ -45,7 +45,7 @@ message CameraDetails {
 /// Reports data about a camera.
 message VideoData {
 	/// The unique ID of this camera.
-	int32 id = 1;
+	string id = 1;
 
 	/// The details for this camera.
 	CameraDetails details = 2;
@@ -57,7 +57,7 @@ message VideoData {
 /// Make changes to a camera feeed.
 message VideoCommand {
 	/// The unique ID of the camera to change.
-	int32 id = 1;
+	string id = 1;
 
 	/// The new details for this camera.
 	/// 
