@@ -9,6 +9,8 @@ enum AutonomyState {
 	AT_DESTINATION = 4;
 	DRIVING = 5;
 	SEARCHING = 6;
+	NO_SOLUTION = 7;
+	ABORTING = 8;
 }
 
 enum AutonomyTask {
@@ -24,10 +26,12 @@ message AutonomyData {
 	repeated GpsCoordinates obstacles = 3;
 	repeated GpsCoordinates path = 4;
 	AutonomyTask task = 5;
+	bool crash = 6;
 }
 
 message AutonomyCommand {
 	GpsCoordinates destination = 1;
 	AutonomyTask task = 2;
 	int32 aruco_id = 3;
+	bool abort = 4;
 }
