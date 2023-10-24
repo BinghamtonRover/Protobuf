@@ -6,11 +6,17 @@ import "dart:io";
 const command = "protoc";
 
 /// The arguments to pass.
-const args = ["--dart_out=lib/generated", "-I", "Protobuf", "Protobuf/*.proto", "google/protobuf/timestamp.proto"];
+const args = [
+  "--dart_out=lib/src/generated",
+  "-I",
+  "Protobuf",
+  "Protobuf/*.proto",
+  "google/protobuf/timestamp.proto"
+];
 
 void main() async {
-	final result = await Process.run(command, args);
-	print("Result: ${result.exitCode}");
-	print("Output: ${result.stdout}");
-	print("Error: ${result.stderr}");
+  final result = await Process.run(command, args);
+  print("Result: ${result.exitCode}");
+  print("Output: ${result.stdout}");
+  print("Error: ${result.stderr}");
 }
