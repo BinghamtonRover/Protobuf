@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+enum BurtLogLevel {
+  critical,
+  error,
+  warning, 
+  info,
+  verbose, 
+  debug, 
+}
+
+enum BurtError {
+  BURT_ERROR_UNDEFINED = 0;
+  BURT_ERROR_UNKNOWN = 1;
+  
+  // Errors with the CAN bus
+  CAN_INIT_ERROR = 2;
+  CAN_WRITE_ERROR = 3;
+  CAN_READ_ERROR = 4;
+  CAN_BUFFER_FULL = 5;
+  CAN_MISC_ERROR = 6;
+  
+  // Errors with the IMU
+  IMU_INIT_ERROR = 7;
+  IMU_NOT_RESPONDING = 8;
+  IMU_INVALID_ORIENTATION = 9;
+  IMU_MISC_ERROR = 10;
+
+  // Errors with the GPS
+  GPS_INIT_ERROR = 11;
+  GPS_NOT_RESPONDING = 12;
+  GPS_NO_FIX = 13;
+  GPS_MISC_ERROR = 14;
+}
+
+message BurtLog {
+  BurtLogLevel level = 1;
+  string text = 2;
+  BurtError error = 3;
+}
