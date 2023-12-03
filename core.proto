@@ -53,4 +53,5 @@ enum RoverStatus {
 	MANUAL = 2;       // Must show blue LEDs. Green button should be lit.
 	AUTONOMOUS = 3;  // See [AutonomyState] for LED colors
 	POWER_OFF = 4;  // Press the red button to turn off the Pis on the rover
+	RESTART = 5;  // Reboots the program that receives this message
 }
