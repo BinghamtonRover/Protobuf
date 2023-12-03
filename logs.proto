@@ -12,30 +12,6 @@ enum BurtLogLevel {
   trace = 6;
 }
 
-enum BurtError {
-  burt_error_undefined = 0;
-  burt_error_unknown = 1;
-  
-  // errors with the can bus
-  can_init_error = 2;
-  can_write_error = 3;
-  can_read_error = 4;
-  can_buffer_full = 5;
-  can_misc_error = 6;
-  
-  // errors with the imu
-  imu_init_error = 7;
-  imu_not_responding = 8;
-  imu_invalid_orientation = 9;
-  imu_misc_error = 10;
-
-  // errors with the gps
-  gps_init_error = 11;
-  gps_not_responding = 12;
-  gps_no_fix = 13;
-  gps_misc_error = 14;
-}
-
 message BurtLog {
   BurtLogLevel level = 1;
   string title = 2;
