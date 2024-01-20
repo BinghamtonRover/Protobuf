@@ -23,6 +23,15 @@ message DriveCommand {
 	float front_tilt = 8;
 	float rear_swivel = 9;
 	float rear_tilt = 10;
+	DriveDirection direction = 11;
+}
+
+enum DriveDirection {
+	DRIVE_DIRECTION_UNDEFINED = 0;
+	DRIVE_DIRECTION_FORWARD = 1;
+	DRIVE_DIRECTION_LEFT = 2;
+	DRIVE_DIRECTION_RIGHT = 3;
+	DRIVE_DIRECTION_STOP = 4;
 }
 
 message DriveData {
