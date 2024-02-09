@@ -43,6 +43,12 @@ message ScienceCommand {
 
 	int32 sample = 16;
 	ScienceState state = 17;
+
+	// Scooper
+	float scooper_rotate = 18;
+
+	int32 scooper_pinch = 19;
+	bool set_scooper_pinch = 20;
 }
 
 message ScienceData {
@@ -53,4 +59,5 @@ message ScienceData {
 	float temperature = 5;
 	int32 sample = 6;
 	ScienceState state = 7;
+	float distance_to_ground = 8;
 }
