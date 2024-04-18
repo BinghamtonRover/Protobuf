@@ -36,7 +36,7 @@ enum Device {
 	ARM =  6;
 	GRIPPER = 7;
 	SCIENCE = 8;
-	CONTROL = 9;
+	DRIVE = 9;
 }
 
 /// Changes the way the rover listens to incoming commands.
