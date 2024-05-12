@@ -1,15 +1,18 @@
+// Version 1.0.0
+
 syntax = "proto3";
+
+enum ServoState {
+	SERVO_STATE_UNDEFINED = 0;
+	SERVO_OPEN = 1;
+	SERVO_CLOSE = 2;
+}
 
 enum PumpState {
 	PUMP_STATE_UNDEFINED = 0;
 	PUMP_ON = 1;
 	PUMP_OFF = 2;
-}
-
-enum DirtReleaseState {
-	DIRT_RELEASE_STATE_UNDEFINED = 0;
-	OPEN_DIRT = 1;
-	CLOSE_DIRT = 2;
+	FILL = 3;
 }
 
 enum ScienceState {
@@ -18,22 +21,27 @@ enum ScienceState {
 	STOP_COLLECTING = 2;
 }
 
+enum CarouselCommand {
+	CAROUSEL_COMMAND_UNDEFINED = 0;
+	NEXT_TUBE = 1;
+	PREV_TUBE = 2;
+	NEXT_SECTION = 3;
+	PREV_SECTION = 4;
+	FILL_TUBE = 5;
+	FILL_SECTION = 6;
+}
+
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
-	float dirt_carousel = 1;
-	float dirt_linear = 2;
-	float science_linear = 3;
-	float vacuum_linear = 4;
+	float carousel_motor = 1;
+	float scoop_motor = 2;
+	float subsurface_motor = 3;
 
 	// Vacuum
-	PumpState vacuum = 5;  // percentage, from 0-1
-	DirtReleaseState dirtRelease = 7;
-
-	// Pumps
-	PumpState pump1 = 8;
-	PumpState pump2 = 9;
-	PumpState pump3 = 10;
-	PumpState pump4 = 11;
+	PumpState pumps = 4;
+	ServoState funnel = 5;
+	ServoState scoop = 6;
+	CarouselCommand carousel = 7;	
 
 	// High level commands
 	bool calibrate = 12;
