@@ -44,21 +44,16 @@ message ScienceCommand {
 	CarouselCommand carousel = 7;	
 
 	// High level commands
-	bool calibrate = 12;
-	bool stop = 13;
-	bool next_tube = 14;
-	bool next_section = 15;
-
-	int32 sample = 16;
-	ScienceState state = 17;
+	bool calibrate = 8;
+	bool stop = 9;
+	int32 sample = 10;
+	ScienceState state = 11;
 }
 
 message ScienceData {
-	float co2 = 1;
-	float humidity = 2;
-	float methane = 3;
-	float pH = 4;
+	int32 sample = 1;
+	ScienceState state = 2;
+	float co2 = 3;
+	float humidity = 4;
 	float temperature = 5;
-	int32 sample = 6;
-	ScienceState state = 7;
 }
