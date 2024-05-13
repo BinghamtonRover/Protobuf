@@ -1,3 +1,5 @@
+// Version: 1.0 (not enforced)
+
 syntax = "proto3";
 
 // Used for a simple handshake between devices.

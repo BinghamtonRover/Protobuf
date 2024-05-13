@@ -1,4 +1,7 @@
+// Version: 1.0
+
 syntax = "proto3";
+import "version.proto";
 
 enum CameraStatus {
 	CAMERA_STATUS_UNDEFINED = 0;
@@ -61,6 +64,8 @@ message VideoData {
 
 	/// The latest frame from this camera.
 	bytes frame = 3;
+
+	Version version = 4;
 }
 
 /// Make changes to a camera feed.
@@ -72,4 +77,6 @@ message VideoCommand {
 	/// 
 	/// If changing [CameraDetails.status], you cannot set it to [CameraStatus.DISCONNECTED].
 	CameraDetails details = 2;
+
+	Version version = 3;
 }

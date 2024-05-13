@@ -1,3 +1,5 @@
+// Version: 1.0
+
 syntax = "proto3";
 
 import "core.proto";
@@ -27,6 +29,7 @@ message DriveCommand {
 	float rear_tilt = 10;
 
 	RoverStatus status = 11;
+	Version version = 12;
 }
 
 message DriveData {
@@ -57,4 +60,6 @@ message DriveData {
 	float battery_voltage = 11;
 	float battery_current = 12;
 	float battery_temperature = 13;
+
+	Version version = 14;
 }
