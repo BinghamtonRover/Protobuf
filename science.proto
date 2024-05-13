@@ -1,60 +1,76 @@
+// Version 1.0.0
+
 syntax = "proto3";
 
 import "version.proto";
 
+/// The state of a servo. If undefined, don't open or close.
+enum ServoState {
+	SERVO_STATE_UNDEFINED = 0;
+	SERVO_OPEN = 1;
+	SERVO_CLOSE = 2;
+}
+
+/// The state of a pump. If undefined: don't do anything. If fill: turn on, wait, then turn off.
 enum PumpState {
 	PUMP_STATE_UNDEFINED = 0;
 	PUMP_ON = 1;
 	PUMP_OFF = 2;
+	FILL = 3;
 }
 
-enum DirtReleaseState {
-	DIRT_RELEASE_STATE_UNDEFINED = 0;
-	OPEN_DIRT = 1;
-	CLOSE_DIRT = 2;
-}
-
+/// The state of the science subsystem. If not COLLECT_DATA, don't stream data at all.
 enum ScienceState {
 	SCIENCE_STATE_UNDEFINED = 0;
 	COLLECT_DATA = 1;
 	STOP_COLLECTING = 2;
 }
 
-message ScienceCommand {
-	// Individual control over each motor. Indicates steps to move
-	float dirt_carousel = 1;
-	float dirt_linear = 2;
-	float science_linear = 3;
-	float vacuum_linear = 4;
-
-	// Vacuum
-	PumpState vacuum = 5;  // percentage, from 0-1
-	DirtReleaseState dirtRelease = 7;
-
-	// Pumps
-	PumpState pump1 = 8;
-	PumpState pump2 = 9;
-	PumpState pump3 = 10;
-	PumpState pump4 = 11;
-
-	// High level commands
-	bool calibrate = 12;
-	bool stop = 13;
-	bool next_tube = 14;
-	bool next_section = 15;
-
-	int32 sample = 16;
-	ScienceState state = 17;
-	Version version = 18;
+/// A command for the carousel and funnel to follow.
+enum CarouselCommand {
+	CAROUSEL_COMMAND_UNDEFINED = 0;
+	NEXT_TUBE = 1;
+	PREV_TUBE = 2;
+	NEXT_SECTION = 3;
+	PREV_SECTION = 4;
+	FILL_TUBE = 5;
+	FILL_SECTION = 6;
 }
 
+/// A command to the science subsystem.
+message ScienceCommand {
+	// Individual control over each motor. Indicates steps to move
+	float carousel_motor = 1;
+	float scoop_motor = 2;
+	float subsurface_motor = 3;
+
+	// Control over other hardware
+	PumpState pumps = 4;
+	ServoState funnel = 5;
+	ServoState scoop = 6;
+	CarouselCommand carousel = 7;	
+
+	// High level commands
+	bool calibrate = 8;
+	bool stop = 9;
+	int32 sample = 10;
+	ScienceState state = 11;
+
+	Version version = 12;
+}
+
+/// Data coming from the science subsystem.
 message ScienceData {
-	float co2 = 1;
-	float humidity = 2;
-	float methane = 3;
-	float pH = 4;
+	// High-level data
+	int32 sample = 1;
+	ScienceState state = 2;
+	
+	// Sensor data
+	float co2 = 3;
+	float humidity = 4;
 	float temperature = 5;
 	int32 sample = 6;
 	ScienceState state = 7;
+	
 	Version version = 8;
 }
