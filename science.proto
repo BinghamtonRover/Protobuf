@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "version.proto";
+
 enum PumpState {
 	PUMP_STATE_UNDEFINED = 0;
 	PUMP_ON = 1;
@@ -43,6 +45,7 @@ message ScienceCommand {
 
 	int32 sample = 16;
 	ScienceState state = 17;
+	Version version = 18;
 }
 
 message ScienceData {
@@ -53,4 +56,5 @@ message ScienceData {
 	float temperature = 5;
 	int32 sample = 6;
 	ScienceState state = 7;
+	Version version = 8;
 }
