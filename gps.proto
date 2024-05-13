@@ -1,4 +1,7 @@
+// Version: 1.0
+
 syntax = "proto3";
+import "version.proto";
 
 message GpsCoordinates {
 	float latitude = 1;
@@ -15,4 +18,6 @@ message Orientation {
 message RoverPosition {
 	GpsCoordinates gps = 1;
 	Orientation orientation = 2;
+
+	Version version = 3;
 }

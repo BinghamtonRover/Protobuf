@@ -1,6 +1,8 @@
-// Version 1.0.0
+// Version 1.0
 
 syntax = "proto3";
+
+import "version.proto";
 
 /// The state of a servo. If undefined, don't open or close.
 enum ServoState {
@@ -53,6 +55,8 @@ message ScienceCommand {
 	bool stop = 9;
 	int32 sample = 10;
 	ScienceState state = 11;
+
+	Version version = 12;
 }
 
 /// Data coming from the science subsystem.
@@ -65,4 +69,6 @@ message ScienceData {
 	float co2 = 3;
 	float humidity = 4;
 	float temperature = 5;
+	
+	Version version = 6;
 }
