@@ -3,6 +3,7 @@
 syntax = "proto3";
 
 import "core.proto";
+import "version.proto";
 
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
