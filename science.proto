@@ -69,8 +69,6 @@ message ScienceData {
 	float co2 = 3;
 	float humidity = 4;
 	float temperature = 5;
-	int32 sample = 6;
-	ScienceState state = 7;
 	
-	Version version = 8;
+	Version version = 6;
 }
