@@ -63,4 +63,13 @@ message DriveData {
 	float battery_temperature = 13;
 
 	Version version = 14;
+
+	// Information about each wheel in rpm
+	float back_left = 15;
+	float middle_left = 16;
+	float front_left = 17;
+
+	float back_right = 18;
+	float middle_right = 19;
+	float front_right = 20;
 }
