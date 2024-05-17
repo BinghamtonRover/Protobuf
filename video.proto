@@ -38,17 +38,6 @@ message CameraDetails {
 
 	/// The status of this camera.
 	CameraStatus status = 6;
-
-	bool autofocus = 7;
-	
-	int32 zoom = 8;
-
-	int32 pan = 9;
-
-	int32 tilt = 10;
-
-	int32 focus = 11;
-
 }
 
 /// Reports data about a camera.
@@ -63,7 +52,7 @@ message VideoData {
 	bytes frame = 3;
 }
 
-/// Make changes to a camera feed.
+/// Make changes to a camera feeed.
 message VideoCommand {
 	/// The unique ID of the camera to change.
 	string id = 1;

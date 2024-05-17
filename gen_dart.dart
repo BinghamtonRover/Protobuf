@@ -4,11 +4,13 @@ import "dart:io";
 
 /// The executable to run.
 const command = "protoc";
+final directory = Directory.current.path;
 
 /// The arguments to pass.
-const args = ["--dart_out=lib/src/generated", "-I", "Protobuf", "Protobuf/*.proto", "google/protobuf/timestamp.proto"];
+final args = ["--dart_out=lib/src/generated", "-I", "Protobuf", "Protobuf/*.proto", "Protobuf/google/protobuf/timestamp.proto"];
 
 void main() async {
+  // final test = await Process.run("pwd", [""]);
 	final result = await Process.run(command, args);
 	print("Result: ${result.exitCode}");
 	print("Output: ${result.stdout}");

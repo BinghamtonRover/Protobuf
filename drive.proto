@@ -1,6 +1,7 @@
+// version 1.1
 syntax = "proto3";
 
-import "core.proto";
+import "status.proto";
 
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
@@ -25,8 +26,15 @@ message DriveCommand {
 	float front_tilt = 8;
 	float rear_swivel = 9;
 	float rear_tilt = 10;
+	DriveDirection direction = 11;
+}
 
-	RoverStatus status = 11;
+enum DriveDirection {
+	DRIVE_DIRECTION_UNDEFINED = 0;
+	DRIVE_DIRECTION_FORWARD = 1;
+	DRIVE_DIRECTION_LEFT = 2;
+	DRIVE_DIRECTION_RIGHT = 3;
+	DRIVE_DIRECTION_STOP = 4;
 }
 
 message DriveData {
@@ -53,8 +61,8 @@ message DriveData {
 	float rear_swivel = 9;
 	float rear_tilt = 10;
 
-	// Vitals for the whole rover
-	float battery_voltage = 11;
-	float battery_current = 12;
-	float battery_temperature = 13;
+	float leftSensorValue = 11;
+	float rightSensorValue = 12;
+
+	RoverStatus status = 13;
 }
