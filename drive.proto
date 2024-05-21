@@ -1,9 +1,30 @@
-// Version: 1.0
+// Version: 1.2
 
 syntax = "proto3";
 
 import "core.proto";
 import "version.proto";
+
+enum ProtoColor {
+	PROTO_COLOR_UNDEFINED = 0;
+	RED = 1;
+	GREEN = 2;
+	BLUE = 3;
+}
+
+/// Changes the way the rover listens to incoming commands.
+/// 
+/// - When IDLE, all subsystems will ignore all commands
+/// - When MANUAL, all subsystems will accept all commands
+/// - When AUTONOMOUS, the rover will ignore commands from the dashboard
+enum RoverStatus {
+	DISCONNECTED = 0;   // no signal at all means disconnected
+	IDLE = 1;          // Yellow button should be lit.
+	MANUAL = 2;       // Must show blue LEDs. Green button should be lit.
+	AUTONOMOUS = 3;  // See [AutonomyState] for LED colors
+	POWER_OFF = 4;  // Press the red button to turn off the Pis on the rover
+	RESTART = 5;  // Reboots the program that receives this message
+}
 
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
@@ -31,6 +52,8 @@ message DriveCommand {
 
 	RoverStatus status = 11;
 	Version version = 12;
+	ProtoColor color = 13;
+	bool blink = 14;
 }
 
 message DriveData {
@@ -72,4 +95,7 @@ message DriveData {
 	float back_right = 18;
 	float middle_right = 19;
 	float front_right = 20;
+
+	ProtoColor color = 21;
+	RoverStatus status = 22;
 }
