@@ -2,6 +2,7 @@
 
 syntax = "proto3";
 import "version.proto";
+import "utils.proto";
 
 enum MotorDirection {
 	MOTOR_DIRECTION_UNDEFINED = 0;
@@ -14,12 +15,6 @@ enum MotorDirection {
 	OPENING = 7;
 	CLOSING = 8;
 	NOT_MOVING = 9;
-}
-
-enum LaserState {
-	LASER_STATE_UNDEFINED = 0;
-	ON = 1;
-	OFF = 2;
 }
 
 message Coordinates {
@@ -90,7 +85,7 @@ message GripperData {
 
 	Version version = 4;
 	int32 servoAngle = 5;
-	LaserState laserState = 6;
+	BoolState laserState = 6;
 }
 
 message GripperCommand {
@@ -110,5 +105,5 @@ message GripperCommand {
 
 	Version version = 9;
 	int32 servoAngle = 10;
-	LaserState laserState = 11;
+	BoolState laserState = 11;
 }
