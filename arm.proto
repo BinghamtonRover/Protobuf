@@ -24,8 +24,8 @@ message Coordinates {
 }
 
 message MotorData {
-	bool is_moving = 1;
-	bool is_limit_switch_pressed = 2;
+	BoolState is_moving = 1;
+	BoolState is_limit_switch_pressed = 2;
 	MotorDirection direction = 3;
 
 	int32 current_step = 4;
