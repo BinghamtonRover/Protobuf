@@ -13,14 +13,6 @@ message Disconnect {
 	Device sender = 1;
 }
 
-/// Update a sensitive setting, such as the rover's status.
-/// 
-/// This message must be triggered manually and the recipient (usually the subsystems Pi)
-/// must respond with the exact same message to confirm its receipt.
-message UpdateSetting {
-	RoverStatus status = 1;
-}
-
 enum Device {
 	DEVICE_UNDEFINED = 0;
 	DASHBOARD = 1;
