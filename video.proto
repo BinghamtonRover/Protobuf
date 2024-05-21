@@ -1,4 +1,4 @@
-// Version: 1.0
+// Version: 1.1
 
 syntax = "proto3";
 import "version.proto";
@@ -22,6 +22,8 @@ enum CameraName {
 	SUBSYSTEM1 = 4;
 	SUBSYSTEM2 = 5;
 	SUBSYSTEM3 = 6;
+	BOTTOM_LEFT = 7;
+	BOTTOM_RIGHT = 8;
 }
 
 /// Details about a specific camera.
@@ -66,6 +68,8 @@ message VideoData {
 	bytes frame = 3;
 
 	Version version = 4;
+
+	string imagePath = 5;
 }
 
 /// Make changes to a camera feed.
@@ -79,4 +83,6 @@ message VideoCommand {
 	CameraDetails details = 2;
 
 	Version version = 3;
+
+	bool takeSnapshot = 4;
 }
