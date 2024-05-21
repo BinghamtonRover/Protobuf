@@ -3,6 +3,7 @@
 syntax = "proto3";
 
 import "status.proto";
+import "utils.proto";
 import "version.proto";
 
 enum ProtoColor {
@@ -10,6 +11,7 @@ enum ProtoColor {
 	RED = 1;
 	GREEN = 2;
 	BLUE = 3;
+	UNLIT = 4;
 }
 
 message DriveCommand {
@@ -39,7 +41,7 @@ message DriveCommand {
 	RoverStatus status = 11;
 	Version version = 12;
 	ProtoColor color = 13;
-	bool blink = 14;
+	BoolState blink = 14;
 }
 
 message DriveData {
