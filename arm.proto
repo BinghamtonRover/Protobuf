@@ -1,4 +1,4 @@
-// Version: 1.1
+// Version: 1.2
 
 syntax = "proto3";
 import "version.proto";
@@ -39,6 +39,9 @@ message MotorCommand {
 
 	// Precise control: Move by radians
 	float move_radians = 2;
+
+	/// An angle to go to. Useful in IK.
+	float angle = 3;
 }
 
 message ArmData {
@@ -66,8 +69,7 @@ message ArmCommand {
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
 	MotorCommand gripper_lift = 6;
 
-	// optional Coordinates ik_target = 7;
-
+	// Can be removed in future versions
 	float ik_x = 7;
 	float ik_y = 8;
 	float ik_z = 9;
