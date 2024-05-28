@@ -70,6 +70,24 @@ message VideoData {
 	Version version = 4;
 
 	string imagePath = 5;
+
+	/// Data for autonomy to make decisions
+	/// Is there an obstacle in the way? Yes or No.
+	BoolState leftObstacle = 5;
+	BoolState centerObstacle = 6;
+	BoolState rightObstacle = 7;
+	BoolState bottomObstacle = 8;
+
+	// Aruco detection state
+	BoolState arucoDetected = 9;
+
+	// Can infer size and distance based on 
+	int32 arucoX_1 = 10;
+	int32 arucoY_1 = 11;
+
+	int32 arucoX_2 = 12;
+	int32 arucoY_2 = 13;
+	 
 }
 
 /// Make changes to a camera feed.
