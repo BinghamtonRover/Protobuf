@@ -1,4 +1,4 @@
-// Version 1.0
+// Version 1.1
 
 syntax = "proto3";
 
@@ -24,6 +24,7 @@ enum ScienceState {
 	SCIENCE_STATE_UNDEFINED = 0;
 	COLLECT_DATA = 1;
 	STOP_COLLECTING = 2;
+	STREAM_DATA = 3;
 }
 
 /// A command for the carousel and funnel to follow.
