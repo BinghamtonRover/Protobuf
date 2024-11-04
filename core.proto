@@ -24,5 +24,6 @@ enum Device {
 	GRIPPER = 7;
 	SCIENCE = 8;
 	DRIVE = 9;
+	RELAY = 10;
 }
 
