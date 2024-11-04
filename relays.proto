@@ -22,6 +22,6 @@ message RelaysData {
     BoolState science = 6;
     BoolState drive = 7;
     BoolState bypass = 8;
-    BoolState softwareOverriden = 9;
+    BoolState mechanicalOverride = 9;
 }
 
