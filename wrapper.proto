@@ -1,11 +1,26 @@
-// Version: 1.0 (not enforced)
+// Version: 1.1 (not enforced)
 
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "version.proto";
+import "core.proto";
+
+
+enum MessageType {
+    HANDSHAKE = 0; // Redundant, same as heartbeat 
+    HEARTBEAT = 1; 
+    DISCONNECT = 3;
+    LOG_MESSAGE = 4;
+	DATA = 5;
+	COMMAND = 6; 
+}
 
 message WrappedMessage {
-	bytes data = 1;
-	string name = 2;
-	google.protobuf.Timestamp timestamp = 3;
+    bytes data = 1;
+    string name = 2; // legacy
+    google.protobuf.Timestamp timestamp = 3;
+    Version version = 4;
+    MessageType type = 5;
+	Device sender = 6;
 }
