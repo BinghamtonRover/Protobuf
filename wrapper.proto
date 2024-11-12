@@ -8,12 +8,11 @@ import "core.proto";
 
 
 enum MessageType {
-    HANDSHAKE = 0; // Redundant, same as heartbeat 
-    HEARTBEAT = 1; 
-    DISCONNECT = 3;
-    LOG_MESSAGE = 4;
-	DATA = 5;
-	COMMAND = 6; 
+    HEARTBEAT = 0; 
+    DISCONNECT = 1;
+    LOG_MESSAGE = 2;
+	DATA = 3;
+	COMMAND = 4; 
 }
 
 message WrappedMessage {
