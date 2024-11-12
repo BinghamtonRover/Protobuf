@@ -20,4 +20,6 @@ message RoverPosition {
 	Orientation orientation = 2;
 
 	Version version = 3;
+
+	bytes rtkMessage = 4;
 }
