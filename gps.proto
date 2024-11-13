@@ -4,9 +4,9 @@ syntax = "proto3";
 import "version.proto";
 
 message GpsCoordinates {
-	float latitude = 1;
-	float longitude = 2;
-	float altitude = 3;
+	double latitude = 1;
+	double longitude = 2;
+	double altitude = 3;
 }
 
 message Orientation {
