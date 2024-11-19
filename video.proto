@@ -86,3 +86,22 @@ message VideoCommand {
 
 	bool takeSnapshot = 4;
 }
+
+message ImageAnalysisCommand {
+	bytes frame = 1;
+}
+
+message ImageAnalysisData {
+	repeated ImageAnalysisObject objects = 1;
+}
+
+message ImageAnalysisObject {
+	string name = 1;
+	ImageAnalysisCoordinates top_left = 1;
+	ImageAnalysisCoordinates bottom_right = 2
+}
+
+message ImageAnalysisCoordinates {
+	int32 x = 1;
+	int32 y = 2;
+}
