@@ -1,0 +1,45 @@
+﻿// Version: 1.0
+
+syntax = "proto3";
+
+import "gps.proto";
+import "motor.proto";
+import "version.proto";
+
+enum AntennaControlMode {
+  ANTENNA_CONTROL_MODE_UNDEFINED = 0;
+  TRACK_ROVER = 1;
+  MANUAL_CONTROL = 2;
+}
+
+message AntennaFirmwareCommand {
+  Version version = 1;
+
+  MotorCommand swivel = 2;
+  bool stop = 3;
+  bool calibrate = 4;
+}
+
+message AntennaFirmwareData {
+  Version version = 1;
+
+  MotorData swivel = 2;
+}
+
+/// Command to control the movement of the MARS antenna
+message BaseStationCommand {
+  Version version = 1;
+
+  AntennaControlMode mode = 2;
+  GpsCoordinates baseStationCoordinates = 3;
+  GpsCoordinates roverCoordinatesOverride = 4;
+  AntennaFirmwareCommand manualCommand = 5;
+}
+
+message BaseStationData {
+  Version version = 1;
+
+  AntennaControlMode mode = 2;
+  AntennaFirmwareData antenna = 3;
+  GpsCoordinates baseStationCoordinates = 4;
+}
