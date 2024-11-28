@@ -3,45 +3,12 @@
 syntax = "proto3";
 import "version.proto";
 import "utils.proto";
+import "motor.proto";
 
-enum MotorDirection {
-	MOTOR_DIRECTION_UNDEFINED = 0;
-	UP = 1;
-	DOWN = 2;
-	LEFT = 3;
-	RIGHT = 4;
-	CLOCKWISE = 5;
-	COUNTER_CLOCKWISE = 6;
-	OPENING = 7;
-	CLOSING = 8;
-	NOT_MOVING = 9;
-}
-
-message Coordinates {
+message MotorCoordinates {
 	float x = 1;
 	float y = 2;
 	float z = 3;
-}
-
-message MotorData {
-	BoolState is_moving = 1;
-	BoolState is_limit_switch_pressed = 2;
-	MotorDirection direction = 3;
-
-	int32 current_step = 4;
-	int32 target_step = 5;
-	float angle = 6;
-}
-
-message MotorCommand {
-	// Debug control: Move by individual steps
-	int32 move_steps = 1;
-
-	// Precise control: Move by radians
-	float move_radians = 2;
-
-	/// An angle to go to. Useful in IK.
-	float angle = 3;
 }
 
 message ArmData {
