@@ -5,7 +5,7 @@ import "version.proto";
 import "utils.proto";
 import "motor.proto";
 
-message MotorCoordinates {
+message Coordinates {
 	float x = 1;
 	float y = 2;
 	float z = 3;

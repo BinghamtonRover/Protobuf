@@ -51,10 +51,10 @@ message BaseStationCommand {
   AntennaControlMode mode = 2;
   GpsCoordinates roverCoordinates = 3;
 
-  GpsCoordinates baseStationCoordinatesOverride = 3;
-  GpsCoordinates roverCoordinatesOverrideOverride = 3;
+  GpsCoordinates baseStationCoordinatesOverride = 4;
+  GpsCoordinates roverCoordinatesOverrideOverride = 5;
 
-  AntennaFirmwareCommand manualCommand = 5;
+  AntennaFirmwareCommand manualCommand = 6;
 }
 
 message BaseStationData {
