@@ -22,4 +22,5 @@ message WrappedMessage {
     Version version = 4;
     MessageType type = 5;
 	Device sender = 6;
+    bool needsReceipt = 7;
 }
