@@ -3,6 +3,7 @@
 syntax = "proto3";
 import "utils.proto";
 import "version.proto";
+import "geometry.proto";
 
 enum CameraStatus {
 	CAMERA_STATUS_UNDEFINED = 0;
@@ -74,6 +75,13 @@ message CameraDetails {
 	int32 stream_height = 16;
 }
 
+message Aruco3DTargetResult {
+	Pose3d bestCameraToTarget = 1;
+	double bestReprojectionError = 2;
+	optional Pose3d alternateCameraToTarget = 3;
+	optional double alternateReprojectionError = 4;
+}
+
 message TrackedTarget {
 	TargetDetectionType detectionType = 1;
 
@@ -85,6 +93,7 @@ message TrackedTarget {
 	int32 centerX = 7;
 	int32 centerY = 8;
 	repeated int32 corners = 9;
+	Aruco3DTargetResult pnpResult = 10;
 }
 
 message DetectionResult {
