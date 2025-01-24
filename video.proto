@@ -45,7 +45,7 @@ message CameraDetails {
 	CameraStatus status = 6;
 
 	bool autofocus = 7;
-	
+
 	int32 zoom = 8;
 
 	int32 pan = 9;
@@ -54,6 +54,17 @@ message CameraDetails {
 
 	int32 focus = 11;
 
+	float diagonal_fov = 12;
+
+	float horizontal_fov = 13;
+
+	float vertical_fov = 14;
+
+	/// The width of the image data streamed
+	int32 stream_width = 15;
+
+	/// The height of the image data streamed
+	int32 stream_height = 16;
 }
 
 /// Reports data about a camera.
@@ -78,7 +89,7 @@ message VideoCommand {
 	string id = 1;
 
 	/// The new details for this camera.
-	/// 
+	///
 	/// If changing [CameraDetails.status], you cannot set it to [CameraStatus.DISCONNECTED].
 	CameraDetails details = 2;
 

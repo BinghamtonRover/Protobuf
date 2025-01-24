@@ -1,0 +1,22 @@
+name: Validate Protobuf
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Install protobuf compiler
+        uses: arduino/setup-protoc@v3
+
+      - name: Validate proto files
+        run: dart gen_dart.dart --test
