@@ -32,9 +32,16 @@ Future<void> installDartPlugin() async {
   }
 }
 
-Future<void> generateProtobuf() async {
+Future<void> generateProtobuf(String inputDir, String output) async {
   const command = "protoc";
-  const args = ["--dart_out=lib/src/generated", "-I", "Protobuf", "Protobuf/*.proto", "google/protobuf/timestamp.proto"];
+  final files = await Directory(inputDir).list().toList();
+  // For some reason, Linux does not like `./*.proto`, so we must list all files
+  final filenames = [
+    for (final file in files)
+      if (file.path.endsWith(".proto"))
+        "$inputDir/${file.path.split("/").last}",
+  ];
+  final args = ["--dart_out=$output", "-I", inputDir, ...filenames, "google/protobuf/timestamp.proto"];
   final result = await Process.run(command, args);
   if (result.exitCode != 0) {
     print("\nError: Could not generate Protobuf");
@@ -43,7 +50,9 @@ Future<void> generateProtobuf() async {
   }
 }
 
-void main() async {
+void main(List<String> args) async {
+  final isTest = args.contains("--test") || args.contains("-t");
+
   print("Checking for protoc...");
   await checkProtoc();
 
@@ -53,7 +62,12 @@ void main() async {
   }
 
   print("Generating Protobuf...");
-  await generateProtobuf();
+  final inputDir = isTest ? "." : "Protobuf";
+  final outputDir = Directory(isTest ? "test_output" : "lib/src/generated");
+  await outputDir.create(recursive: true);
+  await generateProtobuf(inputDir, outputDir.path);
+
+  if (isTest) await outputDir.delete(recursive: true);
 
   print("Done!");
 }
