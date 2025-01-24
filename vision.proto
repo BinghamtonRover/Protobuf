@@ -1,0 +1,37 @@
+// Version: 1.0
+
+syntax = "proto3";
+
+import "geometry.proto";
+import "video.proto";
+
+enum DetectedObjectType {
+	DETECTION_TYPE_UNDEFINED = 0;
+	ARUCO = 1;
+	HAMMER = 2;
+	BOTTLE = 3;
+}
+
+message PnpResult {
+  Pose3d pose = 1;
+  double error = 2;
+}
+
+message DetectedObject {
+  // What was detected
+  DetectedObjectType objectType = 1;
+  int32 arucoTagId = 2;
+  CameraName camera = 3;
+
+  // Where it was detected
+  float xPosition = 4;  // -1 to +1 (left to right)
+  float relativeSize = 5;  // 0 to 1 (percent of frame)
+
+  // Experimental: Use pinhole model to find the object's position
+  float yaw = 6;
+  float pitch = 7;
+
+  // Experimental: Use PnP to determine the 3D pose
+  PnpResult bestPnpResult = 8;
+  PnpResult alternatePnpResult = 9;
+}

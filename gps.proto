@@ -2,6 +2,7 @@
 
 syntax = "proto3";
 import "version.proto";
+import "geometry.proto";
 
 enum RTKMode {
 	RTK_NONE = 0;
@@ -15,12 +16,6 @@ message GpsCoordinates {
 	double altitude = 3;
 
 	RTKMode rtkMode = 4;
-}
-
-message Orientation {
-	float x = 1;
-	float y = 2;
-	float z = 3;
 }
 
 message RoverPosition {
