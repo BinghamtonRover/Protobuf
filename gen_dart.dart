@@ -32,6 +32,10 @@ Future<void> installDartPlugin() async {
   }
 }
 
+extension on FileSystemEntity {
+  String get filename => path.replaceAll(r"\", "/").split("/").last;
+}
+
 Future<void> generateProtobuf(String inputDir, String output) async {
   const command = "protoc";
   final files = await Directory(inputDir).list().toList();
@@ -39,7 +43,7 @@ Future<void> generateProtobuf(String inputDir, String output) async {
   final filenames = [
     for (final file in files)
       if (file.path.endsWith(".proto"))
-        "$inputDir/${file.path.split("/").last}",
+        "$inputDir/${file.filename}",
   ];
   final args = ["--dart_out=$output", "-I", inputDir, ...filenames, "google/protobuf/timestamp.proto"];
   final result = await Process.run(command, args);
