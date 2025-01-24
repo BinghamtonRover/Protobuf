@@ -1,8 +1,9 @@
 // Version: 1.0
 
 syntax = "proto3";
-import "geometry.proto"
-import "video.proto"
+
+import "geometry.proto";
+import "video.proto";
 
 enum DetectedObjectType {
 	DETECTION_TYPE_UNDEFINED = 0;

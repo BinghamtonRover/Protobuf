@@ -1,9 +1,7 @@
 // Version: 1.1
 
 syntax = "proto3";
-import "utils.proto";
 import "version.proto";
-import "geometry.proto";
 
 enum CameraStatus {
 	CAMERA_STATUS_UNDEFINED = 0;
