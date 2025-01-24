@@ -6,8 +6,6 @@ import "status.proto";
 import "utils.proto";
 import "version.proto";
 
-THIS IS A TYPO
-
 enum ProtoColor {
 	PROTO_COLOR_UNDEFINED = 0;
 	RED = 1;
