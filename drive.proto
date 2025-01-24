@@ -16,7 +16,7 @@ enum ProtoColor {
 
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
-	float throttle = 1;  
+	float throttle = 1;
 
 	// Speed of the left wheels, as a percentage of [throttle].
 	float left = 2;
@@ -46,7 +46,7 @@ message DriveCommand {
 
 message DriveData {
 	// The max speed, as a percentage of the rover's possible speed.
-	float throttle = 1;  
+	float throttle = 1;
 
 	// Speed of the left wheels, as a percentage of [throttle].
 	float left = 2;

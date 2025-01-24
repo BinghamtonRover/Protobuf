@@ -1,0 +1,66 @@
+// Version: 1.0
+
+syntax = "proto3";
+
+import "gps.proto";
+import "motor.proto";
+import "version.proto";
+
+/// How the antenna is being controller.
+enum AntennaControlMode {
+  ANTENNA_CONTROL_MODE_UNDEFINED = 0;
+
+  /// The antenna should automatically move to track the rover's position.
+  TRACK_ROVER = 1;
+
+  /// The antenna should only move when controlled manually by the operator.
+  MANUAL_CONTROL = 2;
+}
+
+message AntennaFirmwareCommand {
+  Version version = 1;
+
+  MotorCommand swivel = 2;
+  bool stop = 3;
+  bool calibrate = 4;
+}
+
+message AntennaFirmwareData {
+  Version version = 1;
+
+  MotorData swivel = 2;
+}
+
+/// Command to control the movement of the MARS antenna.
+///
+/// This command has two modes: manual operation or rover tracking.
+/// - When tracking the rover, any GPS signals received by the rover or the base station's internal
+///   GPS will cause it to re-calculate an orientation that ideally faces the rover. In this mode,
+///   manual commands are ignored.
+/// - When in manual mode, all GPS data is ignored and the motor is only moved when the Dashboard
+///   sends a command with a [manualCommand] payload.
+///
+/// When tracking the rover, the Dashboard can override either the base station or rover's position
+/// for testing and debugging. When a new position override is received, the base station will:
+/// - calculate the antenna orientation as if the rover were at this position
+/// - send an [AntennaFirmwareCommand] for this position
+/// - immediately set the [mode] to [AntennaControlMode.MANUAL_CONTROL] to hold the position
+message BaseStationCommand {
+  Version version = 1;
+
+  AntennaControlMode mode = 2;
+  GpsCoordinates roverCoordinates = 3;
+
+  GpsCoordinates baseStationCoordinatesOverride = 4;
+  GpsCoordinates roverCoordinatesOverrideOverride = 5;
+
+  AntennaFirmwareCommand manualCommand = 6;
+}
+
+message BaseStationData {
+  Version version = 1;
+
+  AntennaControlMode mode = 2;
+  AntennaFirmwareData antenna = 3;
+  GpsCoordinates baseStationCoordinates = 4;
+}
