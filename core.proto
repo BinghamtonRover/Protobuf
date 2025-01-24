@@ -28,4 +28,3 @@ enum Device {
 	BASE_STATION = 11;
 	ANTENNA = 12;
 }
-
