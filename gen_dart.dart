@@ -39,6 +39,7 @@ Future<void> generateProtobuf(String inputDir, String output) async {
   if (result.exitCode != 0) {
     print("\nError: Could not generate Protobuf");
     print(result.stderr);
+    print("\nCommand: $command $args");
     exit(3);  // could not generate Protobuf
   }
 }
