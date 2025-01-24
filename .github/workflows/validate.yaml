@@ -18,5 +18,7 @@ jobs:
       - name: Install protobuf compiler
         uses: arduino/setup-protoc@v3
 
+      - run: ls
+
       - name: Validate proto files
         run: dart gen_dart.dart --test
