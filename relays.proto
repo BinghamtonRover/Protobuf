@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "utils.proto";
+
+message RelaysCommand {
+  // Turn the following devices on or off
+  BoolState backLeftMotor = 1;
+  BoolState backRightMotor = 2;
+  BoolState frontLeftMotor = 3;
+  BoolState frontRightMotor = 4;
+  BoolState arm = 5;
+  BoolState science = 6;
+  BoolState drive = 7;
+
+  // Special commands
+  BoolState bypass = 8;
+}
+
+message RelaysData {
+  // Whether the following devices are on or off
+  BoolState backLeftMotor = 1;
+  BoolState backRightMotor = 2;
+  BoolState frontLeftMotor = 3;
+  BoolState frontRightMotor = 4;
+  BoolState arm = 5;
+  BoolState science = 6;
+  BoolState drive = 7;
+
+  // Special data
+  BoolState bypass = 8;
+  BoolState mechanicalOverride = 9;
+}
