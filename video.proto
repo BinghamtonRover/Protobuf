@@ -28,13 +28,6 @@ enum CameraName {
 	BOTTOM_RIGHT = 8;
 }
 
-enum TargetDetectionType {
-	DETECTION_TYPE_UNDEFINED = 0;
-	ARUCO = 1;
-	HAMMER = 2;
-	BOTTLE = 3;
-}
-
 /// Details about a specific camera.
 message CameraDetails {
 	/// The name of the camera.
@@ -54,7 +47,7 @@ message CameraDetails {
 	CameraStatus status = 6;
 
 	bool autofocus = 7;
-	
+
 	int32 zoom = 8;
 
 	int32 pan = 9;
@@ -71,36 +64,9 @@ message CameraDetails {
 
 	/// The width of the image data streamed
 	int32 stream_width = 15;
+
 	/// The height of the image data streamed
 	int32 stream_height = 16;
-}
-
-message Aruco3DTargetResult {
-	Pose3d bestCameraToTarget = 1;
-	double bestReprojectionError = 2;
-	optional Pose3d alternateCameraToTarget = 3;
-	optional double alternateReprojectionError = 4;
-}
-
-message TrackedTarget {
-	TargetDetectionType detectionType = 1;
-
-	int32 tagId = 2;
-	float yaw = 3;
-	float pitch = 4;
-	float area = 5;
-	float areaPercent = 6;
-	int32 centerX = 7;
-	int32 centerY = 8;
-	repeated int32 corners = 9;
-	Aruco3DTargetResult pnpResult = 10;
-}
-
-message DetectionResult {
-	Version version = 1;
-	CameraName camera = 2;
-	BoolState hasAruco = 3;
-	repeated TrackedTarget arucoDetections = 4;
 }
 
 /// Reports data about a camera.
@@ -125,7 +91,7 @@ message VideoCommand {
 	string id = 1;
 
 	/// The new details for this camera.
-	/// 
+	///
 	/// If changing [CameraDetails.status], you cannot set it to [CameraStatus.DISCONNECTED].
 	CameraDetails details = 2;
 

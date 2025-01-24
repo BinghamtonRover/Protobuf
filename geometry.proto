@@ -1,3 +1,5 @@
+// Version 1.0
+
 syntax = "proto3";
 
 message Coordinates {
@@ -13,6 +15,6 @@ message Orientation {
 }
 
 message Pose3d {
-    Coordinates translation = 1;
-    Orientation rotation = 2;
+	Coordinates translation = 1;
+	Orientation rotation = 2;
 }
