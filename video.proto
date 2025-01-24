@@ -1,7 +1,8 @@
-// Version: 1.1
+// Version: 1.3
 
 syntax = "proto3";
 import "version.proto";
+import "utils.proto";
 
 enum CameraStatus {
 	CAMERA_STATUS_UNDEFINED = 0;
@@ -81,6 +82,21 @@ message VideoData {
 	Version version = 4;
 
 	string imagePath = 5;
+
+	/// Data for autonomy to make decisions
+	/// Is there an obstacle in the way? Yes or No.
+	BoolState leftObstacle = 6;
+	BoolState centerObstacle = 7;
+	BoolState rightObstacle = 8;
+	BoolState bottomObstacle = 9;
+
+	// Aruco detection state
+	BoolState arucoDetected = 10;
+
+	// If arucoSize is larger than a certain size (pixels) we have reach it, otherwise head towards it 
+	float arucoSize = 11;
+	/// Normalized value: -1 to 1, -1 is furthest left, 1 is furthest right
+	float arucoPosition = 12;
 }
 
 /// Make changes to a camera feed.
