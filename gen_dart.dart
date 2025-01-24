@@ -34,18 +34,21 @@ Future<void> installDartPlugin() async {
 
 Future<void> generateProtobuf(String inputDir, String output) async {
   const command = "protoc";
-  final args = ["--dart_out=$output", "-I", inputDir, "$inputDir/*.proto", "google/protobuf/timestamp.proto"];
-  final result = await Process.run(command, args, runInShell: true, workingDirectory: Directory.current.path);
+  final files = await Directory(inputDir).list().toList();
+  // For some reason, Linux does not like `./*.proto`, so we must list all files
+  final filenames = [
+    for (final file in files)
+      if (file.path.endsWith(".proto"))
+        "$inputDir/${file.path.split("/").last}",
+  ];
+  final args = ["--dart_out=$output", "-I", inputDir, ...filenames, "google/protobuf/timestamp.proto"];
+  final result = await Process.run(command, args);
   if (result.exitCode != 0) {
     print("\nError: Could not generate Protobuf");
     print(result.stderr);
     print("\nCommand: $command $args");
     exit(3);  // could not generate Protobuf
   }
-}
-
-Future<void> deleteGeneratedOutput() async {
-
 }
 
 void main(List<String> args) async {
