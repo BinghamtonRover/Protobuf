@@ -35,15 +35,23 @@ enum CarouselCommand {
 	FILL_SECTION = 6;
 }
 
+/// A command for the auger to follow
+enum AugerCommand {
+	AUGER_COMMAND_UNDEFINED = 0;
+	AUGER_START = 1;
+	AUGER_STOP = 2;
+}
+
 /// A command to the science subsystem.
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
 	float subsurface_motor = 2;
+	float auger_motor = 3
 
 	// Control over other hardware
-	PumpState pumps = 3;
-	ServoState funnel = 4;
+	PumpState pumps = 4;
+	ServoState funnel = 5;
 	CarouselCommand carousel = 6;	
 
 	// High level commands
