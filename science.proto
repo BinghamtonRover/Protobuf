@@ -44,7 +44,6 @@ message ScienceCommand {
 	// Control over other hardware
 	PumpState pumps = 3;
 	ServoState funnel = 4;
-	ServoState scoop = 5;
 	CarouselCommand carousel = 6;	
 
 	// High level commands
