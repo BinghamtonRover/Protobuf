@@ -1,6 +1,8 @@
-// Version 1.0.0
+// Version 1.0
 
 syntax = "proto3";
+
+import "version.proto";
 
 /// The state of a servo. If undefined, don't open or close.
 enum ServoState {
@@ -55,10 +57,19 @@ message ScienceCommand {
 	CarouselCommand carousel = 6;	
 
 	// High level commands
+<<<<<<< HEAD
 	bool calibrate = 7;
 	bool stop = 8;
 	int32 sample = 9;
 	ScienceState state = 10;
+=======
+	bool calibrate = 8;
+	bool stop = 9;
+	int32 sample = 10;
+	ScienceState state = 11;
+
+	Version version = 12;
+>>>>>>> aa54e55fa8ee7a2561184858587fd903036de509
 }
 
 /// Data coming from the science subsystem.
@@ -71,4 +82,6 @@ message ScienceData {
 	float co2 = 3;
 	float humidity = 4;
 	float temperature = 5;
+	
+	Version version = 6;
 }

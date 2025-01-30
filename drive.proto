@@ -1,10 +1,22 @@
+// Version: 1.2
+
 syntax = "proto3";
 
-import "core.proto";
+import "status.proto";
+import "utils.proto";
+import "version.proto";
+
+enum ProtoColor {
+	PROTO_COLOR_UNDEFINED = 0;
+	RED = 1;
+	GREEN = 2;
+	BLUE = 3;
+	UNLIT = 4;
+}
 
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
-	float throttle = 1;  
+	float throttle = 1;
 
 	// Speed of the left wheels, as a percentage of [throttle].
 	float left = 2;
@@ -27,11 +39,14 @@ message DriveCommand {
 	float rear_tilt = 10;
 
 	RoverStatus status = 11;
+	Version version = 12;
+	ProtoColor color = 13;
+	BoolState blink = 14;
 }
 
 message DriveData {
 	// The max speed, as a percentage of the rover's possible speed.
-	float throttle = 1;  
+	float throttle = 1;
 
 	// Speed of the left wheels, as a percentage of [throttle].
 	float left = 2;
@@ -57,4 +72,18 @@ message DriveData {
 	float battery_voltage = 11;
 	float battery_current = 12;
 	float battery_temperature = 13;
+
+	Version version = 14;
+
+	// Information about each wheel in rpm
+	float back_left = 15;
+	float middle_left = 16;
+	float front_left = 17;
+
+	float back_right = 18;
+	float middle_right = 19;
+	float front_right = 20;
+
+	ProtoColor color = 21;
+	RoverStatus status = 22;
 }

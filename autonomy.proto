@@ -1,6 +1,9 @@
+// Version: 1.0
+
 syntax = "proto3";
 
 import "gps.proto";
+import "version.proto";
 
 enum AutonomyState {
 	AUTONOMY_STATE_UNDEFINED = 0;
@@ -27,6 +30,8 @@ message AutonomyData {
 	repeated GpsCoordinates path = 4;
 	AutonomyTask task = 5;
 	bool crash = 6;
+
+	Version version = 7;
 }
 
 message AutonomyCommand {
@@ -34,4 +39,6 @@ message AutonomyCommand {
 	AutonomyTask task = 2;
 	int32 aruco_id = 3;
 	bool abort = 4;
+
+	Version version = 5;
 }
