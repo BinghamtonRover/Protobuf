@@ -47,7 +47,7 @@ message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
 	float subsurface_motor = 2;
-	float auger_motor = 3
+	float auger_motor = 3;
 
 	// Control over other hardware
 	PumpState pumps = 4;
