@@ -7,7 +7,13 @@ message LidarCartesianPoint {
     float y = 2;
 }
 
+message LidarPolarPoint {
+    float angle = 1;
+    float distance = 2;
+}
+
 message LidarPointCloud {
-    repeated LidarCartesianPoint data = 1;
-    Version version = 2;
+    repeated LidarCartesianPoint cartesian = 1;
+    repeated LidarPolarPoint polar = 2;
+    Version version = 3;
 }
