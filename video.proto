@@ -1,7 +1,8 @@
-// Version: 1.1
+// Version: 1.2
 
 syntax = "proto3";
 import "version.proto";
+import "vision.proto";
 
 enum CameraStatus {
 	CAMERA_STATUS_UNDEFINED = 0;
@@ -81,6 +82,8 @@ message VideoData {
 	Version version = 4;
 
 	string imagePath = 5;
+
+	repeated DetectedObject detectedObjects = 6;
 }
 
 /// Make changes to a camera feed.
