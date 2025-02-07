@@ -79,10 +79,13 @@ message VideoData {
 	/// The latest frame from this camera.
 	bytes frame = 3;
 
+	/// The version of this video data.
 	Version version = 4;
 
+	/// The path that a high-quality screenshot was saved to.
 	string imagePath = 5;
 
+	/// Any objects that were detected in the frame.
 	repeated DetectedObject detectedObjects = 6;
 }
 
