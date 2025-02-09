@@ -36,9 +36,3 @@ message DetectedObject {
   PnpResult bestPnpResult = 10;
   PnpResult alternatePnpResult = 11;
 }
-
-message VisionResult {
-  Version version = 1;
-  CameraName name = 2;
-  repeated DetectedObject objects = 3;
-}
