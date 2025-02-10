@@ -1,4 +1,4 @@
-// Version 1.0 (not enforced)
+// Version 1.0
 syntax = "proto3";
 import "version.proto";
 
