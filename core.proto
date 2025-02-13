@@ -27,4 +27,6 @@ enum Device {
 	RELAY = 10;
 	BASE_STATION = 11;
 	ANTENNA = 12;
+	VISION = 13;
+	LIDAR = 14;
 }
