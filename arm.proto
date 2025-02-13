@@ -1,4 +1,4 @@
-// Version: 1.2
+// Version: 1.3
 
 syntax = "proto3";
 import "version.proto";
@@ -42,6 +42,11 @@ message ArmCommand {
 	Version version = 11;
 }
 
+message AugerData {
+	int32 speedActual = 1;
+	BoolState augerOn = 2;
+}
+
 message GripperData {
 	MotorData lift = 1;
 	MotorData rotate = 2;
@@ -50,6 +55,17 @@ message GripperData {
 	Version version = 4;
 	int32 servoAngle = 5;
 	BoolState laserState = 6;
+
+	AugerData augerData = 7;
+}
+
+message AugerCommand {
+	float augerSpeed = 1;
+
+	// Indicates that [augerSpeed] = 0 is valid, even though 0 usually means no value.
+	bool speedSet = 2;
+
+	BoolState augerOn = 3;
 }
 
 message GripperCommand {
@@ -70,4 +86,6 @@ message GripperCommand {
 	Version version = 9;
 	int32 servoAngle = 10;
 	BoolState laserState = 11;
+
+	AugerCommand auger = 12;
 }
