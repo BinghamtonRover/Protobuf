@@ -5,6 +5,7 @@ syntax = "proto3";
 import "gps.proto";
 import "motor.proto";
 import "version.proto";
+import "utils.proto";
 
 /// How the antenna is being controller.
 enum AntennaControlMode {
@@ -66,4 +67,7 @@ message BaseStationData {
   AntennaControlMode mode = 2;
   AntennaFirmwareData antenna = 3;
   GpsCoordinates baseStationCoordinates = 4;
+
+  // Whether or not the RTK gps is open and being read
+  BoolState rtkConnected = 5;
 }
