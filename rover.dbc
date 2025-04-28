@@ -125,8 +125,8 @@ BO_ 53 Arm_Motor_Move_Data: 2 Vector__XXX
 
 BO_ 54 Arm_Motor_Step_Data: 7 Vector__XXX
 	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
-	SG_ Current_Step : 3|24@1- (1,0) [-8388608|8388608] "" Vector__XXX
-	SG_ Target_Step : 27|24@1- (1,0) [-8388608|8388608] "" Vector__XXX
+	SG_ Current_Step : 3|26@1- (1,0) [-33554432|33554432] "" Vector__XXX
+	SG_ Target_Step : 29|26@1- (1,0) [-33554432|3355443208] "" Vector__XXX
 
 BO_ 55 Arm_Motor_Angle_Data: 5 Vector__XXX
 	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
