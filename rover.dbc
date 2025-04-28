@@ -119,8 +119,8 @@ BO_ 48 Arm_Set_Motor: 8 Vector__XXX
 
 BO_ 53 Arm_Motor_Move_Data: 2 Vector__XXX
 	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
-	SG_ Is_Moving : 3|2@1+ (1,0) [0|3] "" Vector__XXX
-	SG_ Is_Limit_Switch_Pressed : 5|2@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ Is_Moving : 3|2@1+ (1,0) [0|2] "" Vector__XXX
+	SG_ Is_Limit_Switch_Pressed : 5|2@1+ (1,0) [0|2] "" Vector__XXX
 	SG_ Motor_Direction : 7|4@1+ (1,0) [0|9] "" Vector__XXX
 
 BO_ 54 Arm_Motor_Step_Data: 7 Vector__XXX
