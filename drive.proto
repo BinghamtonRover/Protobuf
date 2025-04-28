@@ -14,6 +14,16 @@ enum ProtoColor {
 	UNLIT = 4;
 }
 
+enum DriveMotor {
+	DRIVE_MOTOR_UNDEFINED = 0;
+	FRONT_LEFT = 1;
+	FRONT_RIGHT = 2;
+	MIDDLE_LEFT = 3;
+	MIDDLE_RIGHT = 4;
+	BACK_LEFT = 5;
+	BACK_RIGHT = 6;
+}
+
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
 	float throttle = 1;
