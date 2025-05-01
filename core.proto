@@ -2,10 +2,17 @@
 
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 // Used for a simple handshake between devices.
 message Connect {
 	Device sender = 1;
 	Device receiver = 2;
+}
+
+message Timesync {
+	Device sender = 1;
+	google.protobuf.Timestamp sendTime = 2;
 }
 
 // Notifies the recipient that the sender will no longer be connected.
