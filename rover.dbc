@@ -55,6 +55,16 @@ BO_ 17 Drive_SetLED: 1 Vector__XXX
 	SG_ Color : 0|4@1+ (1,0) [0|8] "" Vector__XXX
 	SG_ Blink : 4|1@1+ (1,0) [0|1] "" Vector__XXX
 
+BO_ 18 Drive_SetSwivel: 7 Vector__XXX
+	SG_ Set_Front_Swivel : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+	SG_ Set_Front_Tilt : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+	SG_ Set_Rear_Swivel : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+	SG_ Set_Rear_Tilt : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+	SG_ Front_Swivel : 4|12@1- (0.044,0) [-90|90] "°" Vector__XXX
+	SG_ Front_Tilt : 16|12@1- (0.044,0) [-90|90] "°" Vector__XXX
+	SG_ Rear_Swivel : 28|12@1- (0.044,0) [-90|90] "°" Vector__XXX
+	SG_ Rear_Tilt : 40|12@1- (0.044,0) [-90|90] "°" Vector__XXX
+
 BO_ 23 Drive_LED: 1 Vector__XXX
 	SG_ Color : 0|4@1+ (1,0) [0|8] "" Vector__XXX
 	SG_ Blink : 4|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -74,6 +84,13 @@ BO_ 24 Drive_Swivel: 6 Vector__XXX
 	SG_ Front_Tilt : 12|12@1- (0.044,0) [-90|90] "°" Vector__XXX
 	SG_ Rear_Swivel : 24|12@1- (0.044,0) [-90|90] "°" Vector__XXX
 	SG_ Rear_Tilt : 36|12@1- (0.044,0) [-90|90] "°" Vector__XXX
+
+BO_ 25 Drive_Motor_Data: 8 Vector__XXX
+	SG_ Motor_Value : 0|3@1+ (1,0) [0|6] "" Vector__XXX
+	SG_ Motor_Position : 3|16@1- (0.1,0) [-3200|3200] "°" Vector__XXX
+	SG_ Motor_Speed : 19|16@1- (10,0) [-320000|320000] "RPM" Vector__XXX
+	SG_ Motor_Current : 35|16@1- (0.01,0) [-60|60] "A" Vector__XXX
+	SG_ Motor_Temperature : 51|8@1- (1,0) [-20|127] "°C" Vector__XXX
 
 BO_ 32 Relay_Set_State: 2 Vector__XXX
 	SG_ Update_Front_Left_Motor : 0|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -100,16 +117,6 @@ BO_ 37 Relay_State: 1 Vector__XXX
 	SG_ Arm : 5|1@1+ (1,0) [0|1] "" Vector__XXX
 	SG_ Science : 6|1@1+ (1,0) [0|1] "" Vector__XXX
 	SG_ Physical_Override : 7|1@1+ (1,0) [0|1] "" Vector__XXX
-
-BO_ 18 Drive_SetSwivel: 7 Vector__XXX
-	SG_ Set_Front_Swivel : 0|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Set_Front_Tilt : 1|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Set_Rear_Swivel : 2|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Set_Rear_Tilt : 3|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Front_Swivel : 4|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Front_Tilt : 16|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Rear_Swivel : 28|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Rear_Tilt : 40|12@1- (0.044,0) [-90|90] "°" Vector__XXX
 
 BO_ 48 Arm_Set_Motor: 8 Vector__XXX
 	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
@@ -138,17 +145,18 @@ BO_ 49 Arm_System_Action: 1 Vector__XXX
 	SG_ Calibrate : 1|1@1+ (1,0) [0|1] "" Vector__XXX
 	SG_ Jab : 2|1@1+ (1,0) [0|1] "" Vector__XXX
 
+CM_ BO_ 0 "Heartbeat sent from the rover";
+CM_ BO_ 1 "Device broadcast message";
 CM_ BO_ 16 "Set Drive Speeds";
 CM_ BO_ 21 "The applied output of the drive motors";
 CM_ BO_ 22 "Information about the battery and current draw";
-CM_ BO_ 0 "Heartbeat sent from the rover";
-CM_ BO_ 1 "Device broadcast message";
 CM_ BO_ 32 "Command to set the state of the relays";
 CM_ BO_ 37 "Data from the relay about the relay state";
 CM_ BO_ 17 "Command to set the Drive LED color";
 CM_ BO_ 18 "Command to set the swivel angles of drive";
 CM_ BO_ 23 "Command to set the LED color on the Drive board";
 CM_ BO_ 24 "Data from the drive board about the swivel angles";
+CM_ BO_ 25 "Data from an individual drive motor";
 CM_ SG_ 48 Motor_Value "Which motor to operate this command on";
 CM_ SG_ 48 Move_Steps "How many steps to move the motor";
 CM_ SG_ 48 Move_Radians "The amount of radians to move the motor";
@@ -173,5 +181,6 @@ BA_ "ProtocolType" "";
 BA_ "BusType" "CAN";
 BA_ "DatabaseCompiler" "CSS ELECTRONICS (WWW.CSSELECTRONICS.COM)";
 BA_ "DatabaseVersion" "1.0.0";
+
 
 
