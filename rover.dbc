@@ -40,8 +40,8 @@ BO_ 0 Rover_Heartbeat: 1 Vector__XXX
 
 BO_ 1 Device_Broadcast: 2 Vector__XXX
 	SG_ Device_Value : 0|5@1+ (1,0) [0|15] "" Vector__XXX
-	SG_ FW_Version_Major : 5|4@1+ (1,0) [0|8] "" Vector__XXX
-	SG_ FW_Version_Minor : 9|4@1+ (1,0) [0|8] "" Vector__XXX
+	SG_ FW_Version_Major : 5|4@1+ (1,0) [1|15] "" Vector__XXX
+	SG_ FW_Version_Minor : 9|4@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 16 Drive_Set_Speeds: 7 Vector__XXX
 	SG_ Should_Set_Left : 0|1@1+ (1,0) [0|1] "" Vector__XXX
