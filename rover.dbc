@@ -74,10 +74,10 @@ BO_ 21 Drive_Applied_Output_Data: 6 Vector__XXX
 	SG_ Left_Speed : 16|16@1- (0.000062,0) [-1|1] "" Vector__XXX
 	SG_ Right_Speed : 32|16@1- (0.000062,0) [-1|1] "" Vector__XXX
 
-BO_ 22 Drive_Battery_Data: 6 Vector__XXX
-	SG_ Voltage : 0|16@1+ (0.00055,0) [0|36] "V" Vector__XXX
-	SG_ Temperature : 16|12@1- (0.09,50) [-40|150] "C" Vector__XXX
-	SG_ Current : 28|16@1+ (0.1,0) [0|30] "A" Vector__XXX
+BO_ 22 Drive_Battery_Data: 5 Vector__XXX
+	SG_ Voltage : 0|10@1+ (0.03548387097,0) [0|36.3] "V" Vector__XXX
+	SG_ Temperature : 10|12@1- (0.09,50) [-40|150] "C" Vector__XXX
+	SG_ Current : 22|16@1+ (0.1,0) [0|30] "A" Vector__XXX
 
 BO_ 24 Drive_Swivel_Data: 6 Vector__XXX
 	SG_ Front_Swivel : 0|12@1- (0.044,0) [-90|90] "°" Vector__XXX
