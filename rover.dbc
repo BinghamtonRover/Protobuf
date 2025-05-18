@@ -93,20 +93,13 @@ BO_ 25 Drive_Motor_Data: 8 Vector__XXX
 	SG_ Motor_Temperature : 51|8@1- (1,0) [-20|127] "°C" Vector__XXX
 
 BO_ 32 Relay_Set_State: 2 Vector__XXX
-	SG_ Update_Front_Left_Motor : 0|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Front_Left_Motor : 1|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Update_Front_Right_Motor : 2|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Front_Right_Motor : 3|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Update_Back_Left_Motor : 4|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Back_Left_Motor : 5|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Update_Back_Right_Motor : 6|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Back_Right_Motor : 7|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Update_Arm : 8|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Arm : 9|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Update_Science : 10|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Science : 11|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Update_Drive : 12|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Drive : 13|1@1+ (1,0) [0|1] "" Vector__XXX
+	SG_ Front_Left_Motor : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+	SG_ Front_Right_Motor : 2|2@1+ (1,0) [0|3] "" Vector__XXX
+	SG_ Back_Left_Motor : 4|2@1+ (1,0) [0|3] "" Vector__XXX
+	SG_ Back_Right_Motor : 6|2@1+ (1,0) [0|3] "" Vector__XXX
+	SG_ Arm : 8|2@1+ (1,0) [0|3] "" Vector__XXX
+	SG_ Science : 10|2@1+ (1,0) [0|3] "" Vector__XXX
+	SG_ Drive : 12|2@1+ (1,0) [0|3] "" Vector__XXX
 
 BO_ 37 Relay_State_Data: 1 Vector__XXX
 	SG_ Front_Left_Motor : 0|1@1+ (1,0) [0|1] "" Vector__XXX
