@@ -6,6 +6,13 @@ import "status.proto";
 import "utils.proto";
 import "version.proto";
 
+enum DriveMotor {
+	FRONT_LEFT = 0;
+	FRONT_RIGHT = 1;
+	REAR_LEFT = 3;
+	REAR_RIGHT = 4;
+}
+
 enum ProtoColor {
 	PROTO_COLOR_UNDEFINED = 0;
 	RED = 1;
