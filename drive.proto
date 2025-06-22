@@ -9,8 +9,10 @@ import "version.proto";
 enum DriveMotor {
 	FRONT_LEFT = 0;
 	FRONT_RIGHT = 1;
-	REAR_LEFT = 3;
-	REAR_RIGHT = 4;
+	MIDDLE_LEFT = 3;
+	MIDDLE_RIGHT = 4;
+	REAR_LEFT = 5;
+	REAR_RIGHT = 6;
 }
 
 enum ProtoColor {
