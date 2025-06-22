@@ -23,5 +23,6 @@ message RelaysData {
     BoolState drive = 7;
     BoolState bypass = 8;
     BoolState mechanicalOverride = 9;
+    float voltageData = 10;
 }
 
