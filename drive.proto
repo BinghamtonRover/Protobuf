@@ -75,6 +75,15 @@ message DriveData {
 	bool has_version;
 	Version version = 14;
 
+	// Information about each wheel in rpm
+	float back_left = 15;
+	float middle_left = 16;
+	float front_left = 17;
+
+	float back_right = 18;
+	float middle_right = 19;
+	float front_right = 20;
+	
 	ProtoColor color = 21;
 	RoverStatus status = 22;
 }
