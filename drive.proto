@@ -15,14 +15,14 @@ enum ProtoColor {
 }
 
 enum MotorErrorCode {
-  NO_FAULT = 0,
-  MOTOR_OVER_TEMP = 1,
-  OVER_CURRENT = 2,
-  OVER_VOLTAGE = 3,
-  UNDER_VOLTAGE = 4,
-  ENCODER_FAULT = 5,
-  MOSFET_OVER_TEMP = 6,
-  UNKNOWN_ERROR = 7
+  NO_FAULT = 0;
+  MOTOR_OVER_TEMP = 1;
+  OVER_CURRENT = 2;
+  OVER_VOLTAGE = 3;
+  UNDER_VOLTAGE = 4;
+  ENCODER_FAULT = 5;
+  MOSFET_OVER_TEMP = 6;
+  UNKNOWN_ERROR = 7;
 }
 
 message DriveCommand {
@@ -56,11 +56,11 @@ message DriveCommand {
 }
 
 message DriveDataContainer {
-  int Id;
-  float speed;
-  float current;
-  int8_t temperature;
-  MotorErrorCode error
+  int32 Id = 1;
+  float speed= 2;
+  float current = 3;
+  int32 temperature = 4;
+  MotorErrorCode error = 5;
 }
 
 message DriveData {
@@ -107,11 +107,11 @@ message DriveData {
 	RoverStatus status = 22;
 	
 	// Contains the Drive Data and Corrsponding CAN ID
-	DriveDataContainer back_left = 23;
-	DriveDataContainer middle_left = 24;
-	DriveDataContainer front_left = 25;
+	DriveDataContainer back_left_motor = 23;
+	DriveDataContainer middle_left_motor = 24;
+	DriveDataContainer front_left_motor = 25;
 
-	DriveDataContainer back_right = 26;
-	DriveDataContainer middle_right = 27;
-	DriveDataContainer front_right = 28;
+	DriveDataContainer back_right_motor = 26;
+	DriveDataContainer middle_right_motor = 27;
+	DriveDataContainer front_right_motor = 28;
 }
