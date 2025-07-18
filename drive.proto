@@ -14,6 +14,17 @@ enum ProtoColor {
 	UNLIT = 4;
 }
 
+enum MotorErrorCode {
+  NO_FAULT = 0,
+  MOTOR_OVER_TEMP = 1,
+  OVER_CURRENT = 2,
+  OVER_VOLTAGE = 3,
+  UNDER_VOLTAGE = 4,
+  ENCODER_FAULT = 5,
+  MOSFET_OVER_TEMP = 6,
+  UNKNOWN_ERROR = 7
+}
+
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
 	float throttle = 1;
@@ -42,6 +53,14 @@ message DriveCommand {
 	Version version = 12;
 	ProtoColor color = 13;
 	BoolState blink = 14;
+}
+
+message DriveDataContainer {
+  int Id;
+  float speed;
+  float current;
+  int8_t temperature;
+  MotorErrorCode error
 }
 
 message DriveData {
@@ -86,4 +105,13 @@ message DriveData {
 
 	ProtoColor color = 21;
 	RoverStatus status = 22;
+	
+	// Contains the Drive Data and Corrsponding CAN ID
+	DriveDataContainer back_left = 23;
+	DriveDataContainer middle_left = 24;
+	DriveDataContainer front_left = 25;
+
+	DriveDataContainer back_right = 26;
+	DriveDataContainer middle_right = 27;
+	DriveDataContainer front_right = 28;
 }
