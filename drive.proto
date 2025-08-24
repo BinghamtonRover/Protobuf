@@ -56,11 +56,10 @@ message DriveCommand {
 }
 
 message DriveMotorData {
-  int32 Id = 1;
-  float speed= 2;
-  float current = 3;
-  int32 temperature = 4;
-  MotorErrorCode error = 5;
+  float speed = 1;
+  float current = 2;
+  int32 temperature = 3;
+  MotorErrorCode error = 4;
 }
 
 message DriveData {
