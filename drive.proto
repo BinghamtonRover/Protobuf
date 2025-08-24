@@ -11,8 +11,8 @@ enum DriveMotor {
 	FRONT_RIGHT = 1;
 	MIDDLE_LEFT = 3;
 	MIDDLE_RIGHT = 4;
-	REAR_LEFT = 5;
-	REAR_RIGHT = 6;
+	BACK_LEFT = 5;
+	BACK_RIGHT = 6;
 }
 
 enum ProtoColor {
