@@ -99,12 +99,12 @@ message DriveData {
 	RoverStatus status = 22;
 	
 	// Contains the DriveMotorData for each corresponding motor
-	DriveMotorData back_left_motor = 23;
+	DriveMotorData front_left_motor = 23;
 	DriveMotorData middle_left_motor = 24;
-	DriveMotorData front_left_motor = 25;
+	DriveMotorData back_left_motor = 25;
 
-	DriveMotorData back_right_motor = 26;
+	DriveMotorData front_right_motor = 26;
 	DriveMotorData middle_right_motor = 27;
-	DriveMotorData front_right_motor = 28;
+	DriveMotorData back_right_motor = 28;
 }
 
