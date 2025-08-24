@@ -55,7 +55,7 @@ message DriveCommand {
 	BoolState blink = 14;
 }
 
-message DriveDataContainer {
+message DriveMotorData {
   int32 Id = 1;
   float speed= 2;
   float current = 3;
@@ -106,12 +106,13 @@ message DriveData {
 	ProtoColor color = 21;
 	RoverStatus status = 22;
 	
-	// Contains the Drive Data and Corrsponding CAN ID
-	DriveDataContainer back_left_motor = 23;
-	DriveDataContainer middle_left_motor = 24;
-	DriveDataContainer front_left_motor = 25;
+	// Contains the DriveMotorData and Corrsponding CAN ID
+	DriveMotorData back_left_motor = 23;
+	DriveMotorData middle_left_motor = 24;
+	DriveMotorData front_left_motor = 25;
 
-	DriveDataContainer back_right_motor = 26;
-	DriveDataContainer middle_right_motor = 27;
-	DriveDataContainer front_right_motor = 28;
+	DriveMotorData back_right_motor = 26;
+	DriveMotorData middle_right_motor = 27;
+	DriveMotorData front_right_motor = 28;
 }
+
