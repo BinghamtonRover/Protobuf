@@ -16,7 +16,7 @@ enum ProtoColor {
 
 enum MotorErrorCode {
   NO_FAULT = 0;
-  MOTOR_OVER_TEMP = 1;
+  OVER_TEMP = 1;
   OVER_CURRENT = 2;
   OVER_VOLTAGE = 3;
   UNDER_VOLTAGE = 4;
@@ -93,19 +93,12 @@ message DriveData {
 
 	Version version = 14;
 
-	// Information about each wheel in rpm
-	float back_left = 15;
-	float middle_left = 16;
-	float front_left = 17;
-
-	float back_right = 18;
-	float middle_right = 19;
-	float front_right = 20;
+	reserved 15 to 20;
 
 	ProtoColor color = 21;
 	RoverStatus status = 22;
 	
-	// Contains the DriveMotorData and Corrsponding CAN ID
+	// Contains the DriveMotorData for each corresponding motor
 	DriveMotorData back_left_motor = 23;
 	DriveMotorData middle_left_motor = 24;
 	DriveMotorData front_left_motor = 25;
