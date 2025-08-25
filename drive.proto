@@ -14,6 +14,17 @@ enum ProtoColor {
 	UNLIT = 4;
 }
 
+enum MotorErrorCode {
+  NO_FAULT = 0;
+  OVER_TEMP = 1;
+  OVER_CURRENT = 2;
+  OVER_VOLTAGE = 3;
+  UNDER_VOLTAGE = 4;
+  ENCODER_FAULT = 5;
+  MOSFET_OVER_TEMP = 6;
+  UNKNOWN_ERROR = 7;
+}
+
 message DriveCommand {
 	// The max speed, as a percentage of the rover's possible speed.
 	float throttle = 1;
@@ -42,6 +53,13 @@ message DriveCommand {
 	Version version = 12;
 	ProtoColor color = 13;
 	BoolState blink = 14;
+}
+
+message DriveMotorData {
+  float speed = 1;
+  float current = 2;
+  int32 temperature = 3;
+  MotorErrorCode error = 4;
 }
 
 message DriveData {
@@ -75,15 +93,18 @@ message DriveData {
 
 	Version version = 14;
 
-	// Information about each wheel in rpm
-	float back_left = 15;
-	float middle_left = 16;
-	float front_left = 17;
-
-	float back_right = 18;
-	float middle_right = 19;
-	float front_right = 20;
+	reserved 15 to 20;
 
 	ProtoColor color = 21;
 	RoverStatus status = 22;
+	
+	// Contains the DriveMotorData for each corresponding motor
+	DriveMotorData front_left_motor = 23;
+	DriveMotorData middle_left_motor = 24;
+	DriveMotorData back_left_motor = 25;
+
+	DriveMotorData front_right_motor = 26;
+	DriveMotorData middle_right_motor = 27;
+	DriveMotorData back_right_motor = 28;
 }
+
