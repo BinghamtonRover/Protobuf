@@ -6,6 +6,14 @@ import "utils.proto";
 import "motor.proto";
 import "geometry.proto";
 
+enum ArmMotor {
+	ARM_MOTOR_UNDEFINED = 0;
+	SWIVEL = 1;
+	SHOULDER = 2;
+	ELBOW = 3;
+	WRIST = 4;
+}
+
 message ArmData {
 	// Arm Commands
 	Coordinates currentPosition = 1;
