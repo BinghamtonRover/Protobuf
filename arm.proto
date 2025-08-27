@@ -19,9 +19,7 @@ message ArmData {
 	MotorData pinch = 8;
 
 	Version version = 9;
-
- 	Version version = 10;
-	int32 servoAngle = 11;
+	int32 servoAngle = 10;
 }
 
 message ArmCommand {
@@ -54,17 +52,6 @@ message ArmCommand {
 	bool close = 14;
 	bool spin = 15;
 
-	Version version = 11;
-}
-
-message GripperData {
-
-}
-
-message GripperCommand {
-
-
-	Version version = 9;
-	int32 servoAngle = 10;
-	BoolState laserState = 11;
+	Version version = 16;
+	int32 servoAngle = 17;
 }
