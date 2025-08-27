@@ -34,6 +34,10 @@ message ArmCommand {
 	MotorCommand shoulder = 4;
 	MotorCommand elbow = 5;
 
+	MotorCommand lift = 6;
+	MotorCommand rotate = 7;
+	MotorCommand pinch = 8;
+
 	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
 	MotorCommand gripper_lift = 6;
