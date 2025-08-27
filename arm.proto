@@ -43,12 +43,16 @@ message ArmCommand {
 	MotorCommand gripper_lift = 6;
 
 	// Can be removed in future versions
-	float ik_x = 7;
-	float ik_y = 8;
-	float ik_z = 9;
+	float ik_x = 9;
+	float ik_y = 10;
+	float ik_z = 11;
 
 	// Custom actions
-	bool jab = 10;
+	bool jab = 12;
+
+ 	bool open = 13;
+	bool close = 14;
+	bool spin = 15;
 
 	Version version = 11;
 }
@@ -59,11 +63,6 @@ message GripperData {
 
 message GripperCommand {
 
-
-	// Custom actions
-	bool open = 6;
-	bool close = 7;
-	bool spin = 8;
 
 	Version version = 9;
 	int32 servoAngle = 10;
