@@ -14,7 +14,11 @@ message ArmData {
 	MotorData shoulder = 4;
 	MotorData elbow = 5;
 
-	Version version = 6;
+ 	MotorData lift = 6;
+	MotorData rotate = 7;
+	MotorData pinch = 8;
+
+	Version version = 9;
 }
 
 message ArmCommand {
