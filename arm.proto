@@ -38,20 +38,20 @@ message ArmCommand {
 
 	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
-	MotorCommand gripper_lift = 6;
+	MotorCommand gripper_lift = ;
 
 	// Can be removed in future versions
-	float ik_x = 9;
-	float ik_y = 10;
-	float ik_z = 11;
+	float ik_x = 10;
+	float ik_y = 11;
+	float ik_z = 12;
 
 	// Custom actions
-	bool jab = 12;
+	bool jab = 13;
 
- 	bool open = 13;
-	bool close = 14;
-	bool spin = 15;
+ 	bool open = 14;
+	bool close = 15;
+	bool spin = 16;
 
-	Version version = 16;
-	int32 servoAngle = 17;
+	Version version = 17;
+	int32 servoAngle = 18;
 }
