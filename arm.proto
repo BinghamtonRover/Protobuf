@@ -38,7 +38,7 @@ message ArmCommand {
 
 	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
-	MotorCommand gripper_lift = ;
+	MotorCommand gripper_lift = 9;
 
 	// Can be removed in future versions
 	float ik_x = 10;
