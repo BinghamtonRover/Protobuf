@@ -58,14 +58,7 @@ message GripperData {
 }
 
 message GripperCommand {
-	// General commands
-	bool stop = 1;
-	bool calibrate = 2;
 
-	// Move individual motors
-	MotorCommand lift = 3;
-	MotorCommand rotate = 4;
-	MotorCommand pinch = 5;
 
 	// Custom actions
 	bool open = 6;
