@@ -1,4 +1,4 @@
-// Version 1.0
+// Version 1.1
 
 syntax = "proto3";
 
@@ -41,13 +41,14 @@ enum CarouselCommand {
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
-	float scoop_motor = 2;
-	float subsurface_motor = 3;
+	float unused_2 = 2;
+	float unused_3 = 3;
+
 
 	// Control over other hardware
 	PumpState pumps = 4;
-	ServoState funnel = 5;
-	ServoState scoop = 6;
+	ServoState unused_5 = 5;
+	ServoState subsurface = 6;
 	CarouselCommand carousel = 7;	
 
 	// High level commands
@@ -71,4 +72,6 @@ message ScienceData {
 	float temperature = 5;
 	
 	Version version = 6;
+	
+	ServoState subsurface = 7;
 }
