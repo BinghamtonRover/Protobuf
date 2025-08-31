@@ -3,31 +3,6 @@ syntax = "proto3";
 import "utils.proto";
 
 message RelaysCommand {
-<<<<<<< HEAD
-    BoolState backLeftMotor = 1;
-    BoolState backRightMotor = 2;
-    BoolState frontLeftMotor = 3;
-    BoolState frontRightMotor = 4;
-    BoolState arm = 5;
-    BoolState science = 6;
-    BoolState drive = 7;
-    BoolState bypass = 8;
-}
-
-message RelaysData {
-    BoolState backLeftMotor = 1;
-    BoolState backRightMotor = 2;
-    BoolState frontLeftMotor = 3;
-    BoolState frontRightMotor = 4;
-    BoolState arm = 5;
-    BoolState science = 6;
-    BoolState drive = 7;
-    BoolState bypass = 8;
-    BoolState mechanicalOverride = 9;
-    float voltageData = 10;
-}
-
-=======
   // Turn the following devices on or off
   BoolState backLeftMotor = 1;
   BoolState backRightMotor = 2;
@@ -50,9 +25,9 @@ message RelaysData {
   BoolState arm = 5;
   BoolState science = 6;
   BoolState drive = 7;
+  float voltage_data = 10;
 
   // Special data
   BoolState bypass = 8;
   BoolState mechanicalOverride = 9;
 }
->>>>>>> main
