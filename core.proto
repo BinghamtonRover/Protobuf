@@ -25,11 +25,8 @@ enum Device {
 	SCIENCE = 8;
 	DRIVE = 9;
 	RELAY = 10;
-<<<<<<< HEAD
-=======
 	BASE_STATION = 11;
 	ANTENNA = 12;
 	VISION = 13;
 	LIDAR = 14;
->>>>>>> main
 }
