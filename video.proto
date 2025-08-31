@@ -1,7 +1,8 @@
-// Version: 1.1
+// Version: 1.2
 
 syntax = "proto3";
 import "version.proto";
+import "vision.proto";
 
 enum CameraStatus {
 	CAMERA_STATUS_UNDEFINED = 0;
@@ -45,7 +46,7 @@ message CameraDetails {
 	CameraStatus status = 6;
 
 	bool autofocus = 7;
-	
+
 	int32 zoom = 8;
 
 	int32 pan = 9;
@@ -54,6 +55,17 @@ message CameraDetails {
 
 	int32 focus = 11;
 
+	float diagonal_fov = 12;
+
+	float horizontal_fov = 13;
+
+	float vertical_fov = 14;
+
+	/// The width of the image data streamed
+	int32 stream_width = 15;
+
+	/// The height of the image data streamed
+	int32 stream_height = 16;
 }
 
 /// Reports data about a camera.
@@ -67,9 +79,14 @@ message VideoData {
 	/// The latest frame from this camera.
 	bytes frame = 3;
 
+	/// The version of this video data.
 	Version version = 4;
 
+	/// The path that a high-quality screenshot was saved to.
 	string imagePath = 5;
+
+	/// Any objects that were detected in the frame.
+	repeated DetectedObject detectedObjects = 6;
 }
 
 /// Make changes to a camera feed.
@@ -78,7 +95,7 @@ message VideoCommand {
 	string id = 1;
 
 	/// The new details for this camera.
-	/// 
+	///
 	/// If changing [CameraDetails.status], you cannot set it to [CameraStatus.DISCONNECTED].
 	CameraDetails details = 2;
 
