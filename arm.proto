@@ -15,6 +15,9 @@ message ArmData {
 	MotorData elbow = 5;
 
 	Version version = 6;
+
+ 	//USS data 
+ 	float distance = 7;
 }
 
 message ArmCommand {
@@ -40,6 +43,9 @@ message ArmCommand {
 	bool jab = 10;
 
 	Version version = 11;
+
+ 	// USS commands
+ 	bool start_USS = 12; 
 }
 
 message GripperData {
