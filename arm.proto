@@ -45,7 +45,7 @@ message ArmCommand {
 	Version version = 11;
 
  	// USS commands
- 	bool start_USS = 12; 
+ 	BoolState start_USS = 12; 
 }
 
 message GripperData {
