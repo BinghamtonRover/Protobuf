@@ -17,7 +17,7 @@ message ArmData {
 	Version version = 6;
 
  	//USS data 
- 	float distance = 7;
+ 	float USS_distance = 7;
 }
 
 message ArmCommand {
