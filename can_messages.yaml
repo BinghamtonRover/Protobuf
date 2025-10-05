@@ -1,0 +1,442 @@
+type_aliases:
+  - boolean:
+      length: 1
+      is_signed: false
+      scale: 1
+      min: 0
+      max: 1
+      offset: 0
+  - bool_state:
+      length: 2
+      is_signed: false
+      scale: 1
+      min: 0
+      max: 3
+      offset: 0
+
+messages:
+  # ROVER MESSAGES
+  - Device_Broadcast:
+      id: 0x00
+      size: 2
+      signals:
+        - Device_Value:
+            comment: "The enum value of the device"
+            length: 5
+            is_signed: false
+            scale: 1
+            min: 0
+            max: 15
+            offset: 0
+        - FW_Version_Major:
+            length: 4
+            is_signed: false
+            scale: 1
+            min: 1
+            max: 15
+            offset: 0
+        - FW_Version_Minor:
+            length: 4
+            is_signed: false
+            scale: 1
+            min: 0
+            max: 15
+            offset: 0
+  - Rover_Heartbeat:
+      id: 0x001
+      size: 1
+      comment: "Heartbeat sent from the rover"
+      signals:
+        - Rover_Status:
+            length: 4
+            is_signed: false
+            scale: 1
+            min: 0
+            max: 5
+            offset: 0
+  # DRIVE MESSAGES
+  - Drive_Set_Speeds:
+      id: 0x101
+      size: 7
+      comment: "Command to set Drive Speeds"
+      signals:
+        - Should_Set_Left:
+            comment: "Whether or not to update the left speeds"
+            type_alias: boolean
+        - Should_Set_Right:
+            comment: "Whether or not to update the right speeds"
+            type_alias: boolean
+        - Should_Set_Throttle:
+            comment: "Whether or not to update the throttle"
+            type_alias: boolean
+        - Left_Speed:
+            length: 16
+            is_signed: true
+            offset: 0
+            min: -1.0
+            max: 1.0
+        - Right_Speed:
+            length: 16
+            is_signed: true
+            offset: 0
+            min: -1.0
+            max: 1.0
+        - Throttle:
+            length: 16
+            is_signed: false
+            offset: 0
+            min: 0.0
+            max: 1.0
+  - Drive_Set_LED:
+      id: 0x102
+      comment: "Command to set the Drive LED color"
+      size: 1
+      signals:
+        - Color:
+            comment: "The enum value of the color"
+            length: 4
+            is_signed: false
+            scale: 1
+            min: 0
+            max: 8
+            offset: 0
+        - Blink:
+            comment: "Whether or not to blink"
+            type_alias: boolean
+  - Drive_Set_Swivel:
+      id: 0x103
+      size: 7
+      comment: "Command to set the swivel angles of drive"
+      signals:
+        - Set_Front_Swivel:
+            type_alias: boolean
+        - Set_Front_Tilt:
+            type_alias: boolean
+        - Set_Rear_Swivel:
+            type_alias: boolean
+        - Set_Rear_Tilt:
+            type_alias: boolean
+        - Front_Swivel:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+        - Front_Tilt:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+        - Rear_Swivel:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+        - Rear_Tilt:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+  - Drive_Applied_Output_Data:
+      id: 0x105
+      size: 6
+      comment: "The applied output of the drive motors"
+      signals:
+        - Throttle:
+            length: 16
+            is_signed: false
+            min: 0.0
+            max: 1.0
+            offset: 0
+        - Left_Speed:
+            length: 16
+            is_signed: true
+            min: -1.0
+            max: 1.0
+            offset: 0
+        - Right_Speed:
+            length: 16
+            is_signed: true
+            min: -1.0
+            max: 1.0
+            offset: 0
+  - Drive_Battery_Data:
+      id: 0x106
+      size: 5
+      comment: "Information about the battery and current draw"
+      signals:
+        - Voltage:
+            # Using 10 bits since the resolution of the analog read
+            # of the voltage sensor is 10
+            length: 10
+            is_signed: false
+            scale: 0.03548387097
+            min: 0.0
+            max: 36.3
+            offset: 0
+            unit: "V"
+        - Temperature:
+            length: 12
+            is_signed: true
+            min: -40
+            max: 150
+            unit: "°C"
+        - Current:
+            length: 16
+            is_signed: false
+            min: 0.0
+            max: 30.0
+            unit: "A"
+  - Drive_LED_Data:
+      id: 0x107
+      size: 1
+      comment: "Data from the drive board about the LED"
+      signals:
+        - Color:
+            comment: "The enum value of the color"
+            length: 4
+            is_signed: false
+            scale: 1
+            min: 0
+            max: 8
+            offset: 0
+        - Blink:
+            comment: "Whether or not the LED is blinking"
+            type_alias: boolean
+  - Drive_Swivel_Data:
+      id: 0x108
+      size: 6
+      comment: "Data from the drive board about the swivel angles"
+      signals:
+        - Front_Swivel:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+        - Front_Tilt:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+        - Rear_Swivel:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+        - Rear_Tilt:
+            length: 12
+            is_signed: true
+            min: -90
+            max: 90
+            offset: 0
+            unit: "°"
+  - Drive_Motor_Data:
+      id: 0x109
+      size: 6
+      comment: "Data from an individual drive motor"
+      signals:
+        - Motor_Value:
+            length: 3
+            is_signed: false
+            scale: 1
+            offset: 0
+            min: 0
+            max: 6
+        - Speed:
+            length: 16
+            is_signed: true
+            scale: 10
+            offset: 0
+            min: -320000
+            max: 320000
+            unit: "RPM"
+        - Current:
+            length: 16
+            is_signed: true
+            scale: 0.1
+            offset: 0
+            min: -60
+            max: 60
+            unit: "A"
+        - Temperature:
+            length: 8
+            is_signed: true
+            scale: 1
+            offset: 0
+            min: -20
+            max: 127
+            unit: "°C"
+        - Error_Code:
+            length: 3
+            is_signed: false
+            scale: 1
+            offset: 0
+            min: 0
+            max: 7
+  # RELAY MESSAGES
+  - Relay_Set_State:
+      id: 0x201
+      size: 2
+      comment: "Command to set the state of the relays"
+      signals:
+        - Front_Left_Motor:
+            type_alias: bool_state
+        - Front_Right_Motor:
+            type_alias: bool_state
+        - Back_Left_Motor:
+            type_alias: bool_state
+        - Back_Right_Motor:
+            type_alias: bool_state
+        - Arm:
+            type_alias: bool_state
+        - Science:
+            type_alias: bool_state
+        - Drive:
+            type_alias: bool_state
+  - Relay_State_Data:
+      id: 0x205
+      size: 1
+      comment: "Data from the relay about the relay state"
+      signals:
+        - Front_Left_Motor:
+            type_alias: boolean
+        - Front_Right_Motor:
+            type_alias: boolean
+        - Back_Left_Motor:
+            type_alias: boolean
+        - Back_Right_Motor:
+            type_alias: boolean
+        - Drive:
+            type_alias: boolean
+        - Arm:
+            type_alias: boolean
+        - Science:
+            type_alias: boolean
+        - Physical_Override:
+            type_alias: boolean
+  # ARM MESSAGES
+  - Arm_Set_Motor:
+      id: 0x301
+      size: 8
+      comment: "Command to operate a specific arm motor"
+      signals:
+        - Motor_Value:
+            comment: "Enum value of the arm motor"
+            length: 3
+            is_signed: false
+            scale: 1
+            offset: 0
+            min: 0
+            max: 7
+        - Move_Steps:
+            length: 24
+            is_signed: true
+            scale: 1
+            offset: 0
+        - Move_Radians:
+            length: 16
+            is_signed: true
+            min: -3.1415
+            max: 3.1415
+            offset: 0
+        - Angle:
+            length: 16
+            is_signed: true
+            min: -3.1415
+            max: 3.1415
+            offset: 0
+  - Arm_Set_System_Action:
+      id: 0x302
+      size: 1
+      signals:
+        - Stop:
+            type_alias: boolean
+        - Calibrate:
+            type_alias: boolean
+        - Jab:
+            type_alias: boolean
+  - Arm_Motor_Move_Data:
+      id: 0x305
+      size: 2
+      comment: "Movement data from an arm motor"
+      signals:
+        - Motor_Value:
+            comment: "Enum value of the arm motor"
+            length: 3
+            is_signed: false
+            scale: 1
+            offset: 0
+            min: 0
+            max: 7
+        - Is_Moving:
+            type_alias: bool_state
+        - Is_Limit_Switch_Pressed:
+            type_alias: bool_state
+        - Motor_Direction:
+            length: 4
+            is_signed: false
+            scale: 1
+            offset: 0
+            min: 0
+            max: 9
+  - Arm_Motor_Step_Data:
+      id: 0x306
+      size: auto
+      comment: "Step data from an arm motor"
+      signals:
+        - Motor_Value:
+            comment: "Enum value of the arm motor"
+            length: 3
+            is_signed: false
+            scale: 1
+            offset: 0
+            min: 0
+            max: 7
+        - Current_Step:
+            length: 28
+            is_signed: true
+            scale: 1
+            offset: 0
+        - Target_Step:
+            length: 28
+            is_signed: true
+            scale: 1
+            offset: 0
+  - Arm_Motor_Angle_Data:
+      id: 0x307
+      size: auto
+      comment: "Angle data from an arm motor"
+      signals:
+        - Motor_Value:
+            comment: "Enum value of the arm motor"
+            length: 3
+            is_signed: false
+            scale: 1
+            offset: 0
+            min: 0
+            max: 7
+        - Current_Angle:
+            length: 16
+            is_signed: true
+            min: -3.14159
+            max: 3.14159
+            offset: 0
+        - Target_Angle:
+            length: 16
+            is_signed: true
+            min: -3.14159
+            max: 3.14159
+            offset: 0

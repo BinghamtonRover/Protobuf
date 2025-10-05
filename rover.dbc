@@ -1,179 +1,178 @@
-VERSION ""
+VERSION "1.0.0"
 
 
 NS_ : 
-		NS_DESC_
-		CM_
-		BA_DEF_
-		BA_
-		VAL_
-		CAT_DEF_
-		CAT_
-		FILTER
-		BA_DEF_DEF_
-		EV_DATA_
-		ENVVAR_DATA_
-		SGTYPE_
-		SGTYPE_VAL_
-		BA_DEF_SGTYPE_
-		BA_SGTYPE_
-		SIG_TYPE_REF_
-		VAL_TABLE_
-		SIG_GROUP_
-		SIG_VALTYPE_
-		SIGTYPE_VALTYPE_
-		BO_TX_BU_
-		BA_DEF_REL_
-		BA_REL_
-		BA_DEF_DEF_REL_
-		BU_SG_REL_
-		BU_EV_REL_
-		BU_BO_REL_
-		SG_MUL_VAL_
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
 
 BS_:
 
-BU_:
+BU_: 
 
-BO_ 1 Rover_Heartbeat: 1 Vector__XXX
-	SG_ Rover_Status : 0|4@1+ (1,0) [0|5] "" Vector__XXX
 
 BO_ 0 Device_Broadcast: 2 Vector__XXX
-	SG_ Device_Value : 0|5@1+ (1,0) [0|15] "" Vector__XXX
-	SG_ FW_Version_Major : 5|4@1+ (1,0) [1|15] "" Vector__XXX
-	SG_ FW_Version_Minor : 9|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Device_Value : 0|5@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ FW_Version_Major : 5|4@1+ (1,0) [1|15] "" Vector__XXX
+ SG_ FW_Version_Minor : 9|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 1 Rover_Heartbeat: 1 Vector__XXX
+ SG_ Rover_Status : 0|4@1+ (1,0) [0|5] "" Vector__XXX
 
 BO_ 257 Drive_Set_Speeds: 7 Vector__XXX
-	SG_ Should_Set_Left : 0|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Should_Set_Right : 1|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Should_Set_Throttle : 2|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Left_Speed : 3|16@1- (0.000062,0) [-1|1] "" Vector__XXX
-	SG_ Right_Speed : 19|16@1- (0.000062,0) [-1|1] "" Vector__XXX
-	SG_ Throttle : 35|16@1+ (0.000016,0) [0|1] "" Vector__XXX
+ SG_ Should_Set_Left : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Should_Set_Right : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Should_Set_Throttle : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Left_Speed : 3|16@1- (3.051850947599719e-05,0.0) [-1.0|1.0] "" Vector__XXX
+ SG_ Right_Speed : 19|16@1- (3.051850947599719e-05,0.0) [-1.0|1.0] "" Vector__XXX
+ SG_ Throttle : 35|16@1+ (1.5259254737998596e-05,0.0) [0.0|1.0] "" Vector__XXX
 
 BO_ 258 Drive_Set_LED: 1 Vector__XXX
-	SG_ Color : 0|4@1+ (1,0) [0|8] "" Vector__XXX
-	SG_ Blink : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Color : 0|4@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ Blink : 4|1@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 259 Drive_Set_Swivel: 7 Vector__XXX
-	SG_ Set_Front_Swivel : 0|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Set_Front_Tilt : 1|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Set_Rear_Swivel : 2|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Set_Rear_Tilt : 3|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Front_Swivel : 4|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Front_Tilt : 16|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Rear_Swivel : 28|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Rear_Tilt : 40|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-
-BO_ 263 Drive_LED_Data: 1 Vector__XXX
-	SG_ Color : 0|4@1+ (1,0) [0|8] "" Vector__XXX
-	SG_ Blink : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Set_Front_Swivel : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Set_Front_Tilt : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Set_Rear_Swivel : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Set_Rear_Tilt : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Front_Swivel : 4|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
+ SG_ Front_Tilt : 16|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
+ SG_ Rear_Swivel : 28|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
+ SG_ Rear_Tilt : 40|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
 
 BO_ 261 Drive_Applied_Output_Data: 6 Vector__XXX
-	SG_ Throttle : 0|16@1+ (0.000016,0) [0|1] "" Vector__XXX
-	SG_ Left_Speed : 16|16@1- (0.000062,0) [-1|1] "" Vector__XXX
-	SG_ Right_Speed : 32|16@1- (0.000062,0) [-1|1] "" Vector__XXX
+ SG_ Throttle : 0|16@1+ (1.5259254737998596e-05,0.0) [0.0|1.0] "" Vector__XXX
+ SG_ Left_Speed : 16|16@1- (3.051850947599719e-05,0.0) [-1.0|1.0] "" Vector__XXX
+ SG_ Right_Speed : 32|16@1- (3.051850947599719e-05,0.0) [-1.0|1.0] "" Vector__XXX
 
 BO_ 262 Drive_Battery_Data: 5 Vector__XXX
-	SG_ Voltage : 0|10@1+ (0.03548387097,0) [0|36.3] "V" Vector__XXX
-	SG_ Temperature : 10|12@1- (0.09,50) [-40|150] "C" Vector__XXX
-	SG_ Current : 22|16@1+ (0.1,0) [0|30] "A" Vector__XXX
+ SG_ Voltage : 0|10@1+ (0.03548387097,0) [0.0|36.3] "V" Vector__XXX
+ SG_ Temperature : 10|12@1- (0.046409379579872984,55.0) [-40|150] "°C" Vector__XXX
+ SG_ Current : 22|16@1+ (0.0004577776421399579,0.0) [0.0|30.0] "A" Vector__XXX
+
+BO_ 263 Drive_LED_Data: 1 Vector__XXX
+ SG_ Color : 0|4@1+ (1,0) [0|8] "" Vector__XXX
+ SG_ Blink : 4|1@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 264 Drive_Swivel_Data: 6 Vector__XXX
-	SG_ Front_Swivel : 0|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Front_Tilt : 12|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Rear_Swivel : 24|12@1- (0.044,0) [-90|90] "°" Vector__XXX
-	SG_ Rear_Tilt : 36|12@1- (0.044,0) [-90|90] "°" Vector__XXX
+ SG_ Front_Swivel : 0|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
+ SG_ Front_Tilt : 12|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
+ SG_ Rear_Swivel : 24|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
+ SG_ Rear_Tilt : 36|12@1- (0.04396678065461651,0.0) [-90|90] "°" Vector__XXX
 
 BO_ 265 Drive_Motor_Data: 6 Vector__XXX
-	SG_ Motor_Value : 0|3@1+ (1,0) [0|6] "" Vector__XXX
-	SG_ Speed : 3|16@1- (10,0) [-320000|320000] "RPM" Vector__XXX
-	SG_ Current : 19|16@1- (0.01,0) [-60|60] "A" Vector__XXX
-	SG_ Temperature : 35|8@1- (1,0) [-20|127] "°C" Vector__XXX
-	SG_ Error_Code : 43|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Motor_Value : 0|3@1+ (1,0) [0|6] "" Vector__XXX
+ SG_ Speed : 3|16@1- (10,0) [-320000|320000] "RPM" Vector__XXX
+ SG_ Current : 19|16@1- (0.1,0) [-60|60] "A" Vector__XXX
+ SG_ Temperature : 35|8@1- (1,0) [-20|127] "°C" Vector__XXX
+ SG_ Error_Code : 43|3@1+ (1,0) [0|7] "" Vector__XXX
 
 BO_ 513 Relay_Set_State: 2 Vector__XXX
-	SG_ Front_Left_Motor : 0|2@1+ (1,0) [0|3] "" Vector__XXX
-	SG_ Front_Right_Motor : 2|2@1+ (1,0) [0|3] "" Vector__XXX
-	SG_ Back_Left_Motor : 4|2@1+ (1,0) [0|3] "" Vector__XXX
-	SG_ Back_Right_Motor : 6|2@1+ (1,0) [0|3] "" Vector__XXX
-	SG_ Arm : 8|2@1+ (1,0) [0|3] "" Vector__XXX
-	SG_ Science : 10|2@1+ (1,0) [0|3] "" Vector__XXX
-	SG_ Drive : 12|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Front_Left_Motor : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Front_Right_Motor : 2|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Back_Left_Motor : 4|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Back_Right_Motor : 6|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Arm : 8|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Science : 10|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Drive : 12|2@1+ (1,0) [0|3] "" Vector__XXX
 
 BO_ 517 Relay_State_Data: 1 Vector__XXX
-	SG_ Front_Left_Motor : 0|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Front_Right_Motor : 1|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Back_Left_Motor : 2|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Back_Right_Motor : 3|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Drive : 4|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Arm : 5|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Science : 6|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Physical_Override : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Front_Left_Motor : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Front_Right_Motor : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Back_Left_Motor : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Back_Right_Motor : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Drive : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Arm : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Science : 6|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Physical_Override : 7|1@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 769 Arm_Set_Motor: 8 Vector__XXX
-	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
-	SG_ Move_Steps : 3|24@1- (1,0) [-8388608|8388608] "" Vector__XXX
-	SG_ Move_Radians : 27|16@1- (0.0000958738,0) [-3.1415|3.1415] "" Vector__XXX
-	SG_ Angle : 43|16@1- (0.0000958738,0) [-3.1415|-3.1415] "" Vector__XXX
-
-BO_ 773 Arm_Motor_Move_Data: 2 Vector__XXX
-	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
-	SG_ Is_Moving : 3|2@1+ (1,0) [0|2] "" Vector__XXX
-	SG_ Is_Limit_Switch_Pressed : 5|2@1+ (1,0) [0|2] "" Vector__XXX
-	SG_ Motor_Direction : 7|4@1+ (1,0) [0|9] "" Vector__XXX
-
-BO_ 774 Arm_Motor_Step_Data: 7 Vector__XXX
-	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
-	SG_ Current_Step : 3|26@1- (1,0) [-33554432|33554432] "" Vector__XXX
-	SG_ Target_Step : 29|26@1- (1,0) [-33554432|3355443208] "" Vector__XXX
-
-BO_ 775 Arm_Motor_Angle_Data: 5 Vector__XXX
-	SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
-	SG_ Current_Angle : 3|16@1- (0.00009587379,0) [-3.14159|3.14159] "" Vector__XXX
-	SG_ Target_Angle : 19|16@1- (0.00009587379,0) [-3.14159|3.14159] "" Vector__XXX
+ SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Move_Steps : 3|24@1- (1,0) [-8388607|8388607] "" Vector__XXX
+ SG_ Move_Radians : 27|16@1- (9.587389751884518e-05,0.0) [-3.1415|3.1415] "" Vector__XXX
+ SG_ Angle : 43|16@1- (9.587389751884518e-05,0.0) [-3.1415|3.1415] "" Vector__XXX
 
 BO_ 770 Arm_Set_System_Action: 1 Vector__XXX
-	SG_ Stop : 0|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Calibrate : 1|1@1+ (1,0) [0|1] "" Vector__XXX
-	SG_ Jab : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Stop : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Calibrate : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Jab : 2|1@1+ (1,0) [0|1] "" Vector__XXX
 
+BO_ 773 Arm_Motor_Move_Data: 2 Vector__XXX
+ SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Is_Moving : 3|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Is_Limit_Switch_Pressed : 5|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Motor_Direction : 7|4@1+ (1,0) [0|9] "" Vector__XXX
+
+BO_ 774 Arm_Motor_Step_Data: 8 Vector__XXX
+ SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Current_Step : 3|28@1- (1,0) [-134217727|134217727] "" Vector__XXX
+ SG_ Target_Step : 31|28@1- (1,0) [-134217727|134217727] "" Vector__XXX
+
+BO_ 775 Arm_Motor_Angle_Data: 5 Vector__XXX
+ SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Current_Angle : 3|16@1- (9.587664418469802e-05,0.0) [-3.14159|3.14159] "" Vector__XXX
+ SG_ Target_Angle : 19|16@1- (9.587664418469802e-05,0.0) [-3.14159|3.14159] "" Vector__XXX
+
+
+
+
+CM_ SG_ 0 Device_Value "The enum value of the device";
 CM_ BO_ 1 "Heartbeat sent from the rover";
-CM_ BO_ 0 "Device broadcast message. This frame ID is masked by (Device ID >> 8) | Broadcast ID";
-CM_ BO_ 257 "Set Drive Speeds";
+CM_ BO_ 257 "Command to set Drive Speeds";
+CM_ SG_ 257 Should_Set_Throttle "Whether or not to update the throttle";
+CM_ SG_ 257 Should_Set_Right "Whether or not to update the right speeds";
+CM_ SG_ 257 Should_Set_Left "Whether or not to update the left speeds";
+CM_ BO_ 258 "Command to set the Drive LED color";
+CM_ SG_ 258 Blink "Whether or not to blink";
+CM_ SG_ 258 Color "The enum value of the color";
+CM_ BO_ 259 "Command to set the swivel angles of drive";
 CM_ BO_ 261 "The applied output of the drive motors";
 CM_ BO_ 262 "Information about the battery and current draw";
-CM_ BO_ 513 "Command to set the state of the relays";
-CM_ BO_ 517 "Data from the relay about the relay state";
-CM_ BO_ 258 "Command to set the Drive LED color";
-CM_ BO_ 259 "Command to set the swivel angles of drive";
-CM_ BO_ 263 "Command to set the LED color on the Drive board";
+CM_ BO_ 263 "Data from the drive board about the LED";
+CM_ SG_ 263 Blink "Whether or not the LED is blinking";
+CM_ SG_ 263 Color "The enum value of the color";
 CM_ BO_ 264 "Data from the drive board about the swivel angles";
 CM_ BO_ 265 "Data from an individual drive motor";
-CM_ SG_ 769 Motor_Value "Which motor to operate this command on";
-CM_ SG_ 769 Move_Steps "How many steps to move the motor";
-CM_ SG_ 769 Move_Radians "The amount of radians to move the motor";
-CM_ SG_ 769 Angle "The angle in radians to set the motor position to";
+CM_ BO_ 513 "Command to set the state of the relays";
+CM_ BO_ 517 "Data from the relay about the relay state";
 CM_ BO_ 769 "Command to operate a specific arm motor";
+CM_ SG_ 769 Motor_Value "Enum value of the arm motor";
 CM_ BO_ 773 "Movement data from an arm motor";
+CM_ SG_ 773 Motor_Value "Enum value of the arm motor";
 CM_ BO_ 774 "Step data from an arm motor";
+CM_ SG_ 774 Motor_Value "Enum value of the arm motor";
 CM_ BO_ 775 "Angle data from an arm motor";
-BA_DEF_ SG_  "SPN" INT 0 524287;
-BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN";
-BA_DEF_  "DatabaseVersion" STRING ;
-BA_DEF_  "BusType" STRING ;
-BA_DEF_  "ProtocolType" STRING ;
-BA_DEF_  "DatabaseCompiler" STRING ;
-BA_DEF_DEF_  "SPN" 0;
-BA_DEF_DEF_  "VFrameFormat" "";
-BA_DEF_DEF_  "DatabaseVersion" "";
-BA_DEF_DEF_  "BusType" "";
-BA_DEF_DEF_  "ProtocolType" "";
-BA_DEF_DEF_  "DatabaseCompiler" "";
-BA_ "ProtocolType" "";
-BA_ "BusType" "CAN";
-BA_ "DatabaseCompiler" "CSS ELECTRONICS (WWW.CSSELECTRONICS.COM)";
-BA_ "DatabaseVersion" "1.0.0";
+CM_ SG_ 775 Motor_Value "Enum value of the arm motor";
+
+
+
+
 
 
 
