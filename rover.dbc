@@ -112,6 +112,9 @@ BO_ 517 Relay_State_Data: 1 Vector__XXX
  SG_ Science : 6|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Physical_Override : 7|1@1+ (1,0) [0|1] "" Vector__XXX
 
+BO_ 518 Relay_Battery_Data: 2 Vector__XXX
+ SG_ Voltage : 0|10@1+ (0.03548387097,0) [0.0|36.3] "V" Vector__XXX
+
 BO_ 769 Arm_Set_Motor: 8 Vector__XXX
  SG_ Motor_Value : 0|3@1+ (1,0) [0|7] "" Vector__XXX
  SG_ Move_Steps : 3|24@1- (1,0) [-8388607|8388607] "" Vector__XXX
@@ -161,6 +164,7 @@ CM_ BO_ 264 "Data from the drive board about the swivel angles";
 CM_ BO_ 265 "Data from an individual drive motor";
 CM_ BO_ 513 "Command to set the state of the relays";
 CM_ BO_ 517 "Data from the relay about the relay state";
+CM_ BO_ 518 "Battery related data from the relay board";
 CM_ BO_ 769 "Command to operate a specific arm motor";
 CM_ SG_ 769 Motor_Value "Enum value of the arm motor";
 CM_ BO_ 773 "Movement data from an arm motor";
