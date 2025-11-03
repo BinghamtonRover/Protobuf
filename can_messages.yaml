@@ -327,6 +327,18 @@ messages:
             type_alias: boolean
         - Physical_Override:
             type_alias: boolean
+  - Relay_Battery_Data:
+      id: 0x206
+      comment: "Battery related data from the relay board"
+      signals:
+        - Voltage:
+            length: 10
+            is_signed: false
+            scale: 0.03548387097
+            min: 0.0
+            max: 36.3
+            offset: 0
+            unit: "V"
   # ARM MESSAGES
   - Arm_Set_Motor:
       id: 0x301
