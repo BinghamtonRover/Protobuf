@@ -18,7 +18,7 @@ message ArmData {
 }
 
 message ArmCommand {
-	// General commands
+	// General commands for arm
 	bool stop = 1;
 	bool calibrate = 2;
 
@@ -40,9 +40,8 @@ message ArmCommand {
 	bool jab = 10;
 
 	Version version = 11;
-}
 
-message GripperData {
+	// Gripper Commands
 	MotorData lift = 1;
 	MotorData rotate = 2;
 	MotorData pinch = 3;
