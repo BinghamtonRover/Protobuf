@@ -50,10 +50,8 @@ message ArmCommand {
 	bool jab = 10;
 
 	Version version = 11;
-}
 
-message GripperCommand {
-	// General commands
+	// General arm commands
 	bool stop = 1;
 	bool calibrate = 2;
 
