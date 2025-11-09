@@ -7,6 +7,7 @@ import "motor.proto";
 import "geometry.proto";
 
 message ArmData {
+	// Arm Commands
 	Coordinates currentPosition = 1;
 	Coordinates targetPosition = 2;
 
@@ -15,6 +16,15 @@ message ArmData {
 	MotorData elbow = 5;
 
 	Version version = 6;
+
+	// Gripper Commands
+	MotorData lift = 1;
+	MotorData rotate = 2;
+	MotorData pinch = 3;
+
+	Version version = 4;
+	int32 servoAngle = 5;
+	BoolState laserState = 6;
 }
 
 message ArmCommand {
@@ -40,15 +50,6 @@ message ArmCommand {
 	bool jab = 10;
 
 	Version version = 11;
-
-	// Gripper Commands
-	MotorData lift = 1;
-	MotorData rotate = 2;
-	MotorData pinch = 3;
-
-	Version version = 4;
-	int32 servoAngle = 5;
-	BoolState laserState = 6;
 }
 
 message GripperCommand {
