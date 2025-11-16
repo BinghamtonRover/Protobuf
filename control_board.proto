@@ -1,8 +1,6 @@
 syntax = "proto3";
 
-import "status.proto";
-import "utils.proto";
-import "version.proto";
+
 import "drive.proto";
 import "relays.proto";
 
