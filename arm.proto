@@ -17,14 +17,17 @@ message ArmData {
 
 	Version version = 6;
 
-	// Gripper Commands
-	MotorData lift = 7;
-	MotorData rotate = 8;
-	MotorData pinch = 9;
+	//USS data 
+ 	float USS_distance = 7;
 
-	Version version = 10;
-	int32 servoAngle = 11;
-	BoolState laserState = 12;
+	// Gripper Commands
+	MotorData lift = 8;
+	MotorData rotate = 9;
+	MotorData pinch = 10;
+
+	Version version = 11;
+	int32 servoAngle = 12;
+	BoolState laserState = 13;
 }
 
 message ArmCommand {
