@@ -25,9 +25,8 @@ message ArmData {
 	MotorData rotate = 9;
 	MotorData pinch = 10;
 
-	Version version = 11;
-	int32 servoAngle = 12;
-	BoolState laserState = 13;
+	int32 servoAngle = 11;
+	BoolState laserState = 12;
 }
 
 message ArmCommand {
@@ -53,22 +52,20 @@ message ArmCommand {
 	bool jab = 10;
 
 	Version version = 11;
-
-	// General arm commands
-	bool stop = 12;
-	bool calibrate = 13;
-
+	
+	// USS commands
+ 	BoolState start_USS = 12; 
+	
 	// Move individual motors
-	MotorCommand lift = 14;
-	MotorCommand rotate = 15;
-	MotorCommand pinch = 16;
+	MotorCommand lift = 13;
+	MotorCommand rotate = 14;
+	MotorCommand pinch = 15;
 
 	// Custom actions
-	bool open = 17;
-	bool close = 18;
-	bool spin = 19;
+	bool open = 16;
+	bool close = 17;
+	bool spin = 18;
 
-	Version version = 20;
-	int32 servoAngle = 21;
-	BoolState laserState = 22;
+	int32 servoAngle = 19;
+	BoolState laserState = 20;
 }
