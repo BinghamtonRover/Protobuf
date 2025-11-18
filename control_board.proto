@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-
 import "drive.proto";
 import "relays.proto";
 
