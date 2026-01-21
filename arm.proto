@@ -57,7 +57,7 @@ message ArmData {
 	Coordinates currentPosition = 1;
 	Coordinates targetPosition = 2;
 
-	MotorData base = 3;  //***CHANGED FROM "BASE"***
+	MotorData base = 3;
 	MotorData shoulder = 4;
 	MotorData elbow = 5;
 
