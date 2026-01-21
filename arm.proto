@@ -35,7 +35,14 @@ message MotorData {
 
 	int32 current_step = 4;
 	int32 target_step = 5;
-	float angle = 6;
+}
+
+message EncoderData {
+	float swivel = 1;
+	float shoulder = 2;
+	float elbow = 3;
+	float roll = 4;
+	float wrist_pitch = 5;
 }
 
 message MotorCommand {
@@ -50,11 +57,13 @@ message ArmData {
 	Coordinates currentPosition = 1;
 	Coordinates targetPosition = 2;
 
-	MotorData base = 3;
+	MotorData base = 3;  //***CHANGED FROM "BASE"***
 	MotorData shoulder = 4;
 	MotorData elbow = 5;
 
 	Version version = 6;
+
+	EncoderData joint_angles = 7;
 }
 
 message ArmCommand {
