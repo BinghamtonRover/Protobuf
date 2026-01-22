@@ -40,12 +40,18 @@ message MotorData {
 	int32 target_step = 5;
 }
 
-message EncoderData {
-	float swivel = 1;
-	float shoulder = 2;
-	float elbow = 3;
-	float roll = 4;
-	float wrist_pitch = 5;
+message JointAngleData {
+	float swivel_st = 1;
+	float shoulder_st = 2;
+	float elbow_st = 3;
+	float roll_st = 4;
+	float wrist_pitch_st = 5;
+
+	float swivel_mt = 6;
+	float shoulder_mt = 7;
+	float elbow_mt = 8;
+	float roll_mt = 9;
+	float wrist_pitch_mt = 10;
 }
 
 message MotorCommand {
@@ -77,7 +83,7 @@ message ArmData {
 
 	int32 servoAngle = 11;
 	BoolState laserState = 12;
-  EncoderData joint_angles = 13;
+  	JointAngleDataajoint_angles = 13;
 }
 
 message ArmCommand {
