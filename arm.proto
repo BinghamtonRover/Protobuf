@@ -19,18 +19,6 @@ enum MotorDirection {
 	NOT_MOVING = 9;
 }
 
-enum LaserState {
-	LASER_STATE_UNDEFINED = 0;
-	ON = 1;
-	OFF = 2;
-}
-
-message Coordinates {
-	float x = 1;
-	float y = 2;
-	float z = 3;
-}
-
 message MotorData {
 	bool is_moving = 1;
 	bool is_limit_switch_pressed = 2;
