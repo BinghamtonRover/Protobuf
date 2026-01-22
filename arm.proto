@@ -83,7 +83,7 @@ message ArmData {
 
 	int32 servoAngle = 11;
 	BoolState laserState = 12;
-  	JointAngleDataajoint_angles = 13;
+  	JointAngleData = 13;
 }
 
 message ArmCommand {
