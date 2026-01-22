@@ -6,28 +6,6 @@ import "utils.proto";
 import "motor.proto";
 import "geometry.proto";
 
-enum MotorDirection {
-	MOTOR_DIRECTION_UNDEFINED = 0;
-	UP = 1;
-	DOWN = 2;
-	LEFT = 3;
-	RIGHT = 4;
-	CLOCKWISE = 5;
-	COUNTER_CLOCKWISE = 6;
-	OPENING = 7;
-	CLOSING = 8;
-	NOT_MOVING = 9;
-}
-
-message MotorData {
-	bool is_moving = 1;
-	bool is_limit_switch_pressed = 2;
-	MotorDirection direction = 3;
-
-	int32 current_step = 4;
-	int32 target_step = 5;
-}
-
 message JointAngleData {
 	float swivel_st = 1;
 	float shoulder_st = 2;
@@ -40,14 +18,6 @@ message JointAngleData {
 	float elbow_mt = 8;
 	float roll_mt = 9;
 	float wrist_pitch_mt = 10;
-}
-
-message MotorCommand {
-	// Debug control: Move by individual steps
-	int32 move_steps = 1;
-
-	// Precise control: Move by radians
-	float move_radians = 2;
 }
 
 message ArmData {
