@@ -3,13 +3,13 @@
 syntax = "proto3";
 
 // Used for a simple handshake between devices.
-message Connect { 
+message Connect {
 	Device sender = 1;
 	Device receiver = 2;
 }
 
 // Notifies the recipient that the sender will no longer be connected.
-message Disconnect { 
+message Disconnect {
 	Device sender = 1;
 }
 
@@ -24,5 +24,9 @@ enum Device {
 	GRIPPER = 7;
 	SCIENCE = 8;
 	DRIVE = 9;
+	RELAY = 10;
+	BASE_STATION = 11;
+	ANTENNA = 12;
+	VISION = 13;
+	LIDAR = 14;
 }
-

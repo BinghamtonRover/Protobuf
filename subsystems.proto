@@ -1,0 +1,18 @@
+// Version 1.0
+syntax = "proto3";
+
+import "core.proto";
+import "version.proto";
+import "utils.proto";
+
+message SubsystemsCommand {
+    bool zeroIMU = 1;
+    Version version = 2;
+}
+
+message SubsystemsData {
+    Version version = 1;
+    repeated Device connectedDevices = 2;
+    BoolState gpsConnected = 3;
+    BoolState imuConnected = 4;
+}
