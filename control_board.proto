@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "drive.proto";
+import "relays.proto";
+
+message ControlBoardCommand {
+  optional DriveCommand drive = 1;
+  optional RelaysCommand relays = 2;
+}
+
+message ControlBoardData {
+  optional DriveData drive = 1;
+  optional RelaysData relays = 2;
+}
+

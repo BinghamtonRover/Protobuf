@@ -116,4 +116,3 @@ message DriveData {
 	DriveMotorData middle_right_motor = 27;
 	DriveMotorData back_right_motor = 28;
 }
-
