@@ -9,9 +9,9 @@ message Coordinates {
 }
 
 message Orientation {
-	float x = 1;
-	float y = 2;
-	float z = 3;
+	float pitch = 1;
+	float yaw = 2;
+	float roll = 3;
 }
 
 message Pose3d {
