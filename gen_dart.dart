@@ -45,7 +45,7 @@ Future<void> generateProtobuf(String inputDir, String output) async {
       if (file.path.endsWith(".proto"))
         "$inputDir/${file.filename}",
   ];
-  final args = ["--dart_out=$output", "-I", inputDir, ...filenames, "google/protobuf/timestamp.proto"];
+  final args = ["--dart_out=$output", "-I", inputDir, ...filenames];
   final result = await Process.run(command, args);
   if (result.exitCode != 0) {
     print("\nError: Could not generate Protobuf");
