@@ -29,4 +29,5 @@ message RelaysData {
   // Special data
   BoolState bypass = 8;
   BoolState mechanicalOverride = 9;
+  float voltage_data = 10;
 }
