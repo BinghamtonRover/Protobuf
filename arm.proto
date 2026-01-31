@@ -53,21 +53,21 @@ message ArmCommand {
 	// Custom actions
 	bool jab = 11;
 
-	Version version = 11;
+	Version version = 12;
 	
 	// USS commands
- 	BoolState start_USS = 12; 
+ 	BoolState start_USS = 13; 
 	
 	// Move individual motors
-	MotorCommand lift = 13;
-	MotorCommand rotate = 14;
-	MotorCommand pinch = 15;
+	MotorCommand lift = 14;
+	MotorCommand rotate = 15;
+	MotorCommand pinch = 16;
 
 	// Custom actions
-	bool open = 16;
-	bool close = 17;
-	bool spin = 18;
+	bool open = 17;
+	bool close = 18;
+	bool spin = 19;
 
-	int32 servoAngle = 19;
-	BoolState laserState = 20;
+	int32 servoAngle = 20;
+	BoolState laserState = 21;
 }
