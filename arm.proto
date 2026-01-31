@@ -1,10 +1,24 @@
-// Version: 1.3
+// Version: 1.4
 
 syntax = "proto3";
 import "version.proto";
 import "utils.proto";
 import "motor.proto";
 import "geometry.proto";
+
+message JointAngleData {
+	float swivel_single = 1;
+	float shoulder_single = 2;
+	float elbow_single = 3;
+	float roll_single = 4;
+	float wrist_pitch_single = 5;
+
+	float swivel_multi = 6;
+	float shoulder_multi = 7;
+	float elbow_multi = 8;
+	float roll_multi = 9;
+	float wrist_pitch_multi = 10;
+}
 
 message ArmData {
 	// Arm Commands
@@ -28,6 +42,7 @@ message ArmData {
 
 	int32 servoAngle = 12;
 	BoolState laserState = 13;
+  JointAngleData joint_angles = 14;
 }
 
 message ArmCommand {
