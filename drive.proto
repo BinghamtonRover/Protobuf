@@ -99,7 +99,6 @@ message DriveData {
 	float battery_current = 12;
 	float battery_temperature = 13;
 
-	bool has_version;
 	Version version = 14;
 
 	// Information about each wheel in rpm
