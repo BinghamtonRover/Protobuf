@@ -8,14 +8,14 @@ message RelaysCommand {
   BoolState backRightMotor = 2;
   BoolState frontLeftMotor = 3;
   BoolState frontRightMotor = 4;
-  BoolState leftDampeningMotor = 9;
-  BoolState rightDampeningMotor = 10;
-  BoolState arm = 5;
-  BoolState science = 6;
-  BoolState drive = 7;
+  BoolState leftDampeningMotor = 5;
+  BoolState rightDampeningMotor = 6;
+  BoolState arm = 6;
+  BoolState science = 7;
+  BoolState drive = 8;
 
   // Special commands
-  BoolState bypass = 8;
+  BoolState bypass = 9;
 }
 
 message RelaysData {
@@ -24,13 +24,13 @@ message RelaysData {
   BoolState backRightMotor = 2;
   BoolState frontLeftMotor = 3;
   BoolState frontRightMotor = 4;
-  BoolState leftDampeningMotor = 10;
-  BoolState rightDampeningMotor = 11;
-  BoolState arm = 5;
-  BoolState science = 6;
-  BoolState drive = 7;
+  BoolState leftDampeningMotor = 5;
+  BoolState rightDampeningMotor = 6;
+  BoolState arm = 6;
+  BoolState science = 7;
+  BoolState drive = 8;
 
   // Special data
-  BoolState bypass = 8;
-  BoolState mechanicalOverride = 9;
+  BoolState bypass = 9;
+  BoolState mechanicalOverride = 10;
 }
