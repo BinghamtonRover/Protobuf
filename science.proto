@@ -1,4 +1,4 @@
-// Version 1.0
+// Version 1.1
 
 syntax = "proto3";
 
@@ -37,26 +37,25 @@ enum CarouselCommand {
 	FILL_SECTION = 6;
 }
 
+
 /// A command to the science subsystem.
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
-	float scoop_motor = 2;
-	float subsurface_motor = 3;
+	float subsurface_motor = 2;
 
 	// Control over other hardware
 	PumpState pumps = 4;
 	ServoState funnel = 5;
-	ServoState scoop = 6;
-	CarouselCommand carousel = 7;	
+	CarouselCommand carousel = 6;	
 
 	// High level commands
-	bool calibrate = 8;
-	bool stop = 9;
-	int32 sample = 10;
-	ScienceState state = 11;
+	bool calibrate = 7;
+	bool stop = 8;
+	int32 sample = 9;
+	ScienceState state = 10;
 
-	Version version = 12;
+	Version version = 11;
 }
 
 /// Data coming from the science subsystem.
@@ -69,6 +68,6 @@ message ScienceData {
 	float co2 = 3;
 	float humidity = 4;
 	float temperature = 5;
-	
+
 	Version version = 6;
 }

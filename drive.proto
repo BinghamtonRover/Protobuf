@@ -1,4 +1,4 @@
-// Version: 1.2
+// Version: 1.3
 
 syntax = "proto3";
 
@@ -102,8 +102,15 @@ message DriveData {
 
 	Version version = 14;
 
-	reserved 15 to 20;
+	// Information about each wheel in rpm
+	float back_left = 15;
+	float middle_left = 16;
+	float front_left = 17;
 
+	float back_right = 18;
+	float middle_right = 19;
+	float front_right = 20;
+	
 	ProtoColor color = 21;
 	RoverStatus status = 22;
 	
@@ -116,4 +123,3 @@ message DriveData {
 	DriveMotorData middle_right_motor = 27;
 	DriveMotorData back_right_motor = 28;
 }
-
