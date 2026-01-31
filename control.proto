@@ -1,18 +1,18 @@
-// Version 1.0
+// Version 1.1
 syntax = "proto3";
 
 import "drive.proto";
 import "relays.proto";
 import "version.proto";
 
-message ControlBoardCommand {
+message ControlCommand {
   Version version = 1;
 
   optional DriveCommand drive = 2;
   optional RelaysCommand relays = 3;
 }
 
-message ControlBoardData {
+message ControlData {
   Version version = 1;
   
   optional DriveData drive = 2;
