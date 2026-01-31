@@ -1,3 +1,4 @@
+// Version 1.0
 syntax = "proto3";
 
 import "utils.proto";
@@ -31,11 +32,11 @@ message RelaysData {
   BoolState frontRightMotor = 5;
   BoolState leftDampeningMotor = 6;
   BoolState rightDampeningMotor = 7;
-  BoolState arm = 7;
-  BoolState science = 8;
-  BoolState drive = 9;
+  BoolState arm = 8;
+  BoolState science = 9;
+  BoolState drive = 10;
 
   // Special data
-  BoolState bypass = 10;
-  BoolState mechanicalOverride = 11;
+  BoolState bypass = 11;
+  BoolState mechanicalOverride = 12;
 }
