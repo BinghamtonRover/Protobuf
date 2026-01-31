@@ -115,5 +115,4 @@ message DriveData {
 	DriveMotorData front_right_motor = 26;
 	DriveMotorData middle_right_motor = 27;
 	DriveMotorData back_right_motor = 28;
-	uint32 cliff_distance = 29;
 }
