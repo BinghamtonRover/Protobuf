@@ -1,4 +1,4 @@
-// Version: 1.2
+// Version: 1.3
 
 syntax = "proto3";
 
@@ -6,12 +6,32 @@ import "status.proto";
 import "utils.proto";
 import "version.proto";
 
+enum DriveMotor {
+	FRONT_LEFT = 0;
+	FRONT_RIGHT = 1;
+	MIDDLE_LEFT = 3;
+	MIDDLE_RIGHT = 4;
+	BACK_LEFT = 5;
+	BACK_RIGHT = 6;
+}
+
 enum ProtoColor {
 	PROTO_COLOR_UNDEFINED = 0;
 	RED = 1;
 	GREEN = 2;
 	BLUE = 3;
 	UNLIT = 4;
+}
+
+enum MotorErrorCode {
+  NO_FAULT = 0;
+  OVER_TEMP = 1;
+  OVER_CURRENT = 2;
+  OVER_VOLTAGE = 3;
+  UNDER_VOLTAGE = 4;
+  ENCODER_FAULT = 5;
+  MOSFET_OVER_TEMP = 6;
+  UNKNOWN_ERROR = 7;
 }
 
 message DriveCommand {
@@ -41,6 +61,13 @@ message DriveCommand {
 	RoverStatus status = 11;
 	ProtoColor color = 13;
 	BoolState blink = 14;
+}
+
+message DriveMotorData {
+  float speed = 1;
+  float current = 2;
+  int32 temperature = 3;
+  MotorErrorCode error = 4;
 }
 
 message DriveData {
@@ -86,4 +113,13 @@ message DriveData {
 	
 	ProtoColor color = 21;
 	RoverStatus status = 22;
+	
+	// Contains the DriveMotorData for each corresponding motor
+	DriveMotorData front_left_motor = 23;
+	DriveMotorData middle_left_motor = 24;
+	DriveMotorData back_left_motor = 25;
+
+	DriveMotorData front_right_motor = 26;
+	DriveMotorData middle_right_motor = 27;
+	DriveMotorData back_right_motor = 28;
 }
