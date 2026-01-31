@@ -59,6 +59,7 @@ message DriveCommand {
 	float rear_tilt = 10;
 
 	RoverStatus status = 11;
+	Version version = 12;
 	ProtoColor color = 13;
 	BoolState blink = 14;
 }
