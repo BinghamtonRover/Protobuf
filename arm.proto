@@ -1,4 +1,4 @@
-// Version: 1.2
+// Version: 1.3
 
 syntax = "proto3";
 import "version.proto";
@@ -14,19 +14,20 @@ message ArmData {
 	MotorData base = 3;
 	MotorData shoulder = 4;
 	MotorData elbow = 5;
+	MotorData roll = 6;
 
-	Version version = 6;
+	Version version = 7;
 
 	//USS data 
- 	float USS_distance = 7;
+ 	float USS_distance = 8;
 
 	// Gripper Commands
-	MotorData lift = 8;
-	MotorData rotate = 9;
-	MotorData pinch = 10;
+	MotorData lift = 9;
+	MotorData rotate = 10;
+	MotorData pinch = 11;
 
-	int32 servoAngle = 11;
-	BoolState laserState = 12;
+	int32 servoAngle = 12;
+	BoolState laserState = 13;
 }
 
 message ArmCommand {
@@ -38,34 +39,35 @@ message ArmCommand {
 	MotorCommand swivel = 3;
 	MotorCommand shoulder = 4;
 	MotorCommand elbow = 5;
+	MotorCommand roll = 6;
 
 	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
-	MotorCommand gripper_lift = 6;
+	MotorCommand gripper_lift = 7;
 
 	// Can be removed in future versions
-	float ik_x = 7;
-	float ik_y = 8;
-	float ik_z = 9;
+	float ik_x = 8;
+	float ik_y = 9;
+	float ik_z = 10;
 
 	// Custom actions
-	bool jab = 10;
+	bool jab = 11;
 
-	Version version = 11;
+	Version version = 12;
 	
 	// USS commands
- 	BoolState start_USS = 12; 
+ 	BoolState start_USS = 13; 
 	
 	// Move individual motors
-	MotorCommand lift = 13;
-	MotorCommand rotate = 14;
-	MotorCommand pinch = 15;
+	MotorCommand lift = 14;
+	MotorCommand rotate = 15;
+	MotorCommand pinch = 16;
 
 	// Custom actions
-	bool open = 16;
-	bool close = 17;
-	bool spin = 18;
+	bool open = 17;
+	bool close = 18;
+	bool spin = 19;
 
-	int32 servoAngle = 19;
-	BoolState laserState = 20;
+	int32 servoAngle = 20;
+	BoolState laserState = 21;
 }
