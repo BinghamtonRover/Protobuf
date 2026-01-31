@@ -7,17 +7,17 @@ import "motor.proto";
 import "geometry.proto";
 
 message JointAngleData {
-	float swivel_st = 1;
-	float shoulder_st = 2;
-	float elbow_st = 3;
-	float roll_st = 4;
-	float wrist_pitch_st = 5;
+	float swivel_single = 1;
+	float shoulder_single = 2;
+	float elbow_single = 3;
+	float roll_single = 4;
+	float wrist_pitch_single = 5;
 
-	float swivel_mt = 6;
-	float shoulder_mt = 7;
-	float elbow_mt = 8;
-	float roll_mt = 9;
-	float wrist_pitch_mt = 10;
+	float swivel_multi = 6;
+	float shoulder_multi = 7;
+	float elbow_multi = 8;
+	float roll_multi = 9;
+	float wrist_pitch_multi = 10;
 }
 
 message ArmData {
