@@ -1,32 +1,43 @@
+// Version 1.1
 syntax = "proto3";
 
 import "utils.proto";
+import "version.proto";
 
 message RelaysCommand {
+  Version version = 1;
+
   // Turn the following devices on or off
-  BoolState backLeftMotor = 1;
-  BoolState backRightMotor = 2;
-  BoolState frontLeftMotor = 3;
-  BoolState frontRightMotor = 4;
-  BoolState arm = 5;
-  BoolState science = 6;
-  BoolState drive = 7;
+  BoolState backLeftMotor = 2;
+  BoolState backRightMotor = 3;
+  BoolState frontLeftMotor = 4;
+  BoolState frontRightMotor = 5;
+  BoolState leftDampeningMotor = 6;
+  BoolState rightDampeningMotor = 7;
+  BoolState arm = 8;
+  BoolState science = 9;
+  BoolState drive = 10;
 
   // Special commands
-  BoolState bypass = 8;
+  BoolState bypass = 11;
 }
 
 message RelaysData {
+  Version version = 1;
+
   // Whether the following devices are on or off
-  BoolState backLeftMotor = 1;
-  BoolState backRightMotor = 2;
-  BoolState frontLeftMotor = 3;
-  BoolState frontRightMotor = 4;
-  BoolState arm = 5;
-  BoolState science = 6;
-  BoolState drive = 7;
+  BoolState backLeftMotor = 2;
+  BoolState backRightMotor = 3;
+  BoolState frontLeftMotor = 4;
+  BoolState frontRightMotor = 5;
+  BoolState leftDampeningMotor = 6;
+  BoolState rightDampeningMotor = 7;
+  BoolState arm = 8;
+  BoolState science = 9;
+  BoolState drive = 10;
 
   // Special data
-  BoolState bypass = 8;
-  BoolState mechanicalOverride = 9;
+  float voltageData = 11;
+  BoolState bypass = 12;
+  BoolState mechanicalOverride = 13;
 }

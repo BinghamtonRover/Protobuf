@@ -1,4 +1,4 @@
-// Version: 1.2
+// Version: 1.3
 
 syntax = "proto3";
 import "version.proto";
@@ -7,6 +7,7 @@ import "motor.proto";
 import "geometry.proto";
 
 message ArmData {
+	// Arm Commands
 	Coordinates currentPosition = 1;
 	Coordinates targetPosition = 2;
 
@@ -16,10 +17,21 @@ message ArmData {
 	MotorData roll = 6;
 
 	Version version = 7;
+
+	//USS data 
+ 	float USS_distance = 8;
+
+	// Gripper Commands
+	MotorData lift = 9;
+	MotorData rotate = 10;
+	MotorData pinch = 11;
+
+	int32 servoAngle = 12;
+	BoolState laserState = 13;
 }
 
 message ArmCommand {
-	// General commands
+	// General commands for arm
 	bool stop = 1;
 	bool calibrate = 2;
 
@@ -41,53 +53,21 @@ message ArmCommand {
 	// Custom actions
 	bool jab = 11;
 
-	Version version = 12;
-}
-
-message AugerData {
-	int32 speedActual = 1;
-	BoolState augerOn = 2;
-}
-
-message GripperData {
-	MotorData lift = 1;
-	MotorData rotate = 2;
-	MotorData pinch = 3;
-
-	Version version = 4;
-	int32 servoAngle = 5;
-	BoolState laserState = 6;
-
-	AugerData augerData = 7;
-}
-
-message AugerCommand {
-	float augerSpeed = 1;
-
-	// Indicates that [augerSpeed] = 0 is valid, even though 0 usually means no value.
-	bool speedSet = 2;
-
-	BoolState augerOn = 3;
-}
-
-message GripperCommand {
-	// General commands
-	bool stop = 1;
-	bool calibrate = 2;
-
+	Version version = 11;
+	
+	// USS commands
+ 	BoolState start_USS = 12; 
+	
 	// Move individual motors
-	MotorCommand lift = 3;
-	MotorCommand rotate = 4;
-	MotorCommand pinch = 5;
+	MotorCommand lift = 13;
+	MotorCommand rotate = 14;
+	MotorCommand pinch = 15;
 
 	// Custom actions
-	bool open = 6;
-	bool close = 7;
-	bool spin = 8;
+	bool open = 16;
+	bool close = 17;
+	bool spin = 18;
 
-	Version version = 9;
-	int32 servoAngle = 10;
-	BoolState laserState = 11;
-
-	AugerCommand auger = 12;
+	int32 servoAngle = 19;
+	BoolState laserState = 20;
 }

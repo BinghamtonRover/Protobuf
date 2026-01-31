@@ -5,6 +5,7 @@ syntax = "proto3";
 import "gps.proto";
 import "motor.proto";
 import "version.proto";
+import "utils.proto";
 
 /// How the antenna is being controller.
 enum AntennaControlMode {
@@ -51,10 +52,13 @@ message BaseStationCommand {
   AntennaControlMode mode = 2;
   GpsCoordinates roverCoordinates = 3;
 
-  GpsCoordinates baseStationCoordinatesOverride = 4;
-  GpsCoordinates roverCoordinatesOverrideOverride = 5;
+  GpsCoordinates baseStationCoordinates = 4;
+  GpsCoordinates roverCoordinatesOverride = 5;
 
   AntennaFirmwareCommand manualCommand = 6;
+
+  // The angle tolerance for auto-tracking, in radians
+  float angleTolerance = 7;
 }
 
 message BaseStationData {
@@ -63,4 +67,7 @@ message BaseStationData {
   AntennaControlMode mode = 2;
   AntennaFirmwareData antenna = 3;
   GpsCoordinates baseStationCoordinates = 4;
+
+  // Whether or not the RTK gps is open and being read
+  BoolState rtkConnected = 5;
 }
