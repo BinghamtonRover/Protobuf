@@ -1,4 +1,4 @@
-// Version 1.0
+// Version 1.1
 syntax = "proto3";
 
 import "utils.proto";
@@ -37,6 +37,7 @@ message RelaysData {
   BoolState drive = 10;
 
   // Special data
-  BoolState bypass = 11;
-  BoolState mechanicalOverride = 12;
+  float voltageData = 11;
+  BoolState bypass = 12;
+  BoolState mechanicalOverride = 13;
 }
