@@ -1,4 +1,4 @@
-// Version 1.0
+// Version 1.1
 
 syntax = "proto3";
 
@@ -69,6 +69,6 @@ message ScienceData {
 	float co2 = 3;
 	float humidity = 4;
 	float temperature = 5;
-	
+
 	Version version = 6;
 }
