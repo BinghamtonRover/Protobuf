@@ -1,4 +1,4 @@
-// Version: 1.2
+// Version: 1.3
 
 syntax = "proto3";
 
@@ -117,4 +117,3 @@ message DriveData {
 	DriveMotorData back_right_motor = 28;
 	uint32 cliff_distance = 29;
 }
-
