@@ -1,32 +1,43 @@
+// Version 1.1
 syntax = "proto3";
 
 import "utils.proto";
+import "version.proto";
 
 message RelaysCommand {
-  // Turn the following devices on or off
-  BoolState backLeftMotor = 1;
-  BoolState backRightMotor = 2;
-  BoolState frontLeftMotor = 3;
-  BoolState frontRightMotor = 4;
-  BoolState arm = 5;
-  BoolState science = 6;
-  BoolState drive = 7;
+	Version version = 1;
 
-  // Special commands
-  BoolState bypass = 8;
+	// Turn the following devices on or off
+	BoolState back_left_motor = 2;
+	BoolState back_right_motor = 3;
+	BoolState front_left_motor = 4;
+	BoolState front_right_motor = 5;
+	BoolState left_dampening_motor = 6;
+	BoolState right_dampening_motor = 7;
+	BoolState arm = 8;
+	BoolState science = 9;
+	BoolState drive = 10;
+
+	// Special commands
+	BoolState bypass = 11;
 }
 
 message RelaysData {
-  // Whether the following devices are on or off
-  BoolState backLeftMotor = 1;
-  BoolState backRightMotor = 2;
-  BoolState frontLeftMotor = 3;
-  BoolState frontRightMotor = 4;
-  BoolState arm = 5;
-  BoolState science = 6;
-  BoolState drive = 7;
+	Version version = 1;
 
-  // Special data
-  BoolState bypass = 8;
-  BoolState mechanicalOverride = 9;
+	// Whether the following devices are on or off
+	BoolState back_left_motor = 2;
+	BoolState back_right_motor = 3;
+	BoolState front_left_motor = 4;
+	BoolState front_right_motor = 5;
+	BoolState left_dampening_motor = 6;
+	BoolState right_dampening_motor = 7;
+	BoolState arm = 8;
+	BoolState science = 9;
+	BoolState drive = 10;
+
+	// Special data
+	float battery_voltage = 13;
+	BoolState bypass = 11;
+	BoolState mechanical_override = 12;
 }

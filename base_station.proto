@@ -9,27 +9,27 @@ import "utils.proto";
 
 /// How the antenna is being controller.
 enum AntennaControlMode {
-  ANTENNA_CONTROL_MODE_UNDEFINED = 0;
+	ANTENNA_CONTROL_MODE_UNDEFINED = 0;
 
-  /// The antenna should automatically move to track the rover's position.
-  TRACK_ROVER = 1;
+	/// The antenna should automatically move to track the rover's position.
+	TRACK_ROVER = 1;
 
-  /// The antenna should only move when controlled manually by the operator.
-  MANUAL_CONTROL = 2;
+	/// The antenna should only move when controlled manually by the operator.
+	MANUAL_CONTROL = 2;
 }
 
 message AntennaFirmwareCommand {
-  Version version = 1;
+	Version version = 1;
 
-  MotorCommand swivel = 2;
-  bool stop = 3;
-  bool calibrate = 4;
+	MotorCommand swivel = 2;
+	bool stop = 3;
+	bool calibrate = 4;
 }
 
 message AntennaFirmwareData {
-  Version version = 1;
+	Version version = 1;
 
-  MotorData swivel = 2;
+	MotorData swivel = 2;
 }
 
 /// Command to control the movement of the MARS antenna.
@@ -39,7 +39,7 @@ message AntennaFirmwareData {
 ///   GPS will cause it to re-calculate an orientation that ideally faces the rover. In this mode,
 ///   manual commands are ignored.
 /// - When in manual mode, all GPS data is ignored and the motor is only moved when the Dashboard
-///   sends a command with a [manualCommand] payload.
+///   sends a command with a [manual_command] payload.
 ///
 /// When tracking the rover, the Dashboard can override either the base station or rover's position
 /// for testing and debugging. When a new position override is received, the base station will:
@@ -47,27 +47,27 @@ message AntennaFirmwareData {
 /// - send an [AntennaFirmwareCommand] for this position
 /// - immediately set the [mode] to [AntennaControlMode.MANUAL_CONTROL] to hold the position
 message BaseStationCommand {
-  Version version = 1;
+	Version version = 1;
 
-  AntennaControlMode mode = 2;
-  GpsCoordinates roverCoordinates = 3;
+	AntennaControlMode mode = 2;
+	GpsCoordinates rover_coordinates = 3;
 
-  GpsCoordinates baseStationCoordinates = 4;
-  GpsCoordinates roverCoordinatesOverride = 5;
+	GpsCoordinates base_station_coordinates = 4;
+	GpsCoordinates rover_coordinates_override = 5;
 
-  AntennaFirmwareCommand manualCommand = 6;
+	AntennaFirmwareCommand manual_command = 6;
 
-  // The angle tolerance for auto-tracking, in radians
-  float angleTolerance = 7;
+	// The angle tolerance for auto-tracking, in radians
+	float angle_tolerance = 7;
 }
 
 message BaseStationData {
-  Version version = 1;
+	Version version = 1;
 
-  AntennaControlMode mode = 2;
-  AntennaFirmwareData antenna = 3;
-  GpsCoordinates baseStationCoordinates = 4;
+	AntennaControlMode mode = 2;
+	AntennaFirmwareData antenna = 3;
+	GpsCoordinates base_station_coordinates = 4;
 
-  // Whether or not the RTK gps is open and being read
-  BoolState rtkConnected = 5;
+	// Whether or not the RTK gps is open and being read
+	BoolState rtk_connected = 5;
 }

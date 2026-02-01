@@ -12,27 +12,27 @@ enum DetectedObjectType {
 }
 
 message PnpResult {
-  Pose3d cameraToTarget = 1;
-  double reprojectionError = 2;
+	Pose3d camera_to_target = 1;
+	double reprojection_error = 2;
 }
 
 message DetectedObject {
-  // What was detected
-  DetectedObjectType objectType = 1;
-  int32 arucoTagId = 2;
+	// What was detected
+	DetectedObjectType object_type = 1;
+	int32 aruco_tag_id = 2;
 
-  // Where it was detected
-  float xPosition = 4;  // -1 to +1 (left to right)
-  float relativeSize = 5;  // 0 to 1 (percent of frame)
+	// Where it was detected
+	float x_position = 4;  // -1 to +1 (left to right)
+	float relative_size = 5;  // 0 to 1 (percent of frame)
 
-  int32 centerX = 6;
-  int32 centerY = 7;
+	int32 center_x = 6;
+	int32 center_y = 7;
 
-  // Experimental: Use pinhole camera model to find the object's position
-  float yaw = 8;
-  float pitch = 9;
+	// Experimental: Use pinhole camera model to find the object's position
+	float yaw = 8;
+	float pitch = 9;
 
-  // Experimental: Use PnP to determine the 3D pose
-  PnpResult bestPnpResult = 10;
-  PnpResult alternatePnpResult = 11;
+	// Experimental: Use PnP to determine the 3D pose
+	PnpResult best_pnp_result = 10;
+	PnpResult alternate_pnp_result = 11;
 }
