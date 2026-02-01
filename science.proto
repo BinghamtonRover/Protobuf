@@ -42,20 +42,20 @@ enum CarouselCommand {
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
-	float subsurface_motor = 2;
+	float subsurface_motor = 3;
 
 	// Control over other hardware
 	PumpState pumps = 4;
 	ServoState funnel = 5;
-	CarouselCommand carousel = 6;	
+	CarouselCommand carousel = 7;
 
 	// High level commands
-	bool calibrate = 7;
-	bool stop = 8;
-	int32 sample = 9;
-	ScienceState state = 10;
+	bool calibrate = 8;
+	bool stop = 9;
+	int32 sample = 10;
+	ScienceState state = 11;
 
-	Version version = 11;
+	Version version = 12;
 }
 
 /// Data coming from the science subsystem.
