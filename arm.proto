@@ -22,27 +22,27 @@ message JointAngleData {
 
 message ArmData {
 	// Arm Commands
-	Coordinates currentPosition = 1;
-	Coordinates targetPosition = 2;
+	Coordinates current_position = 1;
+	Coordinates target_position = 2;
 
 	MotorData base = 3;
 	MotorData shoulder = 4;
 	MotorData elbow = 5;
-	MotorData roll = 6;
+	MotorData roll = 13;
 
-	Version version = 7;
+	Version version = 6;
 
 	//USS data 
- 	float USS_distance = 8;
+ 	float uss_distance = 7;
 
 	// Gripper Commands
-	MotorData lift = 9;
-	MotorData rotate = 10;
-	MotorData pinch = 11;
+	MotorData lift = 8;
+	MotorData rotate = 9;
+	MotorData pinch = 10;
 
-	int32 servoAngle = 12;
-	BoolState laserState = 13;
-  JointAngleData joint_angles = 14;
+	int32 servo_angle = 11;
+	BoolState laser_state = 12;
+	JointAngleData joint_angles = 14;
 }
 
 message ArmCommand {
@@ -54,35 +54,35 @@ message ArmCommand {
 	MotorCommand swivel = 3;
 	MotorCommand shoulder = 4;
 	MotorCommand elbow = 5;
-	MotorCommand roll = 6;
+	MotorCommand roll = 21;
 
 	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
-	MotorCommand gripper_lift = 7;
+	MotorCommand gripper_lift = 6;
 
 	// Can be removed in future versions
-	float ik_x = 8;
-	float ik_y = 9;
-	float ik_z = 10;
+	float ik_x = 7;
+	float ik_y = 8;
+	float ik_z = 9;
 
 	// Custom actions
-	bool jab = 11;
+	bool jab = 10;
 
-	Version version = 12;
+	Version version = 11;
 	
 	// USS commands
- 	BoolState start_USS = 13; 
+ 	BoolState start_uss = 12; 
 	
 	// Move individual motors
-	MotorCommand lift = 14;
-	MotorCommand rotate = 15;
-	MotorCommand pinch = 16;
+	MotorCommand lift = 13;
+	MotorCommand rotate = 14;
+	MotorCommand pinch = 15;
 
 	// Custom actions
-	bool open = 17;
-	bool close = 18;
-	bool spin = 19;
+	bool open = 16;
+	bool close = 17;
+	bool spin = 18;
 
-	int32 servoAngle = 20;
-	BoolState laserState = 21;
+	int32 servo_angle = 19;
+	BoolState laser_state = 20;
 }

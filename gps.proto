@@ -15,7 +15,7 @@ message GpsCoordinates {
 	double longitude = 2;
 	double altitude = 3;
 
-	RTKMode rtkMode = 4;
+	RTKMode rtk_mode = 4;
 }
 
 message RoverPosition {
@@ -24,5 +24,5 @@ message RoverPosition {
 
 	Version version = 3;
 
-	bytes rtkMessage = 4;
+	bytes rtk_message = 4;
 }

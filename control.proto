@@ -6,16 +6,15 @@ import "relays.proto";
 import "version.proto";
 
 message ControlCommand {
-  Version version = 1;
+	Version version = 1;
 
-  optional DriveCommand drive = 2;
-  optional RelaysCommand relays = 3;
+	optional DriveCommand drive = 2;
+	optional RelaysCommand relays = 3;
 }
 
 message ControlData {
-  Version version = 1;
-  
-  optional DriveData drive = 2;
-  optional RelaysData relays = 3;
+	Version version = 1;
+	
+	optional DriveData drive = 2;
+	optional RelaysData relays = 3;
 }
-
