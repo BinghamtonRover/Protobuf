@@ -3,17 +3,17 @@ syntax = "proto3";
 import "version.proto";
 
 message LidarCartesianPoint {
-    float x = 1;
-    float y = 2;
+	float x = 1;
+	float y = 2;
 }
 
 message LidarPolarPoint {
-    float angle = 1;
-    float distance = 2;
+	float angle = 1;
+	float distance = 2;
 }
 
 message LidarPointCloud {
-    repeated LidarCartesianPoint cartesian = 1;
-    repeated LidarPolarPoint polar = 2;
-    Version version = 3;
+	repeated LidarCartesianPoint cartesian = 1;
+	repeated LidarPolarPoint polar = 2;
+	Version version = 3;
 }
