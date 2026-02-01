@@ -83,10 +83,10 @@ message VideoData {
 	Version version = 4;
 
 	/// The path that a high-quality screenshot was saved to.
-	string imagePath = 5;
+	string image_path = 5;
 
 	/// Any objects that were detected in the frame.
-	repeated DetectedObject detectedObjects = 6;
+	repeated DetectedObject detected_objects = 6;
 }
 
 /// Make changes to a camera feed.
@@ -101,5 +101,5 @@ message VideoCommand {
 
 	Version version = 3;
 
-	bool takeSnapshot = 4;
+	bool take_snapshot = 4;
 }

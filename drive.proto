@@ -1,4 +1,4 @@
-// Version: 1.2
+// Version: 1.3
 
 syntax = "proto3";
 
@@ -24,14 +24,14 @@ enum ProtoColor {
 }
 
 enum MotorErrorCode {
-  NO_FAULT = 0;
-  OVER_TEMP = 1;
-  OVER_CURRENT = 2;
-  OVER_VOLTAGE = 3;
-  UNDER_VOLTAGE = 4;
-  ENCODER_FAULT = 5;
-  MOSFET_OVER_TEMP = 6;
-  UNKNOWN_ERROR = 7;
+	NO_FAULT = 0;
+	OVER_TEMP = 1;
+	OVER_CURRENT = 2;
+	OVER_VOLTAGE = 3;
+	UNDER_VOLTAGE = 4;
+	ENCODER_FAULT = 5;
+	MOSFET_OVER_TEMP = 6;
+	UNKNOWN_ERROR = 7;
 }
 
 message DriveCommand {
@@ -65,10 +65,10 @@ message DriveCommand {
 }
 
 message DriveMotorData {
-  float speed = 1;
-  float current = 2;
-  int32 temperature = 3;
-  MotorErrorCode error = 4;
+	float speed = 1;
+	float current = 2;
+	int32 temperature = 3;
+	MotorErrorCode error = 4;
 }
 
 message DriveData {
@@ -102,8 +102,15 @@ message DriveData {
 
 	Version version = 14;
 
-	reserved 15 to 20;
+	// Information about each wheel in rpm
+	float back_left = 15;
+	float middle_left = 16;
+	float front_left = 17;
 
+	float back_right = 18;
+	float middle_right = 19;
+	float front_right = 20;
+	
 	ProtoColor color = 21;
 	RoverStatus status = 22;
 	
@@ -116,4 +123,3 @@ message DriveData {
 	DriveMotorData middle_right_motor = 27;
 	DriveMotorData back_right_motor = 28;
 }
-

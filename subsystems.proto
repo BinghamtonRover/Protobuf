@@ -6,13 +6,13 @@ import "version.proto";
 import "utils.proto";
 
 message SubsystemsCommand {
-    bool zeroIMU = 1;
-    Version version = 2;
+	bool zero_imu = 1;
+	Version version = 2;
 }
 
 message SubsystemsData {
-    Version version = 1;
-    repeated Device connectedDevices = 2;
-    BoolState gpsConnected = 3;
-    BoolState imuConnected = 4;
+	Version version = 1;
+	repeated Device connected_devices = 2;
+	BoolState gps_connected = 3;
+	BoolState imu_connected = 4;
 }

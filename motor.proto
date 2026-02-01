@@ -22,7 +22,7 @@ message MotorData {
 	int32 current_step = 4;
 	int32 target_step = 5;
 	float current_angle = 6;
-  float target_angle = 7;
+	float target_angle = 7;
 }
 
 message MotorCommand {
