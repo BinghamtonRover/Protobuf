@@ -20,6 +20,21 @@ message JointAngleData {
 	float wrist_pitch_multi = 10;
 }
 
+message WristData {
+  // Virtual joint state (what the subsystem thinks pitch/roll are).
+  float pitch_angle = 1;
+  float roll_angle  = 2;
+
+  MotorData motorA = 3;
+  MotorData motorB = 4;
+
+  // Overall health/status flags
+  BoolState is_moving = 5;
+  BoolState is_calibrated = 6;
+
+  Version version = 7;
+}
+
 message ArmData {
 	// Arm Commands
 	Coordinates current_position = 1;
@@ -36,8 +51,9 @@ message ArmData {
  	float uss_distance = 7;
 
 	// Gripper Commands
-	MotorData lift = 8;
-	MotorData rotate = 9;
+	// MotorData lift = 8;
+	// MotorData rotate = 9;
+	WristData wrist = 15;
 	MotorData pinch = 10;
 
 	int32 servo_angle = 11;
@@ -56,21 +72,6 @@ message WristCommand {
   MotorCommand roll  = 4;
 
   Version version = 5;
-}
-
-message WristData {
-  // Virtual joint state (what the subsystem thinks pitch/roll are).
-  float pitch_angle = 1;
-  float roll_angle  = 2;
-
-  MotorData motorA = 3;
-  MotorData motorB = 4;
-
-  // Overall health/status flags
-  BoolState is_moving = 5;
-  BoolState is_calibrated = 6;
-
-  Version version = 7;
 }
 
 message ArmCommand {
@@ -102,8 +103,9 @@ message ArmCommand {
  	BoolState start_uss = 12; 
 	
 	// Move individual motors
-	MotorCommand lift = 13;
-	MotorCommand rotate = 14;
+	// MotorCommand lift = 13;
+	// MotorCommand rotate = 14;
+	WristCommand wrist = 21;
 	MotorCommand pinch = 15;
 
 	// Custom actions
