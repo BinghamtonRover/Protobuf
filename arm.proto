@@ -105,7 +105,7 @@ message ArmCommand {
 	// Move individual motors
 	// MotorCommand lift = 13;
 	// MotorCommand rotate = 14;
-	WristCommand wrist = 21;
+	WristCommand wrist = 22;
 	MotorCommand pinch = 15;
 
 	// Custom actions
