@@ -51,8 +51,8 @@ message ArmData {
  	float uss_distance = 7;
 
 	// Gripper Commands
-	// MotorData lift = 8;
-	// MotorData rotate = 9;
+	MotorData lift = 8;
+	MotorData rotate = 9;
 	WristData wrist = 15;
 	MotorData pinch = 10;
 
@@ -103,8 +103,8 @@ message ArmCommand {
  	BoolState start_uss = 12; 
 	
 	// Move individual motors
-	// MotorCommand lift = 13;
-	// MotorCommand rotate = 14;
+	MotorCommand lift = 13;
+	MotorCommand rotate = 14;
 	WristCommand wrist = 22;
 	MotorCommand pinch = 15;
 
