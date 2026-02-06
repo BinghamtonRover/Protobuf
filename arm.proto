@@ -20,6 +20,21 @@ message JointAngleData {
 	float wrist_pitch_multi = 10;
 }
 
+message WristData {
+  // Virtual joint state (what the subsystem thinks pitch/roll are).
+  float pitch_angle = 1;
+  float roll_angle  = 2;
+
+  MotorData motorA = 3;
+  MotorData motorB = 4;
+
+  // Overall health/status flags
+  BoolState is_moving = 5;
+  BoolState is_calibrated = 6;
+
+  Version version = 7;
+}
+
 message ArmData {
 	// Arm Commands
 	Coordinates current_position = 1;
@@ -38,11 +53,25 @@ message ArmData {
 	// Gripper Commands
 	MotorData lift = 8;
 	MotorData rotate = 9;
+	WristData wrist = 15;
 	MotorData pinch = 10;
 
 	int32 servo_angle = 11;
 	BoolState laser_state = 12;
 	JointAngleData joint_angles = 14;
+}
+
+message WristCommand {
+  // General commands for wrist
+  bool stop = 1;
+  bool calibrate = 2;
+
+  // Virtual joints (preferred): command the coupled wrist DOFs.
+  // Firmware may execute one axis at a time for mechanical safety.
+  MotorCommand pitch = 3;
+  MotorCommand roll  = 4;
+
+  Version version = 5;
 }
 
 message ArmCommand {
@@ -76,6 +105,7 @@ message ArmCommand {
 	// Move individual motors
 	MotorCommand lift = 13;
 	MotorCommand rotate = 14;
+	WristCommand wrist = 22;
 	MotorCommand pinch = 15;
 
 	// Custom actions
