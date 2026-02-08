@@ -69,9 +69,6 @@ message CameraDetails {
 
 	/// The height of the image data streamed
 	int32 stream_height = 16;
-
-	/// Number of 90 degrees rotation increments
-	int32 rotationQuarters = 17;
 }
 
 /// Reports data about a camera.
