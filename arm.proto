@@ -59,6 +59,7 @@ message ArmData {
 	int32 servo_angle = 11;
 	BoolState laser_state = 12;
 	JointAngleData joint_angles = 14;
+	BoolState using_ik = 15;
 }
 
 message WristCommand {
@@ -87,6 +88,7 @@ message ArmCommand {
 
 	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
 	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
+
 	MotorCommand gripper_lift = 6;
 
 	// Can be removed in future versions
@@ -115,4 +117,6 @@ message ArmCommand {
 
 	int32 servo_angle = 19;
 	BoolState laser_state = 20;
+
+	BoolState using_ik = 21;
 }
