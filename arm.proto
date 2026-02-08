@@ -59,7 +59,8 @@ message ArmData {
 	int32 servo_angle = 11;
 	BoolState laser_state = 12;
 	JointAngleData joint_angles = 14;
-	BoolState using_ik = 15;
+
+	BoolState using_ik = 16;
 }
 
 message WristCommand {
@@ -118,5 +119,5 @@ message ArmCommand {
 	int32 servo_angle = 19;
 	BoolState laser_state = 20;
 
-	BoolState using_ik = 21;
+	BoolState using_ik = 23;
 }
