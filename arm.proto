@@ -37,10 +37,10 @@ message WristData {
 
 message ArmData {
 	// Arm Commands
-	Coordinates current_position = 1;
-	Orientation current_orientation = 17;
-	Coordinates target_position = 2;
-	Orientation target_orientation = 18;
+	reserved 1, 2;
+
+	Pose3d current_pose = 17;
+	Pose3d target_pose = 18;
 
 	MotorData base = 3;
 	MotorData shoulder = 4;
@@ -89,19 +89,10 @@ message ArmCommand {
 	MotorCommand elbow = 5;
 	MotorCommand roll = 21;
 
-	// Needed for IK: If the wrist-lift moves, we need to re-calculate IK to keep the end-effector
-	// stationary. See /Arm/src/ik/README.md in the Arm-Firmware repository.
+	reserved 6;
 
-	MotorCommand gripper_lift = 6;
-
-	// Can be removed in future versions
-	float ik_x = 7;
-	float ik_y = 8;
-	float ik_z = 9;
-	float ik_pitch = 24;
-	float ik_yaw = 25;
-
-	Pose3d pose = 26;
+	reserved 7 to 9;
+	Pose3d ik_pose = 24;
 
 	// Custom actions
 	bool jab = 10;
@@ -112,7 +103,7 @@ message ArmCommand {
  	BoolState start_uss = 12; 
 	
 	// Move individual motors
-	MotorCommand lift = 13;
+	reserved 13;
 	MotorCommand rotate = 14;
 	WristCommand wrist = 22;
 	MotorCommand pinch = 15;
