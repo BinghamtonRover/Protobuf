@@ -99,7 +99,7 @@ message ArmCommand {
 	float ik_pitch = 24;
 	float ik_yaw = 25;
 
-	Pose3d pose = 26
+	Pose3d pose = 26;
 
 	// Custom actions
 	bool jab = 10;
