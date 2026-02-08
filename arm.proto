@@ -21,18 +21,18 @@ message JointAngleData {
 }
 
 message WristData {
-  // Virtual joint state (what the subsystem thinks pitch/roll are).
-  float pitch_angle = 1;
-  float roll_angle  = 2;
+	// Virtual joint state (what the subsystem thinks pitch/roll are).
+	float pitch_angle = 1;
+	float roll_angle = 2;
 
-  MotorData motorA = 3;
-  MotorData motorB = 4;
+	MotorData motorA = 3;
+	MotorData motorB = 4;
 
-  // Overall health/status flags
-  BoolState is_moving = 5;
-  BoolState is_calibrated = 6;
+	// Overall health/status flags
+	BoolState is_moving = 5;
+	BoolState is_calibrated = 6;
 
-  Version version = 7;
+	Version version = 7;
 }
 
 message ArmData {
@@ -49,7 +49,7 @@ message ArmData {
 
 	Version version = 6;
 
-	//USS data 
+	// USS data 
  	float uss_distance = 7;
 
 	// Gripper Commands
@@ -66,16 +66,16 @@ message ArmData {
 }
 
 message WristCommand {
-  // General commands for wrist
-  bool stop = 1;
-  bool calibrate = 2;
+	// General commands for wrist
+	bool stop = 1;
+	bool calibrate = 2;
 
-  // Virtual joints (preferred): command the coupled wrist DOFs.
-  // Firmware may execute one axis at a time for mechanical safety.
-  MotorCommand pitch = 3;
-  MotorCommand roll  = 4;
+	// Virtual joints (preferred): command the coupled wrist DOFs.
+	// Firmware may execute one axis at a time for mechanical safety.
+	MotorCommand pitch = 3;
+	MotorCommand roll  = 4;
 
-  Version version = 5;
+	Version version = 5;
 }
 
 message ArmCommand {
@@ -89,19 +89,17 @@ message ArmCommand {
 	MotorCommand elbow = 5;
 	MotorCommand roll = 21;
 
-	reserved 6;
-
-	reserved 7 to 9;
+	reserved 6 to 9;
 	Pose3d ik_pose = 24;
 
 	// Custom actions
 	bool jab = 10;
 
 	Version version = 11;
-	
+
 	// USS commands
  	BoolState start_uss = 12; 
-	
+
 	// Move individual motors
 	reserved 13;
 	MotorCommand rotate = 14;
