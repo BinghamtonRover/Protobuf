@@ -38,7 +38,9 @@ message WristData {
 message ArmData {
 	// Arm Commands
 	Coordinates current_position = 1;
+	Orientation current_orientation = 17;
 	Coordinates target_position = 2;
+	Orientation target_orientation = 18;
 
 	MotorData base = 3;
 	MotorData shoulder = 4;
