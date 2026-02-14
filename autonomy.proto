@@ -21,6 +21,9 @@ enum AutonomyTask {
 	GPS_ONLY = 1;
 	VISUAL_MARKER = 2;
 	BETWEEN_GATES = 3;
+	HAMMER_TARGET = 4;
+	ROCK_HAMMER_TARGET = 5;
+	BOTTLE_TARGET = 6;
 }
 
 message AutonomyData {
