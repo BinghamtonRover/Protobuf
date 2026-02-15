@@ -22,6 +22,7 @@ message AntennaFirmwareCommand {
 	Version version = 1;
 
 	MotorCommand swivel = 2;
+	MotorCommand pitch = 5;
 	bool stop = 3;
 	bool calibrate = 4;
 }
