@@ -1,4 +1,4 @@
-// Version: 2.0
+// Version: 2.1
 
 syntax = "proto3";
 
@@ -9,6 +9,7 @@ enum DetectedObjectType {
 	ARUCO = 1;
 	HAMMER = 2;
 	BOTTLE = 3;
+	ROCK_HAMMER = 4;
 }
 
 message PnpResult {
