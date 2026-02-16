@@ -74,4 +74,6 @@ message ScienceData {
 	Version version = 6;
 	
 	ServoState subsurface = 7;
+
+	float dist_to_ground = 8;
 }
