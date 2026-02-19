@@ -77,5 +77,6 @@ message ScienceData {
 	ServoState upper_auger_servo = 9;
 
 	float dist_to_ground = 8;
+	float aux_current = 10;
 
 }
