@@ -41,9 +41,9 @@ enum CarouselCommand {
 /// A command to the science subsystem.
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
-	float carousel_motor = 1;
-	float auger = 2;
-	float linear_slider = 3;
+	optional float carousel_motor = 1;
+	optional float auger_speed = 2;
+	optional float linear_slider = 3;
 
 	// Control over other hardware
 	PumpState pumps = 4;
@@ -77,5 +77,5 @@ message ScienceData {
 	ServoState lower_auger_servo = 7;
 	ServoState upper_auger_servo = 8;
 	float dist_to_ground = 9;
-	float aux_current = 10;
+	float auger_current = 10;
 }
