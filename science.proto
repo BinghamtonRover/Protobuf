@@ -42,11 +42,13 @@ enum CarouselCommand {
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
-	float subsurface_motor = 3;
+	float auger = 2;
+	float linear_slider = 3;
 
 	// Control over other hardware
 	PumpState pumps = 4;
-	ServoState funnel = 5;
+	ServoState upper_auger_servo = 5;
+	ServoState lower_auger_servo = 6;
 	CarouselCommand carousel = 7;
 
 	// High level commands
@@ -70,4 +72,10 @@ message ScienceData {
 	float temperature = 5;
 
 	Version version = 6;
+
+	// Auger data
+	ServoState lower_auger_servo = 7;
+	ServoState upper_auger_servo = 8;
+	float dist_to_ground = 9;
+	float aux_current = 10;
 }
