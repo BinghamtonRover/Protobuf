@@ -59,7 +59,7 @@ message ScienceCommand {
 	float carousel_motor = 1;
 	float linear_slider = 3;
 
-	reserved 2, 5-6;
+	reserved 2, 5 to 6;
 
 	AugerCommand auger = 13;
 
