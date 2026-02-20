@@ -59,7 +59,9 @@ message ScienceCommand {
 	float carousel_motor = 1;
 	float linear_slider = 3;
 
-	AugerCommand auger = 2;
+	reserved 2, 5-6;
+
+	AugerCommand auger = 13;
 
 	// Control over other hardware
 	PumpState pumps = 4;
