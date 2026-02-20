@@ -1,4 +1,4 @@
-// Version 1.1
+// Version 1.2
 
 syntax = "proto3";
 
@@ -37,18 +37,35 @@ enum CarouselCommand {
 	FILL_SECTION = 6;
 }
 
+/// Command to control the auger
+message AugerCommand {
+	// Speed of the auger in RPM, between 0.0 - 0.4
+	optional float speed_rpm = 1;
+	ServoState upper_servo = 2;
+	ServoState lower_servo = 3;	
+}
+
+/// Data from the auger
+message AugerData {
+	ServoState lower_servo = 1;
+	ServoState upper_servo = 2;
+	// Distance to ground, in centimeters
+	float distance_to_ground_cm = 3;
+	float current = 4;
+}
 
 /// A command to the science subsystem.
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
-	float auger = 2;
 	float linear_slider = 3;
+
+	reserved 2, 5 to 6;
+
+	AugerCommand auger = 13;
 
 	// Control over other hardware
 	PumpState pumps = 4;
-	ServoState upper_auger_servo = 5;
-	ServoState lower_auger_servo = 6;
 	CarouselCommand carousel = 7;
 
 	// High level commands
@@ -73,9 +90,5 @@ message ScienceData {
 
 	Version version = 6;
 
-	// Auger data
-	ServoState lower_auger_servo = 7;
-	ServoState upper_auger_servo = 8;
-	float dist_to_ground = 9;
-	float aux_current = 10;
+	AugerData auger = 7;
 }
