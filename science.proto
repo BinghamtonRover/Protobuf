@@ -39,8 +39,8 @@ enum CarouselCommand {
 
 /// Command to control the auger
 message AugerCommand {
-	// Speed of the auger, between 0.0 - 0.4
-	optional float speed = 1;
+	// Speed of the auger in RPM, between 0.0 - 0.4
+	optional float speed_rpm = 1;
 	ServoState upper_servo = 2;
 	ServoState lower_servo = 3;	
 }
