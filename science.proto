@@ -37,8 +37,9 @@ enum CarouselCommand {
 	FILL_SECTION = 6;
 }
 
+/// Command to control the auger
 message AugerCommand {
-	optional float auger_speed = 1;
+	optional float speed = 1;
 	ServoState upper_servo = 2;
 	ServoState lower_servo = 3;	
 }
