@@ -47,17 +47,14 @@ message ScienceCommand {
 
 	// Control over other hardware
 	PumpState pumps = 4;
-
 	ServoState upper_auger_servo = 5;
 	ServoState lower_auger_servo = 6;
-
 	CarouselCommand carousel = 7;
 
 	// High level commands
 	bool calibrate = 8;
 	bool stop = 9;
 	int32 sample = 10;
-
 	ScienceState state = 11;
 
 	Version version = 12;
@@ -76,6 +73,7 @@ message ScienceData {
 
 	Version version = 6;
 
+	// Auger data
 	ServoState lower_auger_servo = 7;
 	ServoState upper_auger_servo = 8;
 	float dist_to_ground = 9;
