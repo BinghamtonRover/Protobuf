@@ -49,7 +49,7 @@ message AugerData {
 	ServoState lower_servo = 1;
 	ServoState upper_servo = 2;
 	// Distance to ground, in centimeters
-	float distance_to_ground = 3;
+	float distance_to_ground_cm = 3;
 	float current = 4;
 }
 
