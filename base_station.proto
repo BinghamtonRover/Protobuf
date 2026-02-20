@@ -22,6 +22,7 @@ message AntennaFirmwareCommand {
 	Version version = 1;
 
 	MotorCommand swivel = 2;
+	MotorCommand pitch = 5;
 	bool stop = 3;
 	bool calibrate = 4;
 }
@@ -30,6 +31,8 @@ message AntennaFirmwareData {
 	Version version = 1;
 
 	MotorData swivel = 2;
+
+	MotorData pitch = 3;
 }
 
 /// Command to control the movement of the MARS antenna.
