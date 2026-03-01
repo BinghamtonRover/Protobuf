@@ -12,11 +12,11 @@ message RelaysCommand {
 	BoolState back_right_motor = 3;
 	BoolState front_left_motor = 4;
 	BoolState front_right_motor = 5;
-	BoolState left_dampening_motor = 6;
-	BoolState right_dampening_motor = 7;
+	BoolState middle_left_motor = 6;
+	BoolState middle_right_motor = 7;
 	BoolState arm = 8;
 	BoolState science = 9;
-	BoolState drive = 10;
+	reserved 10;	// was drive, deleted after drive and relays were combined into control
 
 	// Special commands
 	BoolState bypass = 11;
@@ -30,11 +30,12 @@ message RelaysData {
 	BoolState back_right_motor = 3;
 	BoolState front_left_motor = 4;
 	BoolState front_right_motor = 5;
-	BoolState left_dampening_motor = 6;
-	BoolState right_dampening_motor = 7;
+	BoolState middle_left_motor = 6;
+	BoolState middle_right_motor = 7;
 	BoolState arm = 8;
 	BoolState science = 9;
-	BoolState drive = 10;
+	reserved 10;	// was drive, deleted after drive and relays were combined into control
+
 
 	// Special data
 	float battery_voltage = 13;
