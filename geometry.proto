@@ -2,19 +2,19 @@
 
 syntax = "proto3";
 
-message Coordinates {
+message Translation3d {
 	float x = 1;
 	float y = 2;
 	float z = 3;
 }
 
-message Orientation {
-	float x = 1;
-	float y = 2;
-	float z = 3;
+message Rotation3d {
+	float pitch = 1;
+	float roll = 2;
+	float yaw = 3;
 }
 
 message Pose3d {
-	Coordinates translation = 1;
-	Orientation rotation = 2;
+	Translation3d translation = 1;
+	Rotation3d rotation = 2;
 }
