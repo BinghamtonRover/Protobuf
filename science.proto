@@ -42,7 +42,8 @@ message AugerCommand {
 	// Speed of the auger in RPM, between 0.0 - 0.4
 	optional float speed_rpm = 1;
 	ServoState upper_servo = 2;
-	ServoState lower_servo = 3;	
+	ServoState lower_servo = 3;
+	bool clear_stallstop = 4;
 }
 
 /// Data from the auger
@@ -52,6 +53,7 @@ message AugerData {
 	// Distance to ground, in centimeters
 	float distance_to_ground_cm = 3;
 	float current = 4;
+	bool is_stalled = 5;
 }
 
 /// A command to the science subsystem.
