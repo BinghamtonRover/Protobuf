@@ -25,6 +25,9 @@ enum CameraName {
 	SUBSYSTEM3 = 6;
 	BOTTOM_LEFT = 7;
 	BOTTOM_RIGHT = 8;
+	GAP_CAM = 9;
+	ARM_LEFT = 10;
+	ARM_RIGHT = 11;
 }
 
 /// Details about a specific camera.
