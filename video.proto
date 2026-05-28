@@ -6,6 +6,7 @@ import "vision.proto";
 
 enum CameraStatus {
 	CAMERA_STATUS_UNDEFINED = 0;
+	CAMERA_SHUTDOWN = 8;        /// Used to shut the camera off when resetting the program
 	CAMERA_DISCONNECTED = 1;    /// The camera is not even on the rover
 	CAMERA_ENABLED = 2;         /// The camera is actively streaming video
 	CAMERA_DISABLED = 3;        /// Not streaming, but it can be enabled
