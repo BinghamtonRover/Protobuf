@@ -42,7 +42,7 @@ message AugerCommand {
 	// Speed of the auger in RPM, between 0.0 - 0.4
 	optional float speed_rpm = 1;
 	ServoState upper_servo = 2;
-	ServoState lower_servo = 3;	
+	ServoState lower_servo = 3;
 }
 
 /// Data from the auger
@@ -54,13 +54,22 @@ message AugerData {
 	float current = 4;
 }
 
+/// Command for linear slider
+message LinearSliderCommand {
+	bool clear_stallstop = 1;
+}
+
+/// Data from linear slider
+message LinearSliderData {
+	bool is_stalled = 1;
+}
+
 /// A command to the science subsystem.
 message ScienceCommand {
 	// Individual control over each motor. Indicates steps to move
 	float carousel_motor = 1;
-	float linear_slider = 3;
-
-	reserved 2, 5 to 6;
+	LinearSliderCommand linear_slider = 14;
+	reserved 2, 3, 5 to 6;
 
 	AugerCommand auger = 13;
 
@@ -91,4 +100,6 @@ message ScienceData {
 	Version version = 6;
 
 	AugerData auger = 7;
+
+	LinearSliderData linear_slider = 8;
 }
