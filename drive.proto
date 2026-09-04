@@ -101,8 +101,12 @@ message DriveData {
 	float battery_temperature = 13;
 
 	Version version = 14;
-
-	reserved 15 to 20;
+	float position = 15;
+	float speed = 16;
+	bool test_flag 17;
+	float acceleration 18;
+	bool set_zero 19;
+	reserved 20;
 	
 	ProtoColor color = 21;
 	RoverStatus status = 22;
