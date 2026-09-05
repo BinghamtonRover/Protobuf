@@ -104,10 +104,11 @@ message DriveData {
 	Version version = 14;
 	float position = 15;
 	float speed = 16;
-	bool test_flag 17;
-	float acceleration 18;
-	bool set_zero 19;
-	reserved 20;
+	bool test_flag = 17;
+	float acceleration = 18;
+	bool set_zero =	19;
+
+	bool reserved = 20; // Protobuf is bugging out if I don't have a reserved field here, so I'm just going to add one.
 	
 	ProtoColor color = 21;
 	RoverStatus status = 22;
