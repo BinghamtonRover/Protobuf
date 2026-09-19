@@ -69,6 +69,7 @@ message DriveMotorData {
 	float current = 2;
 	int32 temperature = 3;
 	MotorErrorCode error = 4;
+	int32 position = 5;
 }
 
 message DriveData {
@@ -101,8 +102,13 @@ message DriveData {
 	float battery_temperature = 13;
 
 	Version version = 14;
+	float position = 15;
+	float speed = 16;
+	bool test_flag = 17;
+	float acceleration = 18;
+	bool set_zero =	19;
 
-	reserved 15 to 20;
+	bool reserved = 20; // Protobuf is bugging out if I don't have a reserved field here, so I'm just going to add one.
 	
 	ProtoColor color = 21;
 	RoverStatus status = 22;

@@ -6,6 +6,25 @@ import "utils.proto";
 import "motor.proto";
 import "geometry.proto";
 
+enum MotorErrorCode {
+	NO_FAULT = 0;
+	OVER_TEMP = 1;
+	OVER_CURRENT = 2;
+	OVER_VOLTAGE = 3;
+	UNDER_VOLTAGE = 4;
+	ENCODER_FAULT = 5;
+	MOSFET_OVER_TEMP = 6;
+	UNKNOWN_ERROR = 7;
+}
+
+message ArmMotorData {
+	float speed = 1;
+	float current = 2;
+	int32 temperature = 3;
+	MotorErrorCode error = 4;
+	int32 position = 5;
+}
+
 message JointAngleData {
 	float swivel_single = 1;
 	float shoulder_single = 2;
@@ -63,6 +82,15 @@ message ArmData {
 	JointAngleData joint_angles = 14;
 
 	BoolState using_ik = 16;
+
+	// CubeMars direct-drive telemetry for the new arm motor implementation.
+	ArmMotorData base_motor = 19;
+	ArmMotorData shoulder_motor = 20;
+	ArmMotorData elbow_motor = 21;
+	ArmMotorData roll_motor = 22;
+	ArmMotorData left_diff_motor = 23;
+	ArmMotorData right_diff_motor = 24;
+	ArmMotorData pinch_motor = 25;
 }
 
 message WristCommand {
