@@ -82,6 +82,15 @@ message ArmData {
 	JointAngleData joint_angles = 14;
 
 	BoolState using_ik = 16;
+
+	// CubeMars direct-drive telemetry for the new arm motor implementation.
+	ArmMotorData base_motor = 19;
+	ArmMotorData shoulder_motor = 20;
+	ArmMotorData elbow_motor = 21;
+	ArmMotorData roll_motor = 22;
+	ArmMotorData left_diff_motor = 23;
+	ArmMotorData right_diff_motor = 24;
+	ArmMotorData pinch_motor = 25;
 }
 
 message WristCommand {
